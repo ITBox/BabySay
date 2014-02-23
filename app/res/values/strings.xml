@@ -6,7 +6,7 @@
     <string name="hello_world">Hello world!</string>
     
     <string name="register_name">昵称</string>
-    <string name="register_email">邮箱</string>
+    <string name="register_email">注册邮箱(这将是你的帐号)</string>
     <string name="register_pass">密码</string>
     <string name="register_pass_again">确认密码</string>
     <string name="girl">女</string>

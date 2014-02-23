@@ -18,5 +18,9 @@
 
     <color name="step_pager_selected_tab_color">#ff0099cc</color>
     <color name="step_pager_unselected_tab_color">#ff696969</color>
-
+    <color name="light">#FFEEEEEE</color>
+    <color name="dark">#FF222222</color>
+    
+    <!-- 浅灰 -->
+	<color name="light_gray">#FFA0A0A0</color>
 </resources>

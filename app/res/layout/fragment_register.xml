@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/light" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,51 +12,84 @@
         android:paddingLeft="20dp"
         android:paddingRight="20dp" >
 
+        <cc.itbox.babysay.ui.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/aaa"
+            app:border_color="@color/dark"
+            app:border_width="2dp" />
+
         <cc.itbox.babysay.ui.FloatLabel
             android:id="@+id/fragment_register_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="@string/register_name" />
 
-        <RadioGroup
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:orientation="horizontal" >
+             >
 
-            <RadioButton
-                android:id="@+id/girl"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/girl" />
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:text="性别"
+                android:textSize="18sp" />
 
-            <RadioButton
-                android:id="@+id/boy"
+            <RadioGroup
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/boy" />
-        </RadioGroup>
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal" >
+
+                <RadioButton
+                    android:id="@+id/fragment_register_girl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/selector_sex_girl_radio"
+                    android:text="@string/girl" />
+
+                <RadioButton
+                    android:id="@+id/fragment_register_boy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:button="@drawable/selector_sex_boy_radio"
+                    android:text="@string/boy" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/fragment_register_birthday"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"
+            android:text="生 日" />
 
         <cc.itbox.babysay.ui.FloatLabel
             android:id="@+id/fragment_register_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            
             android:hint="@string/register_email" />
 
         <cc.itbox.babysay.ui.FloatLabel
             android:id="@+id/fragment_register_pass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="@string/register_pass" />
 
         <cc.itbox.babysay.ui.FloatLabel
             android:id="@+id/fragment_register_pass_again"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:hint="@string/register_pass_again" />
     </LinearLayout>
 
