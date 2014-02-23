@@ -7,6 +7,7 @@
         android:layout_height="wrap_content"
         android:lines="1"
         android:textIsSelectable="true"
+        android:textColor="@color/light_gray"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <!-- The default EditText includes 7dp of top spacing (4dp optical), so we offset by that to tighten up the Views -->
