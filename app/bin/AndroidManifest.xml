@@ -16,7 +16,6 @@
         <activity
             android:name="cc.itbox.babysay.activities.GuideActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
             android:theme="@android:style/Theme.Light.NoTitleBar"
             android:screenOrientation="portrait"
              >
@@ -26,14 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="cc.itbox.babysay.activities.RegisterOrLoginActivity" >
         <activity android:name="cc.itbox.babysay.activities.RegisterOrLoginActivity"
             android:screenOrientation="portrait"
              >
         </activity>
         <activity
             android:name="cc.itbox.babysay.activities.MainActivity"
-            android:label="@string/app_name" >
             android:label="@string/app_name"
             android:screenOrientation="portrait"
              >
