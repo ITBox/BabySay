@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import cc.itbox.babysay.R;
@@ -24,7 +23,7 @@ import cc.itbox.babysay.fragments.UserCenterFragment;
  * 2014-2-22 下午10:19:50
  * 
  */
-public class MainActivity extends ActionBarActivity implements
+public class MainActivity extends BaseActivity implements
 		NavigationDrawerFragment.NavigationDrawerCallbacks {
 
 	/**
