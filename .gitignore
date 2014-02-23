@@ -1,3 +1,12 @@
+# Custom
+_site
+
+# Ant
+MANIFEST.MF
+./*.jar
+build.num
+build
+
 # ADT
 .classpath
 .project
@@ -7,3 +16,30 @@ bin
 gen
 _layouts
 proguard.cfg
+
+# OSX
+.DS_Store
+
+# Github
+gh-pages
+
+# Gradle
+.gradle
+build
+
+# IDEA
+*.iml
+*.ipr
+*.iws
+out
+.idea
+
+# Maven
+target
+release.properties
+pom.xml.*
+*.class
+
+app/bin/R.txt
+
+app/bin/classes/cc/itbox/babysay/ui/FloatLabel.class
