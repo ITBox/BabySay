@@ -21,7 +21,7 @@ public class UIUtil {
 			throw ex;
 		}
 	}
-
+ 
 	@SuppressWarnings("unchecked")
 	public static final <E extends View> E getView(View view, int id) {
 		try {

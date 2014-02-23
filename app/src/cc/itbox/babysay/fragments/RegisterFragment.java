@@ -4,6 +4,9 @@ package cc.itbox.babysay.fragments;
  * 注册
  */
 import cc.itbox.babysay.R;
+import cc.itbox.babysay.ui.FloatLabel;
+import cc.itbox.babysay.ui.FloatLabelAnimator;
+import cc.itbox.babysay.util.UIUtil;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Message;
@@ -12,6 +15,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 public class RegisterFragment extends BaseFragment {
+
+	private FloatLabel mETRegName, mETRegEmail, mETRegPass, mETRegPassAgain;
 
 	@Override
 	protected void onHandleMessage(Message message) {
@@ -25,6 +30,14 @@ public class RegisterFragment extends BaseFragment {
 		if (container != null) {
 			LayoutInflater layoutInflater = (LayoutInflater) mActThis.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			layout = layoutInflater.inflate(R.layout.fragment_register, container, false);
+			mETRegName = UIUtil.getView(mActThis, R.id.fragment_register_name);
+			mETRegEmail = UIUtil.getView(mActThis, R.id.fragment_register_email);
+			mETRegPass = UIUtil.getView(mActThis, R.id.fragment_register_pass);
+			mETRegPassAgain = UIUtil.getView(mActThis, R.id.fragment_register_pass_again);
+			mETRegName.setLabelAnimator(new FloatLabelAnimator());
+			mETRegEmail.setLabelAnimator(new FloatLabelAnimator());
+			mETRegPass.setLabelAnimator(new FloatLabelAnimator());
+			mETRegPassAgain.setLabelAnimator(new FloatLabelAnimator());
 		}
 		return layout;
 	}

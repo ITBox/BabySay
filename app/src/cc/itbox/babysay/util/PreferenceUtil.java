@@ -9,7 +9,6 @@ import android.preference.PreferenceManager;
  * @author malinkang 2014-2-22 下午2:38:05
  * 
  */
-
 public class PreferenceUtil {
 
 	private static SharedPreferences.Editor editor = null;

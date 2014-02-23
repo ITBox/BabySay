@@ -1010,11 +1010,11 @@ containing a value of this type.
         public static final int action_bar_subtitle=0x7f050025;
         public static final int action_bar_title=0x7f050024;
         public static final int action_context_bar=0x7f05001f;
-        public static final int action_example=0x7f05004b;
+        public static final int action_example=0x7f05004f;
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050026;
-        public static final int action_settings=0x7f05004a;
+        public static final int action_settings=0x7f05004e;
         public static final int activity_chooser_view_content=0x7f050027;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
@@ -1034,6 +1034,10 @@ containing a value of this type.
         public static final int expand_activities_button=0x7f050028;
         public static final int expanded_menu=0x7f05002e;
         public static final int float_label=0x7f05001a;
+        public static final int fragment_register_email=0x7f050049;
+        public static final int fragment_register_name=0x7f050048;
+        public static final int fragment_register_pass=0x7f05004a;
+        public static final int fragment_register_pass_again=0x7f05004b;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002c;
@@ -1041,7 +1045,7 @@ containing a value of this type.
         public static final int image=0x7f050029;
         public static final int indicator=0x7f05003f;
         public static final int iv_guide=0x7f050046;
-        public static final int iv_head=0x7f050048;
+        public static final int iv_head=0x7f05004c;
         public static final int layout=0x7f050040;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f05002b;
@@ -1073,7 +1077,7 @@ containing a value of this type.
         public static final int tabMode=0x7f050002;
         public static final int title=0x7f05002d;
         public static final int top_action_bar=0x7f050022;
-        public static final int tv_username=0x7f050049;
+        public static final int tv_username=0x7f05004d;
         public static final int up=0x7f050023;
         public static final int useLogo=0x7f050003;
         public static final int viewpager=0x7f05003e;
@@ -1187,6 +1191,10 @@ containing a value of this type.
         public static final int action_settings=0x7f0a000e;
         public static final int app_name=0x7f0a000d;
         public static final int hello_world=0x7f0a000f;
+        public static final int register_email=0x7f0a0011;
+        public static final int register_name=0x7f0a0010;
+        public static final int register_pass=0x7f0a0012;
+        public static final int register_pass_again=0x7f0a0013;
     }
     public static final class style {
         /** 
