@@ -1,2 +1,9 @@
-/app/bin/*
-/app/gen/*
+# ADT
+.classpath
+.project
+.settings
+local.properties
+bin
+gen
+_layouts
+proguard.cfg
