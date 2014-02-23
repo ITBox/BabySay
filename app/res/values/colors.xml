@@ -23,4 +23,6 @@
     
     <!-- 浅灰 -->
 	<color name="light_gray">#FFA0A0A0</color>
+    <color name="blue">#00BFFF</color>
+
 </resources>

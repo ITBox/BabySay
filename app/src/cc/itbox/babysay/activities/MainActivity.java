@@ -7,10 +7,10 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.view.Menu;
-import android.view.MenuItem;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.fragments.DiscoverFragment;
 import cc.itbox.babysay.fragments.MainPageFragment;
+import cc.itbox.babysay.fragments.MessageFragment;
 import cc.itbox.babysay.fragments.NavigationDrawerFragment;
 import cc.itbox.babysay.fragments.SettingFragment;
 import cc.itbox.babysay.fragments.UserCenterFragment;
@@ -20,7 +20,7 @@ import cc.itbox.babysay.fragments.UserCenterFragment;
  * 
  * @author baoyz
  * 
- * 2014-2-22 下午10:19:50
+ *         2014-2-22 下午10:19:50
  * 
  */
 public class MainActivity extends BaseActivity implements
@@ -32,10 +32,11 @@ public class MainActivity extends BaseActivity implements
 	private NavigationDrawerFragment mNavigationDrawerFragment;
 
 	/**
-	 * 当前标题
-	 * {@link #restoreActionBar()}.
+	 * 当前标题 {@link #restoreActionBar()}.
 	 */
 	private CharSequence mTitle;
+
+	private int mDrawerItemSelectedPosition;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -54,12 +55,15 @@ public class MainActivity extends BaseActivity implements
 
 	@Override
 	public void onNavigationDrawerItemSelected(int position) {
+		if (mDrawerItemSelectedPosition == position) {
+			return;
+		}
+		mDrawerItemSelectedPosition = position;
 		// 更换主页面的Fragment
 		FragmentManager fragmentManager = getSupportFragmentManager();
-		fragmentManager
-				.beginTransaction()
-				.replace(R.id.container,
-						BaseFragment.newInstance(position)).commit();
+		fragmentManager.beginTransaction()
+				.replace(R.id.container, BaseFragment.newInstance(position))
+				.commit();
 	}
 
 	/**
@@ -69,6 +73,7 @@ public class MainActivity extends BaseActivity implements
 	 */
 	public void onSectionAttached(int number) {
 		mTitle = mNavigationDrawerFragment.getItemTitles()[number];
+		supportInvalidateOptionsMenu();
 	}
 
 	/**
@@ -84,22 +89,10 @@ public class MainActivity extends BaseActivity implements
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		if (!mNavigationDrawerFragment.isDrawerOpen()) {
-			// 创建Actionbar菜单
-			getMenuInflater().inflate(R.menu.main, menu);
 			restoreActionBar();
 			return true;
 		}
 		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// Actionbar菜单选择事件
-		switch (item.getItemId()) {
-		case R.id.action_settings:
-			return true;
-		}
-		return super.onOptionsItemSelected(item);
 	}
 
 	/**
@@ -111,11 +104,11 @@ public class MainActivity extends BaseActivity implements
 		 * 子页面
 		 */
 		private static BaseFragment[] mFragments;
-		
-		static{
+
+		static {
 			mFragments = new BaseFragment[] { new UserCenterFragment(),
 					new MainPageFragment(), new DiscoverFragment(),
-					new SettingFragment() };
+					new MessageFragment(), new SettingFragment() };
 		}
 
 		/**
@@ -134,8 +127,11 @@ public class MainActivity extends BaseActivity implements
 			return fragment;
 		}
 
-		public BaseFragment() {
-			
+		@Override
+		public void onCreate(Bundle savedInstanceState) {
+			super.onCreate(savedInstanceState);
+			// 启用菜单
+			setHasOptionsMenu(true);
 		}
 
 		@Override
