@@ -4,7 +4,7 @@ package cc.itbox.babysay;
  * @author huiyh
  *
  */
-public class Const {
+public class Constants {
 	
 	public static final String WEIBO_KEY = "2730729900";
 	public static final String WEIBO_SECRET = "581bf3af8734693b9deeb043b5d73cfc";

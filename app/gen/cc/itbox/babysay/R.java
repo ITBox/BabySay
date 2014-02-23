@@ -1130,7 +1130,7 @@ containing a value of this type.
         public static final int abc_search_view=0x7f030016;
         public static final int activity_guide=0x7f030017;
         public static final int activity_main=0x7f030018;
-        public static final int float_label=0x7f030019;
+        public static final int activity_register_or_login=0x7f030019;
         public static final int fragment_guide=0x7f03001a;
         public static final int fragment_login=0x7f03001b;
         public static final int fragment_main=0x7f03001c;
@@ -1138,6 +1138,7 @@ containing a value of this type.
         public static final int fragment_register=0x7f03001e;
         public static final int navigation_user=0x7f03001f;
         public static final int support_simple_spinner_dropdown_item=0x7f030020;
+        public static final int view_float_label=0x7f030021;
     }
     public static final class menu {
         public static final int global=0x7f0c0000;

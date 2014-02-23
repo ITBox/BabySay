@@ -1,6 +1,7 @@
 package cc.itbox.babysay.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -8,13 +9,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.AnimationUtils;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import cc.itbox.babysay.R;
-import cc.itbox.babysay.R.anim;
-import cc.itbox.babysay.R.drawable;
-import cc.itbox.babysay.R.id;
-import cc.itbox.babysay.R.layout;
 import cc.itbox.babysay.fragments.GuideFragment;
 import cc.itbox.babysay.ui.GuideIndicator;
 import cc.itbox.babysay.util.PreferenceUtil;
@@ -26,7 +25,7 @@ import cc.itbox.babysay.util.UIUtil;
  * 
  */
 
-public class GuideActivity extends FragmentActivity {
+public class GuideActivity extends FragmentActivity implements OnClickListener {
 
 	private int[] imageIds = { R.drawable.biz_audio_bg_am,
 			R.drawable.biz_audio_bg_pm, R.drawable.biz_audio_bg_night };
@@ -35,6 +34,8 @@ public class GuideActivity extends FragmentActivity {
 	private GuidePagerAdapter mPagerAdapter;
 	private GuideIndicator mGuideIndicator;
 	private LinearLayout mLayout;
+	private ImageButton mRegisterBtn;
+	private ImageButton mLoginBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +44,10 @@ public class GuideActivity extends FragmentActivity {
 		setContentView(R.layout.activity_guide);
 		mViewPager = UIUtil.getView(this, R.id.viewpager);
 		mGuideIndicator = UIUtil.getView(this, R.id.indicator);
+		mRegisterBtn = UIUtil.getView(this, R.id.btn_register);
+		mRegisterBtn.setOnClickListener(this);
+		mLoginBtn = UIUtil.getView(this, R.id.btn_login);
+		mLoginBtn.setOnClickListener(this);
 		mLayout = UIUtil.getView(this, R.id.layout);
 		if (!PreferenceUtil.isFirstStart(mContext)) {
 			mLayout.setVisibility(View.VISIBLE);
@@ -102,6 +107,21 @@ public class GuideActivity extends FragmentActivity {
 			return imageIds.length;
 		}
 
+	}
+
+	@Override
+	public void onClick(View v) {
+		Intent intent = null;
+		switch (v.getId()) {
+		case R.id.btn_login:
+		case R.id.btn_register:
+			intent = new Intent(mContext, RegisterOrLoginActivity.class);
+			startActivity(intent);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }

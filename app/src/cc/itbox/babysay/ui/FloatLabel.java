@@ -337,14 +337,14 @@ public class FloatLabel extends FrameLayout {
         final CharSequence hint;
         final ColorStateList hintColor;
         if (attrs == null) {
-            layout = R.layout.float_label;
+            layout = R.layout.view_float_label;
             text = null;
             hint = null;
             hintColor = null;
         } else {
             final TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.FloatLabel, defStyle, 0);
 
-            layout = a.getResourceId(R.styleable.FloatLabel_android_layout, R.layout.float_label);
+            layout = a.getResourceId(R.styleable.FloatLabel_android_layout, R.layout.view_float_label);
             text = a.getText(R.styleable.FloatLabel_android_text);
             hint = a.getText(R.styleable.FloatLabel_android_hint);
             hintColor = a.getColorStateList(R.styleable.FloatLabel_android_textColorHint);
