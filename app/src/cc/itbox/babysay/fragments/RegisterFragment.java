@@ -39,7 +39,7 @@ public class RegisterFragment extends BaseFragment {
 			mETRegPassAgain = UIUtil.getView(layout, R.id.fragment_register_pass_again);
 			mRBRegGirl = UIUtil.getView(layout, R.id.fragment_register_girl);
 			mRBRegBoy = UIUtil.getView(layout, R.id.fragment_register_boy);
-			mTVRegBirthday = UIUtil.getView(layout, R.id.fragment_register_birthday);
+//			mTVRegBirthday = UIUtil.getView(layout, R.id.fragment_register_birthday);
 			mETRegName.setLabelAnimator(new FloatLabelAnimator());
 			mETRegEmail.setLabelAnimator(new FloatLabelAnimator());
 			mETRegPass.setLabelAnimator(new FloatLabelAnimator());
