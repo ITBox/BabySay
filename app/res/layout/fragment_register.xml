@@ -17,6 +17,25 @@
             android:layout_marginTop="15dp"
             android:hint="@string/register_name" />
 
+        <RadioGroup
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/girl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/girl" />
+
+            <RadioButton
+                android:id="@+id/boy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/boy" />
+        </RadioGroup>
+
         <cc.itbox.babysay.ui.FloatLabel
             android:id="@+id/fragment_register_email"
             android:layout_width="match_parent"

@@ -24,19 +24,15 @@ public class RegisterFragment extends BaseFragment {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View layout = null;
 		if (container != null) {
-			LayoutInflater layoutInflater = (LayoutInflater) mActThis
-					.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			layout = layoutInflater.inflate(R.layout.fragment_register,
-					container, false);
+			LayoutInflater layoutInflater = (LayoutInflater) mActThis.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			layout = layoutInflater.inflate(R.layout.fragment_register, container, false);
 			mETRegName = UIUtil.getView(layout, R.id.fragment_register_name);
 			mETRegEmail = UIUtil.getView(layout, R.id.fragment_register_email);
 			mETRegPass = UIUtil.getView(layout, R.id.fragment_register_pass);
-			mETRegPassAgain = UIUtil.getView(layout,
-					R.id.fragment_register_pass_again);
+			mETRegPassAgain = UIUtil.getView(layout, R.id.fragment_register_pass_again);
 			mETRegName.setLabelAnimator(new FloatLabelAnimator());
 			mETRegEmail.setLabelAnimator(new FloatLabelAnimator());
 			mETRegPass.setLabelAnimator(new FloatLabelAnimator());

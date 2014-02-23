@@ -9,4 +9,6 @@
     <string name="register_email">邮箱</string>
     <string name="register_pass">密码</string>
     <string name="register_pass_again">确认密码</string>
+    <string name="girl">女</string>
+    <string name="boy">男</string>
 </resources>
