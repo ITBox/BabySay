@@ -29,6 +29,7 @@ public class RegisterOrLoginActivity extends BaseActivity {
 						new TabListener<RegisterFragment>(this, "注册",
 								RegisterFragment.class));
 		mActionBar.addTab(tab);
+		
 
 	}
 

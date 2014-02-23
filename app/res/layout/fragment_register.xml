@@ -1,42 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="#F6F6F6" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp" >
+
+                <cc.itbox.babysay.ui.CircleImageView
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:src="@drawable/aaa"
+                    app:border_color="@color/dark"
+                    app:border_width="2dp" />
+
+                <cc.itbox.babysay.ui.FloatLabel
+                    android:id="@+id/fragment_register_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_name" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:text="性别"
+                        android:textSize="15sp" />
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="0"
+                        android:orientation="horizontal" >
+
+                        <RadioButton
+                            android:id="@+id/fragment_register_girl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:button="@drawable/selector_sex_girl_radio"
+                            android:text="@string/girl" />
+
+                        <RadioButton
+                            android:id="@+id/fragment_register_boy"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:button="@drawable/selector_sex_boy_radio"
+                            android:text="@string/boy" />
+                    </RadioGroup>
+                </LinearLayout>
+                <EditText 
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="生日"
+                    android:layout_marginTop="8dp"
+                    android:textSize="14sp"
+                    android:focusable="false"
+                    android:background="@drawable/textfield_default_holo_light"/>
+<!--                 <LinearLayout -->
+<!--                     android:layout_width="match_parent" -->
+<!--                     android:layout_height="wrap_content" -->
+<!--                     android:layout_marginTop="5dp" > -->
+
+<!--                     <TextView -->
+<!--                         android:layout_width="wrap_content" -->
+<!--                         android:layout_height="wrap_content" -->
+<!--                         android:layout_gravity="center_vertical" -->
+<!--                         android:layout_marginLeft="7dp" -->
+<!--                         android:layout_weight="0" -->
+<!--                         android:text="生日" -->
+<!--                         android:textSize="15sp" /> -->
+
+<!--                     <TextView -->
+<!--                         android:id="@+id/fragment_register_birthday" -->
+<!--                         android:layout_width="match_parent" -->
+<!--                         android:layout_height="wrap_content" -->
+<!--                         android:layout_gravity="center_vertical" -->
+<!--                         android:layout_weight="1" -->
+<!--                         android:text="2014-02-23" -->
+<!--                         android:textSize="15sp" /> -->
+<!--                 </LinearLayout> -->
+
+                <cc.itbox.babysay.ui.FloatLabel
+                    android:id="@+id/fragment_register_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_email" />
+
+                <cc.itbox.babysay.ui.FloatLabel
+                    android:id="@+id/fragment_register_pass"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_pass" />
+
+                <cc.itbox.babysay.ui.FloatLabel
+                    android:id="@+id/fragment_register_pass_again"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/register_pass_again" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp" >
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:clickable="true"
+        android:background="@drawable/selector_btn_bg"
+        android:gravity="center_horizontal"
+        android:padding="10dp" >
 
-        <cc.itbox.babysay.ui.FloatLabel
-            android:id="@+id/fragment_register_name"
-            android:layout_width="match_parent"
+        <ImageView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="@string/register_name" />
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/holo_light_previous_icon" />
 
-        <cc.itbox.babysay.ui.FloatLabel
-            android:id="@+id/fragment_register_email"
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="@string/register_email" />
-
-        <cc.itbox.babysay.ui.FloatLabel
-            android:id="@+id/fragment_register_pass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="@string/register_pass" />
-
-        <cc.itbox.babysay.ui.FloatLabel
-            android:id="@+id/fragment_register_pass_again"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:hint="@string/register_pass_again" />
+            android:layout_gravity="center_vertical"
+            android:text="或通过社交帐号直接登录"
+            android:textSize="16sp" />
     </LinearLayout>
 
-</ScrollView>
+</RelativeLayout>
