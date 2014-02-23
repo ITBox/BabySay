@@ -4,7 +4,8 @@
     <string name="app_name">BabySay</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    
+    <string name="refresh">刷新</string>
+    <string name="new_content">新建</string>
     <string name="register_name">昵称</string>
     <string name="register_email">邮箱</string>
     <string name="register_pass">密码</string>
