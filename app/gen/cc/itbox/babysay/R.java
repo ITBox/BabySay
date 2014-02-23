@@ -1132,7 +1132,7 @@ containing a value of this type.
         public static final int fragment_guide=0x7f03001a;
         public static final int fragment_main=0x7f03001b;
         public static final int fragment_navigation_drawer=0x7f03001c;
-        public static final int fragment_regist=0x7f03001d;
+        public static final int fragment_register=0x7f03001d;
         public static final int navigation_user=0x7f03001e;
         public static final int support_simple_spinner_dropdown_item=0x7f03001f;
     }

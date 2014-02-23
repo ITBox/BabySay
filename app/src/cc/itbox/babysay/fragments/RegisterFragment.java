@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class RegistFragment extends BaseFragment {
+public class RegisterFragment extends BaseFragment {
 
 	@Override
 	protected void onHandleMessage(Message message) {
@@ -24,7 +24,7 @@ public class RegistFragment extends BaseFragment {
 		View layout = null;
 		if (container != null) {
 			LayoutInflater layoutInflater = (LayoutInflater) mActThis.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-			layout = layoutInflater.inflate(R.layout.fragment_regist, container, false);
+			layout = layoutInflater.inflate(R.layout.fragment_register, container, false);
 		}
 		return layout;
 	}

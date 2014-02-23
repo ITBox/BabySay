@@ -351,7 +351,7 @@ int layout float_label 0x7f030019
 int layout fragment_guide 0x7f03001a
 int layout fragment_main 0x7f03001b
 int layout fragment_navigation_drawer 0x7f03001c
-int layout fragment_regist 0x7f03001d
+int layout fragment_register 0x7f03001d
 int layout navigation_user 0x7f03001e
 int layout support_simple_spinner_dropdown_item 0x7f03001f
 int menu global 0x7f0c0000
