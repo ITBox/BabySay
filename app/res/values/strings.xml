@@ -9,4 +9,12 @@
     <string name="register_email">邮箱</string>
     <string name="register_pass">密码</string>
     <string name="register_pass_again">确认密码</string>
+    <string name="forget_password">忘记密码</string>
+    
+    <!-- 忘记密码 -->
+    <string name="for_title">忘记密码</string>
+    <string name="for_content">请输入注册时所填的邮件地址</string>
+    <string name="for_cancle">取消</string>
+    <string name="for_confirm">确定</string>
+    <string name="forget">忘记密码</string>
 </resources>

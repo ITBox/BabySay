@@ -18,5 +18,6 @@
 
     <color name="step_pager_selected_tab_color">#ff0099cc</color>
     <color name="step_pager_unselected_tab_color">#ff696969</color>
+    <color name="blue">#00BFFF</color>
 
 </resources>
