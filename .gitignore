@@ -1,6 +1,2 @@
-/bin
-/gradlew
-/build.gradle
-/gradlew.bat
-/gradle
-/gen
+/app/bin/*
+/app/gen/*
