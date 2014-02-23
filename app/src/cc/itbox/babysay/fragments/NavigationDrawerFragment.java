@@ -63,7 +63,7 @@ public class NavigationDrawerFragment extends Fragment {
 	private String[] mItemTitles;
 
 	public NavigationDrawerFragment() {
-		mItemTitles = new String[] { "个人中心", "主页", "发现", "设置" };
+		mItemTitles = new String[] { "个人中心", "主页", "发现", "消息", "设置" };
 	}
 
 	@Override
@@ -81,13 +81,18 @@ public class NavigationDrawerFragment extends Fragment {
 			mFromSavedInstanceState = true;
 		}
 
-		// 默认选择第0个
+		// 默认选择第1个，主页面
 		selectItem(mCurrentSelectedPosition);
 
+	}
+
+	@Override
+	public void onStart() {
+		super.onStart();
 		// 启用菜单
 		setHasOptionsMenu(true);
 	}
-
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
