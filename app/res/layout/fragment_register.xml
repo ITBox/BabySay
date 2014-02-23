@@ -5,12 +5,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-        
-        
-        
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp" >
+
+        <cc.itbox.babysay.ui.FloatLabel
+            android:id="@+id/fragment_register_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/register_name" />
+
+        <cc.itbox.babysay.ui.FloatLabel
+            android:id="@+id/fragment_register_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/register_email" />
+
+        <cc.itbox.babysay.ui.FloatLabel
+            android:id="@+id/fragment_register_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/register_pass" />
+
+        <cc.itbox.babysay.ui.FloatLabel
+            android:id="@+id/fragment_register_pass_again"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="@string/register_pass_again" />
     </LinearLayout>
-    
 
 </ScrollView>
