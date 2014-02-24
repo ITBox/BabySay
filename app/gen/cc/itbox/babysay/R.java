@@ -1028,21 +1028,22 @@ containing a value of this type.
         public static final int ic_content_edit=0x7f020065;
         public static final int ic_drawer=0x7f020066;
         public static final int ic_launcher=0x7f020067;
-        public static final int ic_navigation_refresh=0x7f020068;
-        public static final int profile_sns_sina_selected=0x7f020069;
-        public static final int profile_sns_tencent_selected=0x7f02006a;
-        public static final int selector_btn_bg=0x7f02006b;
-        public static final int selector_edittext_bg=0x7f02006c;
-        public static final int selector_sex_boy_radio=0x7f02006d;
-        public static final int selector_sex_girl_radio=0x7f02006e;
-        public static final int sex_boy_normal_holo=0x7f02006f;
-        public static final int sex_boy_pressed_holo=0x7f020070;
-        public static final int sex_gril_normal_holo=0x7f020071;
-        public static final int sex_gril_pressed_holo=0x7f020072;
-        public static final int switch_bg_disabled_holo_light=0x7f020073;
-        public static final int switch_bg_holo_light=0x7f020074;
-        public static final int textfield_activated_holo_light=0x7f020075;
-        public static final int textfield_default_holo_light=0x7f020076;
+        public static final int ic_logo=0x7f020068;
+        public static final int ic_navigation_refresh=0x7f020069;
+        public static final int profile_sns_sina_selected=0x7f02006a;
+        public static final int profile_sns_tencent_selected=0x7f02006b;
+        public static final int selector_btn_bg=0x7f02006c;
+        public static final int selector_edittext_bg=0x7f02006d;
+        public static final int selector_sex_boy_radio=0x7f02006e;
+        public static final int selector_sex_girl_radio=0x7f02006f;
+        public static final int sex_boy_normal_holo=0x7f020070;
+        public static final int sex_boy_pressed_holo=0x7f020071;
+        public static final int sex_gril_normal_holo=0x7f020072;
+        public static final int sex_gril_pressed_holo=0x7f020073;
+        public static final int switch_bg_disabled_holo_light=0x7f020074;
+        public static final int switch_bg_holo_light=0x7f020075;
+        public static final int textfield_activated_holo_light=0x7f020076;
+        public static final int textfield_default_holo_light=0x7f020077;
     }
     public static final class id {
         public static final int action_bar=0x7f05001e;

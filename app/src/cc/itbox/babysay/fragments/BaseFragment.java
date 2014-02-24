@@ -6,7 +6,11 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-
+/**
+ * 
+ * @author Youzh
+ * 2014-2-23 下午6:06:28
+ */
 public abstract class BaseFragment extends Fragment {
     protected FragmentActivity mActThis = null;
     

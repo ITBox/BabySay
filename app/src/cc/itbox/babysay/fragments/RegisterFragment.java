@@ -1,8 +1,5 @@
 package cc.itbox.babysay.fragments;
 
-/**
- * 注册
- */
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Message;
@@ -20,12 +17,16 @@ import cc.itbox.babysay.ui.FloatLabel;
 import cc.itbox.babysay.ui.FloatLabelAnimator;
 import cc.itbox.babysay.util.UIUtil;
 
+/**
+ * 
+ * @author Youzh 2014-2-23 下午6:06:05
+ */
 public class RegisterFragment extends BaseFragment {
 
 	private FloatLabel mETRegName, mETRegEmail, mETRegPass, mETRegPassAgain;
-    private EditText mTVRegBirthday;
-    private RadioButton mRBRegGirl, mRBRegBoy;
-    
+	private EditText mTVRegBirthday;
+	private RadioButton mRBRegGirl, mRBRegBoy;
+
 	@Override
 	protected void onHandleMessage(Message message) {
 
@@ -52,13 +53,13 @@ public class RegisterFragment extends BaseFragment {
 		}
 		return layout;
 	}
-	
+
 	private OnClickListener OnETClickListener = new OnClickListener() {
-		
+
 		@Override
 		public void onClick(View v) {
 			Toast.makeText(mActThis, "点击了生日", Toast.LENGTH_SHORT).show();
-			
+
 		}
 	};
 }
