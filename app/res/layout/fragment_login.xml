@@ -1,104 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-     >
-    
-    <cc.itbox.babysay.ui.FloatLabel 
-        android:id="@+id/et_email"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="电子邮箱"
-        android:gravity="center|left"
-        android:layout_marginTop="10dip"
-        android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        />
-    <cc.itbox.babysay.ui.FloatLabel 
-        android:id="@+id/et_password"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:hint="密码"
-        android:gravity="center|left"
-        android:layout_marginTop="10dip"
-          android:layout_marginLeft="20dip"
-        android:layout_marginRight="20dip"
-        android:layout_below="@id/et_email"
-        />
-    <TextView 
-        android:id="@+id/tv_forget"
-        android:layout_below="@id/et_password"
-        android:layout_width="wrap_content"
-        android:layout_height="20dip"
-        android:text="@string/forget_password"
-        android:gravity="right"
-        android:layout_marginRight="50dip"
-        android:layout_marginTop="10dip"
-        android:layout_gravity="right"
-        android:layout_alignParentRight="true"
-        />
-    
-    <LinearLayout 
-        android:id="@+id/ll_other"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-   android:layout_alignParentBottom="true"
-  	android:gravity="center"
-  	android:layout_marginBottom="20dip"
-    >
-    
-    <ImageView 
-        android:id="@+id/iv_sina"
-        android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:background="@drawable/profile_sns_sina_selected"
-        />
-    <ImageView 
-        android:id="@+id/iv_tencent"
-        android:layout_width="50dip"
-        android:layout_height="50dip"
-        android:background="@drawable/profile_sns_tencent_selected"
-        android:layout_marginLeft="10dip"
-        />
-    
-</LinearLayout>
+    android:layout_height="match_parent" >
 
-<LinearLayout
-    android:layout_above="@id/ll_other"
-    android:layout_width="fill_parent"
-    android:layout_height="20dip"
-   
-    android:layout_alignParentLeft="true"
-    android:gravity="center_vertical"
-    android:orientation="horizontal" >
+    <!-- <cc.itbox.babysay.ui.FloatLabel -->
+    <!-- android:id="@+id/et_email" -->
+    <!-- android:layout_width="fill_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_marginLeft="20dip" -->
+    <!-- android:layout_marginRight="20dip" -->
+    <!-- android:layout_marginTop="10dip" -->
+    <!-- android:gravity="center|left" -->
+    <!-- android:hint="电子邮箱" /> -->
 
-    <View
-        android:layout_width="0dip"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@android:color/darker_gray" />
+
+    <!-- <cc.itbox.babysay.ui.FloatLabel -->
+    <!-- android:id="@+id/et_password" -->
+    <!-- android:layout_width="fill_parent" -->
+    <!-- android:layout_height="wrap_content" -->
+    <!-- android:layout_below="@id/et_email" -->
+    <!-- android:layout_marginLeft="20dip" -->
+    <!-- android:layout_marginRight="20dip" -->
+    <!-- android:layout_marginTop="10dip" -->
+    <!-- android:gravity="center|left" -->
+    <!-- android:hint="密码" /> -->
 
     <TextView
-        android:layout_width="0dip"
+        android:id="@+id/tv_forget"
+        android:layout_width="wrap_content"
+        android:layout_height="20dip"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="right"
+        android:layout_marginRight="50dip"
+        android:layout_marginTop="10dip"
+        android:gravity="right"
+        android:text="@string/forget_password" />
+
+    <LinearLayout
+        android:id="@+id/ll_other"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dip"
-        android:layout_marginRight="5dip"
-        android:layout_weight="1.7"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dip"
         android:gravity="center"
-        android:text="以其他社交账号登录"
-        android:textSize="15sp" />
+        android:orientation="horizontal" >
 
-    <View
-        android:layout_width="0dip"
-        android:layout_height="1dip"
-        android:layout_weight="1"
-        android:background="@android:color/darker_gray" />
-</LinearLayout>
+        <ImageView
+            android:id="@+id/iv_sina"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:background="@drawable/profile_sns_sina_selected" />
 
+        <ImageView
+            android:id="@+id/iv_tencent"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/profile_sns_tencent_selected" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="20dip"
+        android:layout_above="@id/ll_other"
+        android:layout_alignParentLeft="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
+        <View
+            android:layout_width="0dip"
+            android:layout_height="1dip"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray" />
 
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:layout_weight="1.7"
+            android:gravity="center"
+            android:text="以其他社交账号登录"
+            android:textSize="15sp" />
 
+        <View
+            android:layout_width="0dip"
+            android:layout_height="1dip"
+            android:layout_weight="1"
+            android:background="@android:color/darker_gray" />
+    </LinearLayout>
 
 </RelativeLayout>
