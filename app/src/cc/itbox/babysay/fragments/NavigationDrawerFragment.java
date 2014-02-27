@@ -92,7 +92,7 @@ public class NavigationDrawerFragment extends Fragment {
 		// 启用菜单
 		setHasOptionsMenu(true);
 	}
-	
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -269,14 +269,15 @@ public class NavigationDrawerFragment extends Fragment {
 	/**
 	 * 导航菜单回调
 	 * 
-	 * @author baoyz 
+	 * @author baoyz
 	 * 
-	 * 2014-2-22 下午11:47:10
-	 *
+	 *         2014-2-22 下午11:47:10
+	 * 
 	 */
 	public static interface NavigationDrawerCallbacks {
 		/**
 		 * 当导航切换之后
+		 * 
 		 * @param position
 		 */
 		void onNavigationDrawerItemSelected(int position);
@@ -285,10 +286,10 @@ public class NavigationDrawerFragment extends Fragment {
 	/**
 	 * 导航菜单项适配器
 	 * 
-	 * @author baoyz 
+	 * @author baoyz
 	 * 
-	 * 2014-2-22 下午11:47:49
-	 *
+	 *         2014-2-22 下午11:47:49
+	 * 
 	 */
 	private class NavigationItemAdapter extends BaseAdapter {
 
@@ -319,6 +320,9 @@ public class NavigationDrawerFragment extends Fragment {
 					android.R.layout.simple_list_item_1, null);
 			TextView tv = (TextView) view.findViewById(android.R.id.text1);
 			tv.setText(mItemTitles[position]);
+			tv.setPadding(20, 0, 0, 0);
+			tv.setCompoundDrawablesWithIntrinsicBounds(
+					R.drawable.ic_content_edit, 0, 0, 0);
 			return view;
 		}
 
