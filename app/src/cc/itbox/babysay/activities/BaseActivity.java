@@ -1,9 +1,9 @@
 package cc.itbox.babysay.activities;
 
-import cc.itbox.babysay.R;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
+import cc.itbox.babysay.R;
 
 /**
  * 基类Activity
@@ -20,8 +20,7 @@ public class BaseActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mActionBar = getSupportActionBar();
-		mActionBar.setBackgroundDrawable(
-				getResources().getDrawable(
-						R.drawable.ab_solid_custom_pink_inverse_holo));
+		mActionBar.setBackgroundDrawable(getResources().getDrawable(
+				R.drawable.ab_solid_custom_pink_inverse_holo));
 	}
 }

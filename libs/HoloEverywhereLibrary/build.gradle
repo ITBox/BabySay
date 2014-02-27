@@ -1,0 +1,12 @@
+apply plugin: 'holoeverywhere-library'
+holoeverywhere.apply 'android_default.gradle'
+
+dependencies {
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.nineoldandroids:library:2.4.0'
+}
+
+afterEvaluate {
+    javadoc.include "**/org/holoeverywhere/**"
+    javadoc.title "HoloEverywhere ${project.version} JavaDoc"
+}
