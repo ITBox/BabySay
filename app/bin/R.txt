@@ -819,9 +819,10 @@ int id action_menu_presenter 0x7f07000c
 int id action_mode_bar 0x7f070040
 int id action_mode_bar_stub 0x7f07003f
 int id action_mode_close_button 0x7f070033
-int id action_new_content 0x7f07009a
-int id action_refresh 0x7f070099
-int id action_settings 0x7f070098
+int id action_new_content 0x7f07009b
+int id action_refresh 0x7f07009a
+int id action_register_or_login 0x7f070098
+int id action_settings 0x7f070099
 int id activity_chooser_view_content 0x7f070034
 int id alertTitle 0x7f07005f
 int id ampm_label 0x7f070093
@@ -1058,9 +1059,10 @@ int layout time_header_label 0x7f030046
 int layout time_picker_dialog 0x7f030047
 int layout transient_notification 0x7f030048
 int layout year_label_text_view 0x7f030049
-int menu global 0x7f0e0000
-int menu main 0x7f0e0001
-int menu main_page 0x7f0e0002
+int menu actionbar_register_or_login 0x7f0e0000
+int menu global 0x7f0e0001
+int menu main 0x7f0e0002
+int menu main_page 0x7f0e0003
 int raw roboto_bold 0x7f060000
 int raw roboto_bolditalic 0x7f060001
 int raw roboto_condensed 0x7f060002

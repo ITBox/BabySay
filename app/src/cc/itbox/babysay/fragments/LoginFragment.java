@@ -23,8 +23,8 @@ public class LoginFragment extends BaseFragment {
 	private ForgotPasswordDialogFragment forgotPasswordDialogFragment;
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
+	public View onCreateView(org.holoeverywhere.LayoutInflater inflater,
+			ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_login, container, false);
 		LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
 		alertView = layoutInflater.inflate(R.layout.alertdialog, null);

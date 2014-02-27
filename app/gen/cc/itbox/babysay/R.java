@@ -2106,9 +2106,10 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f070040;
         public static final int action_mode_bar_stub=0x7f07003f;
         public static final int action_mode_close_button=0x7f070033;
-        public static final int action_new_content=0x7f07009a;
-        public static final int action_refresh=0x7f070099;
-        public static final int action_settings=0x7f070098;
+        public static final int action_new_content=0x7f07009b;
+        public static final int action_refresh=0x7f07009a;
+        public static final int action_register_or_login=0x7f070098;
+        public static final int action_settings=0x7f070099;
         public static final int activity_chooser_view_content=0x7f070034;
         public static final int alertTitle=0x7f07005f;
         public static final int ampm_label=0x7f070093;
@@ -2375,9 +2376,10 @@ containing a value of this type.
         public static final int year_label_text_view=0x7f030049;
     }
     public static final class menu {
-        public static final int global=0x7f0e0000;
-        public static final int main=0x7f0e0001;
-        public static final int main_page=0x7f0e0002;
+        public static final int actionbar_register_or_login=0x7f0e0000;
+        public static final int global=0x7f0e0001;
+        public static final int main=0x7f0e0002;
+        public static final int main_page=0x7f0e0003;
     }
     public static final class raw {
         public static final int roboto_bold=0x7f060000;
