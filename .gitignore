@@ -42,4 +42,7 @@ pom.xml.*
 
 app/bin/R.txt
 
-app/bin/classes/cc/itbox/babysay/ui/FloatLabel.class
+app/gen
+app/bin
+
+*.class
