@@ -30,11 +30,12 @@
                     app:border_color="@color/dark"
                     app:border_width="2dp" />
 
-                <cc.itbox.babysay.ui.FloatLabel
-                    android:id="@+id/fragment_register_name"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/register_name" />
+                <!-- <cc.itbox.babysay.ui.FloatLabel -->
+                <!-- android:id="@+id/fragment_register_name" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:hint="@string/register_name" /> -->
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -73,32 +74,35 @@
                             android:text="@string/boy" />
                     </RadioGroup>
                 </LinearLayout>
-                <EditText 
+
+                <EditText
+                    android:id="@+id/fragment_register_birthday"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="生日"
-                    android:layout_marginTop="8dp"
-                    android:textSize="14sp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/textfield_default_holo_light"
                     android:focusable="false"
-                    android:background="@drawable/textfield_default_holo_light"/>
+                    android:hint="生日"
+                    android:textSize="14sp" />
 
-                <cc.itbox.babysay.ui.FloatLabel
-                    android:id="@+id/fragment_register_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/register_email" />
+                <!-- <cc.itbox.babysay.ui.FloatLabel -->
+                <!-- android:id="@+id/fragment_register_email" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:hint="@string/register_email" /> -->
 
-                <cc.itbox.babysay.ui.FloatLabel
-                    android:id="@+id/fragment_register_pass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/register_pass" />
+                <!-- <cc.itbox.babysay.ui.FloatLabel -->
+                <!-- android:id="@+id/fragment_register_pass" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:hint="@string/register_pass" /> -->
 
-                <cc.itbox.babysay.ui.FloatLabel
-                    android:id="@+id/fragment_register_pass_again"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/register_pass_again" />
+                <!-- <cc.itbox.babysay.ui.FloatLabel -->
+                <!-- android:id="@+id/fragment_register_pass_again" -->
+                <!-- android:layout_width="match_parent" -->
+                <!-- android:layout_height="wrap_content" -->
+                <!-- android:hint="@string/register_pass_again" /> -->
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
@@ -110,8 +114,8 @@
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:clickable="true"
         android:background="@drawable/selector_btn_bg"
+        android:clickable="true"
         android:gravity="center_horizontal"
         android:padding="10dp" >
 

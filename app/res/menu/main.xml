@@ -2,12 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity" >
-    <item android:id="@+id/action_refresh"
-        android:title="@string/refresh"
+
+    <item
+        android:id="@+id/action_refresh"
         android:icon="@drawable/ic_navigation_refresh"
-        app:showAsAction="withText|ifRoom" />
-    <item android:id="@+id/action_new_content"
-        android:title="@string/new_content"
+        android:showAsAction="withText|ifRoom"
+        android:title="@string/refresh"/>
+    <item
+        android:id="@+id/action_new_content"
         android:icon="@drawable/ic_content_edit"
-        app:showAsAction="withText|ifRoom" />
+        android:showAsAction="withText|ifRoom"
+        android:title="@string/new_content"/>
+
 </menu>

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item type="id" name="float_label" />
-    <item type="id" name="edit_text" />
+
+    <item name="fontLoaderFont" type="id"></item>
+    <item name="fontLoaderFontStyle" type="id"></item>
+    <item name="fontLoaderFontFamily" type="id"></item>
+
 </resources>
