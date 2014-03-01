@@ -1,3 +1,8 @@
+
+app/gen
+app/bin
+*.class
+
 # Custom
 _site
 
@@ -14,6 +19,8 @@ build
 local.properties
 bin
 gen
+app/gen
+app/bin
 _layouts
 proguard.cfg
 
@@ -38,11 +45,4 @@ out
 target
 release.properties
 pom.xml.*
-*.class
-
-app/bin/R.txt
-
-app/gen
-app/bin
-
 *.class
