@@ -4,6 +4,6 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:showAsAction="ifRoom"
-        android:title="@string/action_settings"/>
+        android:title="@string/abc_action_bar_home_description"/>
 
 </menu>

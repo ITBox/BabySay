@@ -1,5 +1,7 @@
 package cc.itbox.babysay.activities;
 
+import org.holoeverywhere.app.Application;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -41,6 +43,9 @@ public class MainActivity extends BaseActivity implements
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		getDefaultSharedPreferences();
+		
 		setContentView(R.layout.activity_main);
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
@@ -50,7 +55,6 @@ public class MainActivity extends BaseActivity implements
 		// 初始化导航菜单
 		mNavigationDrawerFragment.init(R.id.navigation_drawer,
 				(DrawerLayout) findViewById(R.id.drawer_layout));
-
 	}
 
 	@Override
