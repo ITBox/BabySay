@@ -41,7 +41,7 @@
 			</intent-filter>
 		</activity>
 		<activity 
-		    android:name="cc.itbox.babysay.image.CropImage"
+		    android:name="cc.itbox.babysay.activities.CropImageActivity"
 		    android:configChanges="orientation"
             android:screenOrientation="portrait" >
 		</activity>

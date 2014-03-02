@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cc.itbox.babysay.image;
+package cc.itbox.babysay.ui;
 
 import android.graphics.Bitmap;
 import android.graphics.Matrix;

@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.widget.ImageView;
 import cc.itbox.babysay.R;
-import cc.itbox.babysay.image.BitmapUtils;
-import cc.itbox.babysay.image.MediaUtils;
-import cc.itbox.babysay.image.PhotoProcessing;
+import cc.itbox.babysay.util.BitmapUtils;
+import cc.itbox.babysay.util.MediaUtils;
+import cc.itbox.babysay.util.PhotoProcessing;
 
 /**
  * 滤镜界面

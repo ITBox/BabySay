@@ -14,12 +14,11 @@
  * limitations under the License.
  */
 
-package cc.itbox.babysay.image;
+package cc.itbox.babysay.activities;
 
 import java.util.ArrayList;
 
 import android.os.Bundle;
-import cc.itbox.babysay.activities.BaseActivity;
 
 public class MonitoredActivity extends BaseActivity {
 

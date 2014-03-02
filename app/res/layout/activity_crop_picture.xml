@@ -14,7 +14,7 @@
             android:id="@+id/show_picture"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            class="cc.itbox.babysay.image.CropImageView"
+            class="cc.itbox.babysay.activities.CropImageView"
             android:background="#55000000" />
     </RelativeLayout>
 

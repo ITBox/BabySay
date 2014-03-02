@@ -9,6 +9,7 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 public class AppContext extends Application {
+
 	private static AppContext mContext;
 
 	public static AppContext getInstance() {
@@ -19,7 +20,6 @@ public class AppContext extends Application {
 	public void onCreate() {
 		super.onCreate();
 		mContext = this;
-
 		// 初始化图片加载器
 		DisplayImageOptions options = new DisplayImageOptions.Builder()
 				.showImageOnLoading(R.drawable.aaa)
