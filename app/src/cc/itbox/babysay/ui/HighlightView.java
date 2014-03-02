@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cc.itbox.babysay.image;
+package cc.itbox.babysay.ui;
 
 import android.graphics.Canvas;
 import android.graphics.Matrix;
@@ -31,7 +31,7 @@ import cc.itbox.babysay.R;
 // overlayed with the image. There are two coordinate spaces in use. One is
 // image, another is screen. computeLayout() uses mMatrix to map from image
 // space to screen space.
-class HighlightView {
+public class HighlightView {
 
 	@SuppressWarnings("unused")
 	private static final String TAG = "HighlightView";
@@ -50,12 +50,15 @@ class HighlightView {
 
 	private void init() {
 		android.content.res.Resources resources = mContext.getResources();
-		mResizeDrawableWidth = resources.getDrawable(R.drawable.camera_crop_width);
-		mResizeDrawableHeight = resources.getDrawable(R.drawable.camera_crop_height);
-		mResizeDrawableDiagonal = resources.getDrawable(R.drawable.indicator_autocrop);
+		mResizeDrawableWidth = resources
+				.getDrawable(R.drawable.camera_crop_width);
+		mResizeDrawableHeight = resources
+				.getDrawable(R.drawable.camera_crop_height);
+		mResizeDrawableDiagonal = resources
+				.getDrawable(R.drawable.indicator_autocrop);
 	}
 
-	boolean mIsFocused;
+	public boolean mIsFocused;
 	boolean mHidden;
 
 	public boolean hasFocus() {
@@ -70,7 +73,7 @@ class HighlightView {
 		mHidden = hidden;
 	}
 
-	protected void draw(Canvas canvas) {
+	public void draw(Canvas canvas) {
 		if (mHidden) {
 			return;
 		}
@@ -85,8 +88,8 @@ class HighlightView {
 			if (mCircle) {
 				float width = mDrawRect.width();
 				float height = mDrawRect.height();
-				path.addCircle(mDrawRect.left + (width / 2), mDrawRect.top + (height / 2),
-						width / 2, Path.Direction.CW);
+				path.addCircle(mDrawRect.left + (width / 2), mDrawRect.top
+						+ (height / 2), width / 2, Path.Direction.CW);
 				mOutlinePaint.setColor(0xFFEF04D6);
 			} else {
 				path.addRect(new RectF(mDrawRect), Path.Direction.CW);
@@ -94,7 +97,8 @@ class HighlightView {
 				mOutlinePaint.setColor(0xFFFF8A00);
 			}
 			canvas.clipPath(path, Region.Op.DIFFERENCE);
-			canvas.drawRect(viewDrawingRect, hasFocus() ? mFocusPaint : mNoFocusPaint);
+			canvas.drawRect(viewDrawingRect, hasFocus() ? mFocusPaint
+					: mNoFocusPaint);
 
 			canvas.restore();
 			canvas.drawPath(path, mOutlinePaint);
@@ -106,11 +110,13 @@ class HighlightView {
 
 					int d = (int) Math.round(Math.cos(/** 45deg */
 					Math.PI / 4D) * (mDrawRect.width() / 2D));
-					int x = mDrawRect.left + (mDrawRect.width() / 2) + d - width / 2;
-					int y = mDrawRect.top + (mDrawRect.height() / 2) - d - height / 2;
-					mResizeDrawableDiagonal.setBounds(x, y,
-							x + mResizeDrawableDiagonal.getIntrinsicWidth(), y
-									+ mResizeDrawableDiagonal.getIntrinsicHeight());
+					int x = mDrawRect.left + (mDrawRect.width() / 2) + d
+							- width / 2;
+					int y = mDrawRect.top + (mDrawRect.height() / 2) - d
+							- height / 2;
+					mResizeDrawableDiagonal.setBounds(x, y, x
+							+ mResizeDrawableDiagonal.getIntrinsicWidth(), y
+							+ mResizeDrawableDiagonal.getIntrinsicHeight());
 					mResizeDrawableDiagonal.draw(canvas);
 				} else {
 					int left = mDrawRect.left + 1;
@@ -120,26 +126,33 @@ class HighlightView {
 
 					int widthWidth = mResizeDrawableWidth.getIntrinsicWidth() / 2;
 					int widthHeight = mResizeDrawableWidth.getIntrinsicHeight() / 2;
-					int heightHeight = mResizeDrawableHeight.getIntrinsicHeight() / 2;
+					int heightHeight = mResizeDrawableHeight
+							.getIntrinsicHeight() / 2;
 					int heightWidth = mResizeDrawableHeight.getIntrinsicWidth() / 2;
 
-					int xMiddle = mDrawRect.left + ((mDrawRect.right - mDrawRect.left) / 2);
-					int yMiddle = mDrawRect.top + ((mDrawRect.bottom - mDrawRect.top) / 2);
+					int xMiddle = mDrawRect.left
+							+ ((mDrawRect.right - mDrawRect.left) / 2);
+					int yMiddle = mDrawRect.top
+							+ ((mDrawRect.bottom - mDrawRect.top) / 2);
 
-					mResizeDrawableWidth.setBounds(left - widthWidth, yMiddle - widthHeight, left
-							+ widthWidth, yMiddle + widthHeight);
+					mResizeDrawableWidth.setBounds(left - widthWidth, yMiddle
+							- widthHeight, left + widthWidth, yMiddle
+							+ widthHeight);
 					mResizeDrawableWidth.draw(canvas);
 
-					mResizeDrawableWidth.setBounds(right - widthWidth, yMiddle - widthHeight, right
-							+ widthWidth, yMiddle + widthHeight);
+					mResizeDrawableWidth.setBounds(right - widthWidth, yMiddle
+							- widthHeight, right + widthWidth, yMiddle
+							+ widthHeight);
 					mResizeDrawableWidth.draw(canvas);
 
-					mResizeDrawableHeight.setBounds(xMiddle - heightWidth, top - heightHeight,
-							xMiddle + heightWidth, top + heightHeight);
+					mResizeDrawableHeight.setBounds(xMiddle - heightWidth, top
+							- heightHeight, xMiddle + heightWidth, top
+							+ heightHeight);
 					mResizeDrawableHeight.draw(canvas);
 
-					mResizeDrawableHeight.setBounds(xMiddle - heightWidth, bottom - heightHeight,
-							xMiddle + heightWidth, bottom + heightHeight);
+					mResizeDrawableHeight.setBounds(xMiddle - heightWidth,
+							bottom - heightHeight, xMiddle + heightWidth,
+							bottom + heightHeight);
 					mResizeDrawableHeight.draw(canvas);
 				}
 			}
@@ -162,7 +175,8 @@ class HighlightView {
 		if (mCircle) {
 			float distX = x - r.centerX();
 			float distY = y - r.centerY();
-			int distanceFromCenter = (int) Math.sqrt(distX * distX + distY * distY);
+			int distanceFromCenter = (int) Math.sqrt(distX * distX + distY
+					* distY);
 			int radius = mDrawRect.width() / 2;
 			int delta = distanceFromCenter - radius;
 			if (Math.abs(delta) <= hysteresis) {
@@ -187,8 +201,10 @@ class HighlightView {
 		} else {
 			// verticalCheck makes sure the position is between the top and
 			// the bottom edge (with some tolerance). Similar for horizCheck.
-			boolean verticalCheck = (y >= r.top - hysteresis) && (y < r.bottom + hysteresis);
-			boolean horizCheck = (x >= r.left - hysteresis) && (x < r.right + hysteresis);
+			boolean verticalCheck = (y >= r.top - hysteresis)
+					&& (y < r.bottom + hysteresis);
+			boolean horizCheck = (x >= r.left - hysteresis)
+					&& (x < r.right + hysteresis);
 
 			// Check whether the position is near some edge(s).
 			if ((Math.abs(r.left - x) < hysteresis) && verticalCheck) {
@@ -214,13 +230,14 @@ class HighlightView {
 
 	// Handles motion (dx, dy) in screen space.
 	// The "edge" parameter specifies which edges the user is dragging.
-	void handleMotion(int edge, float dx, float dy) {
+	public void handleMotion(int edge, float dx, float dy) {
 		Rect r = computeLayout();
 		if (edge == GROW_NONE) {
 			return;
 		} else if (edge == MOVE) {
 			// Convert to image space before sending to moveBy().
-			moveBy(dx * (mCropRect.width() / r.width()), dy * (mCropRect.height() / r.height()));
+			moveBy(dx * (mCropRect.width() / r.width()),
+					dy * (mCropRect.height() / r.height()));
 		} else {
 			if (((GROW_LEFT_EDGE | GROW_RIGHT_EDGE) & edge) == 0) {
 				dx = 0;
@@ -293,7 +310,8 @@ class HighlightView {
 		if (r.width() < widthCap) {
 			r.inset(-(widthCap - r.width()) / 2F, 0F);
 		}
-		float heightCap = mMaintainAspectRatio ? (widthCap / mInitialAspectRatio) : widthCap;
+		float heightCap = mMaintainAspectRatio ? (widthCap / mInitialAspectRatio)
+				: widthCap;
 		if (r.height() < heightCap) {
 			r.inset(0F, -(heightCap - r.height()) / 2F);
 		}
@@ -317,16 +335,17 @@ class HighlightView {
 
 	// Returns the cropping rectangle in image space.
 	public Rect getCropRect() {
-		return new Rect((int) mCropRect.left, (int) mCropRect.top, (int) mCropRect.right,
-				(int) mCropRect.bottom);
+		return new Rect((int) mCropRect.left, (int) mCropRect.top,
+				(int) mCropRect.right, (int) mCropRect.bottom);
 	}
 
 	// Maps the cropping rectangle from image space to screen space.
 	private Rect computeLayout() {
-		RectF r = new RectF(mCropRect.left, mCropRect.top, mCropRect.right, mCropRect.bottom);
+		RectF r = new RectF(mCropRect.left, mCropRect.top, mCropRect.right,
+				mCropRect.bottom);
 		mMatrix.mapRect(r);
-		return new Rect(Math.round(r.left), Math.round(r.top), Math.round(r.right),
-				Math.round(r.bottom));
+		return new Rect(Math.round(r.left), Math.round(r.top),
+				Math.round(r.right), Math.round(r.bottom));
 	}
 
 	public void invalidate() {
@@ -358,16 +377,16 @@ class HighlightView {
 		init();
 	}
 
-	enum ModifyMode {
+	public enum ModifyMode {
 		None, Move, Grow
 	}
 
 	private ModifyMode mMode = ModifyMode.None;
 
-	Rect mDrawRect; // in screen space
+	public Rect mDrawRect; // in screen space
 	private RectF mImageRect; // in image space
-	RectF mCropRect; // in image space
-	Matrix mMatrix;
+	public RectF mCropRect; // in image space
+	public Matrix mMatrix;
 
 	private boolean mMaintainAspectRatio = false;
 	private float mInitialAspectRatio;

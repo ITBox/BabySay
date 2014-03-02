@@ -1,9 +1,8 @@
-package cc.itbox.babysay.image;
+package cc.itbox.babysay.activities;
 
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -17,17 +16,24 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.Window;
 import android.view.WindowManager;
 import cc.itbox.babysay.R;
+import cc.itbox.babysay.ui.HighlightView;
+import cc.itbox.babysay.ui.ImageViewTouchBase;
+import cc.itbox.babysay.util.ImageUtils;
 
 /**
- * The activity can crop specific region of interest from an image.
+ * 
+ * @author malinkang
+ * 
+ *         图片裁剪
+ * 
+ *         The activity can crop specific region of interest from an image.
  */
-public class CropImage extends MonitoredActivity {
+public class CropImageActivity extends MonitoredActivity {
 
 	// private static final String TAG = "CropImage";
 
@@ -48,18 +54,16 @@ public class CropImage extends MonitoredActivity {
 	private CropImageView mImageView;
 	private Bitmap mBitmap;
 	HighlightView mCrop;
+	private MenuItem registerOrLoginItem;
 
 	@Override
-	public void onCreate(Bundle icicle) {
-		super.onCreate(icicle);
-
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		mActionBar.setDisplayHomeAsUpEnabled(true);
+		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_crop_picture);
 		mImageView = (CropImageView) findViewById(R.id.show_picture);
-		// 设置缩放
-		// mImageView.setScaleType(ImageView.ScaleType.CENTER);
 		mImageView.mContext = this;
-
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
 
@@ -77,9 +81,7 @@ public class CropImage extends MonitoredActivity {
 		if (mBitmap == null) {
 			Uri target = intent.getData();
 			// 对图片进行压缩
-
 			mBitmap = ImageUtils.getBitmap(this, null, null, target);
-
 			String path = ImageUtils.getImagePathFromUri(target, this);
 			int degree = ImageUtils.readPictureDegree(path);
 			mBitmap = ImageUtils.rotaingImageView(degree, mBitmap);
@@ -91,55 +93,32 @@ public class CropImage extends MonitoredActivity {
 			return;
 		}
 		getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-//		// 取消裁剪
-//		findViewById(R.id.iv_cancel).setOnClickListener(
-//				new View.OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						setResult(RESULT_CANCELED);
-//						finish();
-//					}
-//				});
-//		// 保存裁剪
-//		findViewById(R.id.iv_save).setOnClickListener(
-//				new View.OnClickListener() {
-//					@Override
-//					public void onClick(View v) {
-//						onSaveClicked();// 保存
-//					}
-//				});
-
 		startFaceDetection();
 	}
-	
-	
-	@SuppressLint("NewApi")
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-        
-		MenuItem add=menu.add(0,0,0,"下一步");  
-        //绑定到ActionBar    
-        add.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);  
-        
-        return true;
-
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.actionbar_register_or_login, menu);
+		registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
+		registerOrLoginItem.setTitle(R.string.login);
+		return super.onCreateOptionsMenu(menu);
 	}
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
-		case 0:
-			
+		case android.R.id.home:
+			finish();
+			return false;
+		case R.id.action_register_or_login:
 			onSaveClicked();// 保存
-
-			return true;
+			return false;
 		default:
 			return super.onOptionsItemSelected(item);
-			
 		}
-		
-		
+
 	}
-	
 
 	private void startFaceDetection() {
 		if (isFinishing()) {
@@ -147,8 +126,7 @@ public class CropImage extends MonitoredActivity {
 		}
 		//
 		mImageView.setImageBitmapResetBase(mBitmap, true);
-
-		startBackgroundJob(this, null, "正在裁剪请稍后", new Runnable() {
+		startBackgroundJob(this, null, "正在裁剪请稍后...", new Runnable() {
 			@Override
 			public void run() {
 				final CountDownLatch latch = new CountDownLatch(1);
@@ -580,7 +558,7 @@ class CropImageView extends ImageViewTouchBase {
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		CropImage cropImage = (CropImage) mContext;
+		CropImageActivity cropImage = (CropImageActivity) mContext;
 		if (cropImage.mSaving) {
 			return false;
 		}

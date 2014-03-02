@@ -29,11 +29,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
+import cc.itbox.babysay.activities.CropImageActivity;
 import cc.itbox.babysay.activities.PhotoProcessingActivity;
 import cc.itbox.babysay.adapter.DMListAdapter;
-import cc.itbox.babysay.image.CropImage;
-import cc.itbox.babysay.image.ImageUtils;
 import cc.itbox.babysay.util.Constants;
+import cc.itbox.babysay.util.ImageUtils;
 
 /**
  * 主页页面
@@ -162,7 +162,7 @@ public class MainPageFragment extends BaseFragment implements
 			switch (requestCode) {
 			case Constants.Request_Code.TAKE_PICTURE_FROM_CAMERA:
 				
-				intent = new Intent(getActivity(), CropImage.class);
+				intent = new Intent(getActivity(), CropImageActivity.class);
 				// x方向的比例
 				intent.putExtra("aspectX", 1);
 				// y方向的比例

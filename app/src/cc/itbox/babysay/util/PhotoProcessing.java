@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cc.itbox.babysay.image;
+package cc.itbox.babysay.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
