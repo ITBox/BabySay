@@ -3,6 +3,7 @@ package cc.itbox.babysay.fragments;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -63,10 +64,13 @@ public class NavigationDrawerFragment extends Fragment {
 	private String[] mItemTitles;
 
 	public NavigationDrawerFragment() {
-		mItemTitles = new String[] { "个人中心", "主页", "发现", "消息", "设置" };
+		mItemTitles = new String[] { "个人中心", "主页", "发现", "消息", "设置", ""};
 	}
+    private int [] drawableRes =new int[]{0, R.drawable.ic_logo, R.drawable.ic_logo, R.drawable.ic_logo, R.drawable.ic_logo, 0};
 
-	@Override
+	private NavigationItemAdapter adapter;
+	
+    @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
@@ -80,9 +84,6 @@ public class NavigationDrawerFragment extends Fragment {
 					.getInt(STATE_SELECTED_POSITION);
 			mFromSavedInstanceState = true;
 		}
-
-		// 默认选择第1个，主页面
-		selectItem(mCurrentSelectedPosition);
 
 	}
 
@@ -98,16 +99,21 @@ public class NavigationDrawerFragment extends Fragment {
 			Bundle savedInstanceState) {
 		mDrawerListView = (ListView) inflater.inflate(
 				R.layout.fragment_navigation_drawer, container, false);
+		adapter = new NavigationItemAdapter();
 		mDrawerListView
 				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 					@Override
 					public void onItemClick(AdapterView<?> parent, View view,
 							int position, long id) {
-						selectItem(position);
+						if(position != 5) {
+							selectItem(position);
+						} 
 					}
 				});
-		mDrawerListView.setAdapter(new NavigationItemAdapter());
+		mDrawerListView.setAdapter(adapter);
 		mDrawerListView.setItemChecked(mCurrentSelectedPosition, true);
+		// 默认选择第1个，主页面
+		selectItem(mCurrentSelectedPosition);
 		return mDrawerListView;
 	}
 
@@ -189,6 +195,8 @@ public class NavigationDrawerFragment extends Fragment {
 	 */
 	private void selectItem(int position) {
 		mCurrentSelectedPosition = position;
+		adapter.setSelectedposition(position);
+		adapter.notifyDataSetChanged();
 		if (mDrawerListView != null) {
 			mDrawerListView.setItemChecked(position, true);
 		}
@@ -292,6 +300,12 @@ public class NavigationDrawerFragment extends Fragment {
 	 * 
 	 */
 	private class NavigationItemAdapter extends BaseAdapter {
+        
+		private int selectedposition = -1;
+	        
+        public void setSelectedposition(int selectedposition) {
+	        this.selectedposition = selectedposition;
+	    }
 
 		@Override
 		public int getCount() {
@@ -317,14 +331,32 @@ public class NavigationDrawerFragment extends Fragment {
 				return view;
 			}
 			View view = View.inflate(getActivity(),
-					android.R.layout.simple_list_item_1, null);
-			TextView tv = (TextView) view.findViewById(android.R.id.text1);
+					R.layout.fragment_left_menu, null);
+			TextView tv = (TextView) view.findViewById(R.id.fragment_item_menu);
+			TextView iv = (TextView) view.findViewById(R.id.fragment_item_iv);
+			iv.setBackgroundResource(drawableRes[position]);
 			tv.setText(mItemTitles[position]);
-			tv.setPadding(20, 0, 0, 0);
-			tv.setCompoundDrawablesWithIntrinsicBounds(
-					R.drawable.ic_content_edit, 0, 0, 0);
+//			tv.setPadding(40, 0, 0, 0);
+//			tv.setCompoundDrawablesWithIntrinsicBounds(
+//					drawableRes[position], 0, 0, 0);
+			
+			if(selectedposition == position && selectedposition != 0 && selectedposition != 5) {
+				view.setBackgroundResource(R.drawable.tool_box_fragment_bg_selected);
+			} else {
+				view.setBackgroundResource(R.drawable.tool_box_fragment_bg_normal);
+			}
 			return view;
+			
 		}
 
+		@Override
+		public boolean isEnabled(int position) {
+			if (position == 5){
+				 return false;
+			} else {
+				 return super.isEnabled(position);
+			}
+		}
+        
 	}
 }

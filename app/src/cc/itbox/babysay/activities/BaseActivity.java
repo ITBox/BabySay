@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 import cc.itbox.babysay.R;
 
 /**
@@ -31,5 +32,18 @@ public class BaseActivity extends Activity {
 				R.drawable.ab_solid_custom_pink_inverse_holo));
 		mSupportFragmentManager = getSupportFragmentManager();
 		mFragmentTransaction = mSupportFragmentManager.beginTransaction();
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }

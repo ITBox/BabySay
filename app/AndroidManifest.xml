@@ -39,6 +39,8 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<activity android:name="cc.itbox.babysay.activities.SetOpionActivity" 
+		    android:screenOrientation="portrait"/>
 	</application>
 
 </manifest>

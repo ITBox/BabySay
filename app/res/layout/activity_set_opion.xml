@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:padding="10dp">
+    
+    <EditText  
+        android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:hint="骚年，你就尽情的诉苦吧！"
+    android:gravity="top|left"
+    android:padding="5dp"
+    android:background="@drawable/set_opion_et_bg"/>
+</LinearLayout>
