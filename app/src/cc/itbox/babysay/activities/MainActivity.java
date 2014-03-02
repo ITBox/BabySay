@@ -1,7 +1,5 @@
 package cc.itbox.babysay.activities;
 
-import org.holoeverywhere.app.Application;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
