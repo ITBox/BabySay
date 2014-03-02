@@ -18,7 +18,6 @@ import android.widget.Toast;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
 import cc.itbox.babysay.adapter.DMListAdapter;
-import cc.itbox.babysay.util.LogUtility;
 
 /**
  * 主页页面
