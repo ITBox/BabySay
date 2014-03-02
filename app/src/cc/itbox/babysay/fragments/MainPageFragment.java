@@ -27,18 +27,13 @@ import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
-<<<<<<< HEAD
 import cc.itbox.babysay.activities.PhotoProcessingActivity;
+import cc.itbox.babysay.adapter.DMListAdapter;
 import cc.itbox.babysay.image.CropImage;
 import cc.itbox.babysay.image.ImageUtils;
 import cc.itbox.babysay.util.Constants;
-=======
-import cc.itbox.babysay.adapter.DMListAdapter;
-import cc.itbox.babysay.util.LogUtility;
->>>>>>> FETCH_HEAD
 
 /**
  * 主页页面
@@ -53,7 +48,6 @@ public class MainPageFragment extends BaseFragment implements
 
 	private PullToRefreshLayout mPullToRefreshLayout;
 	private ListView mListView;
-<<<<<<< HEAD
 	private View alertView;
 	private AlertDialog dialog;
 	private TextView tv_photo,tv_pic;
@@ -63,11 +57,9 @@ public class MainPageFragment extends BaseFragment implements
 	
 	private final String TEMP_FEED_IMAGE_PATH = Environment
 			.getExternalStorageDirectory() + "/BabySay/TEMP_FEED_IMAGE.jpg";
-=======
 	private DMListAdapter mAdapter;
 	private boolean hasMore;
 	private boolean isLoad;
->>>>>>> FETCH_HEAD
 
 	
 	@Override
@@ -161,7 +153,6 @@ public class MainPageFragment extends BaseFragment implements
 			}
 		}.execute();
 	}
-<<<<<<< HEAD
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -267,7 +258,6 @@ public class MainPageFragment extends BaseFragment implements
 	}
 	
 	
-=======
 
 	@Override
 	public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -289,5 +279,4 @@ public class MainPageFragment extends BaseFragment implements
 			int visibleItemCount, int totalItemCount) {
 
 	}
->>>>>>> FETCH_HEAD
 }

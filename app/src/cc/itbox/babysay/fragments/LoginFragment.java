@@ -2,8 +2,10 @@ package cc.itbox.babysay.fragments;
 
 import org.holoeverywhere.widget.Toast;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,6 +28,8 @@ import cc.itbox.babysay.activities.MainActivity;
  */
 public class LoginFragment extends BaseFragment {
 	private MenuItem registerOrLoginItem;
+	private AlertDialog alertDialog;
+	private View alertView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,8 @@ public class LoginFragment extends BaseFragment {
 	public View onCreateView(org.holoeverywhere.LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_login, container, false);
+		alertView = inflater.inflate(R.layout.alertdialog, null);
+		
 		return view;
 	}
 
@@ -50,7 +56,6 @@ public class LoginFragment extends BaseFragment {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.tv_forget:
@@ -60,26 +65,27 @@ public class LoginFragment extends BaseFragment {
 			// forgotPasswordDialogFragment.show(getFragmentManager(),
 			// "dialog");
 			break;
-		case R.id.iv_sina:
-
-			break;
-		case R.id.iv_tencent:
-			break;
+//		case R.id.iv_sina:
+//
+//			break;
+//		case R.id.iv_tencent:
+//			break;
 		case R.id.tv_cancle:
 			if (alertDialog != null)
 				alertDialog.dismiss();
 			break;
 		case R.id.tv_confirm:
-			String emailStr = emailEt.getText().toString().trim();
-			if (emailStr != null && emailStr.length() == 0) {
-				Toast.makeText(getActivity(), "邮件地址不能为空", 0).show();
-				return;
-			}
-			if (alertDialog != null)
-				alertDialog.dismiss();
+//			String emailStr = emailEt.getText().toString().trim();
+//			if (emailStr != null && emailStr.length() == 0) {
+//				Toast.makeText(getActivity(), "邮件地址不能为空", 0).show();
+//				return;
+//			}
+//			if (alertDialog != null)
+//				alertDialog.dismiss();
 				alertDialog=null;
 			break;
-=======
+		}
+		}
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
@@ -90,14 +96,9 @@ public class LoginFragment extends BaseFragment {
 					.show();
 			startActivity(new Intent(mActivity, MainActivity.class));
 			return false;
->>>>>>> FETCH_HEAD
 		default:
 			return super.onOptionsItemSelected(item);
 		}
-	}
-
-	@Override
-	public void onClick(View v) {
 	}
 
 }
