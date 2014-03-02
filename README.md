@@ -30,5 +30,29 @@ cc.itbox.babysay.util
 
 * [Android-Universal-Image-Loader](https://github.com/nostra13/Android-Universal-Image-Loader)
 
+* [Android Asynchronous Http Client](http://loopj.com/android-async-http/)
+
+* [Holoeverywhere](https://github.com/Prototik/HoloEverywhere)
+
+* [SmoothProgressBar](https://github.com/castorflex/SmoothProgressBar)
+
+* [ActionBar-PullToRefresh](https://github.com/chrisbanes/ActionBar-PullToRefresh)
 
 
+###ToDo
+
+<pre>
+
+登陆和注册模块
+ |--新浪QQ OAuth认证
+ |--登陆和注册输入校验
+ |--登陆注册接口处理
+ |--生日选择
+ |--样式调整
+发布模块
+ |--
+首页
+ |--
+
+
+</pre>
