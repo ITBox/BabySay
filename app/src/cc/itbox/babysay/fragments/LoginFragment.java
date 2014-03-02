@@ -1,16 +1,23 @@
 package cc.itbox.babysay.fragments;
 
-import android.app.AlertDialog;
+import org.holoeverywhere.widget.Toast;
+
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 import cc.itbox.babysay.R;
-import cc.itbox.babysay.ui.dialog.ForgotPasswordDialogFragment;
+import cc.itbox.babysay.activities.MainActivity;
+
+/**
+ * 登陆Fragment
+ * 
+ * @author malinkang 2014-3-2
+ * 
+ */
 
 /**
  * 
@@ -18,59 +25,32 @@ import cc.itbox.babysay.ui.dialog.ForgotPasswordDialogFragment;
  *
  */
 public class LoginFragment extends BaseFragment {
+	private MenuItem registerOrLoginItem;
 
-	// private FloatLabel emailFloatLabel, passwordFloatLabel;
-	private TextView forgetTv, cancleTv, confirmTv;
-	private ImageView sinaLoginIv, qqLoginIv;
-	private View alertView;
-	private EditText emailEt;
-	private AlertDialog alertDialog;
-	private ForgotPasswordDialogFragment forgotPasswordDialogFragment;
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setHasOptionsMenu(true);
+	}
 
 	@Override
 	public View onCreateView(org.holoeverywhere.LayoutInflater inflater,
 			ViewGroup container, Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_login, container, false);
-		LayoutInflater layoutInflater = LayoutInflater.from(getActivity());
-		alertView = layoutInflater.inflate(R.layout.alertdialog, null);
-		emailEt = (EditText) alertView.findViewById(R.id.edit_email);
-		cancleTv = (TextView) alertView.findViewById(R.id.tv_cancle);
-		confirmTv = (TextView) alertView.findViewById(R.id.tv_confirm);
-
-		initUI(view);
-		setClick();
-
 		return view;
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onActivityCreated(savedInstanceState);
-		forgotPasswordDialogFragment = new ForgotPasswordDialogFragment();
-	}
-
-	private void initUI(View view) {
-		// emailFloatLabel = UIUtil.getView(view, R.id.et_email);
-		// passwordFloatLabel = UIUtil.getView(view, R.id.et_password);
-		forgetTv = (TextView) view.findViewById(R.id.tv_forget);
-		sinaLoginIv = (ImageView) view.findViewById(R.id.iv_sina);
-		qqLoginIv = (ImageView) view.findViewById(R.id.iv_tencent);
-
-	}
-
-	private void setClick() {
-		// emailFloatLabel.setLabelAnimator(new FloatLabelAnimator());
-		// passwordFloatLabel.setLabelAnimator(new FloatLabelAnimator());
-		forgetTv.setOnClickListener(this);
-		sinaLoginIv.setOnClickListener(this);
-		qqLoginIv.setOnClickListener(this);
-		confirmTv.setOnClickListener(this);
-		cancleTv.setOnClickListener(this);
-
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		super.onCreateOptionsMenu(menu, inflater);
+		inflater.inflate(R.menu.actionbar_register_or_login, menu);
+		registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
+		registerOrLoginItem.setTitle(R.string.login);
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.tv_forget:
@@ -99,9 +79,25 @@ public class LoginFragment extends BaseFragment {
 				alertDialog.dismiss();
 				alertDialog=null;
 			break;
+=======
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			mActivity.finish();
+			return false;
+		case R.id.action_register_or_login:
+			Toast.makeText(mActivity, R.string.login, Toast.LENGTH_SHORT)
+					.show();
+			startActivity(new Intent(mActivity, MainActivity.class));
+			return false;
+>>>>>>> FETCH_HEAD
 		default:
-			break;
+			return super.onOptionsItemSelected(item);
 		}
-
 	}
+
+	@Override
+	public void onClick(View v) {
+	}
+
 }

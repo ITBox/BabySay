@@ -23,15 +23,22 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
+<<<<<<< HEAD
 import cc.itbox.babysay.activities.PhotoProcessingActivity;
 import cc.itbox.babysay.image.CropImage;
 import cc.itbox.babysay.image.ImageUtils;
 import cc.itbox.babysay.util.Constants;
+=======
+import cc.itbox.babysay.adapter.DMListAdapter;
+import cc.itbox.babysay.util.LogUtility;
+>>>>>>> FETCH_HEAD
 
 /**
  * 主页页面
@@ -41,10 +48,12 @@ import cc.itbox.babysay.util.Constants;
  *         2014-2-22 下午10:46:35
  * 
  */
-public class MainPageFragment extends BaseFragment implements OnRefreshListener {
+public class MainPageFragment extends BaseFragment implements
+		OnRefreshListener, OnScrollListener {
 
 	private PullToRefreshLayout mPullToRefreshLayout;
 	private ListView mListView;
+<<<<<<< HEAD
 	private View alertView;
 	private AlertDialog dialog;
 	private TextView tv_photo,tv_pic;
@@ -54,6 +63,11 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 	
 	private final String TEMP_FEED_IMAGE_PATH = Environment
 			.getExternalStorageDirectory() + "/BabySay/TEMP_FEED_IMAGE.jpg";
+=======
+	private DMListAdapter mAdapter;
+	private boolean hasMore;
+	private boolean isLoad;
+>>>>>>> FETCH_HEAD
 
 	
 	@Override
@@ -67,6 +81,11 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 		View view = inflater.inflate(R.layout.fragment_main_page, container,
 				false);
 		mListView = (ListView) view.findViewById(R.id.lv_dm);
+		// 设置适配器
+		mAdapter = new DMListAdapter(getActivity());
+		mListView.setAdapter(mAdapter);
+		hasMore = true;
+		mListView.setOnScrollListener(this);
 		mPullToRefreshLayout = new PullToRefreshLayout(getActivity());
 		// 设置下拉刷新
 		ActionBarPullToRefresh.from(getActivity())
@@ -109,9 +128,6 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 
 	@Override
 	public void onRefreshStarted(View view) {
-		
-
-		Toast.makeText(getActivity(), "start", 1).show();
 
 		// 开始下拉刷新
 		new AsyncTask<Void, Void, Void>() {
@@ -123,6 +139,11 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				if (isLoad) {
+					// 加载数据
+				} else {
+					// 刷新数据
+				}
 				return null;
 			}
 
@@ -131,12 +152,16 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 				super.onPostExecute(result);
 				// 设置下拉刷新完成
 				mPullToRefreshLayout.setRefreshComplete();
-
+				if (isLoad) {
+					hasMore = false;
+					isLoad = false;
+				}
 				if (getView() != null) {
 				}
 			}
 		}.execute();
 	}
+<<<<<<< HEAD
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -242,4 +267,27 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 	}
 	
 	
+=======
+
+	@Override
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		switch (scrollState) {
+		case OnScrollListener.SCROLL_STATE_IDLE:
+			// 停止滑动
+			if (hasMore
+					&& view.getLastVisiblePosition() == (view.getCount() - 1)) {
+				// 滚动到最后一条记录，开始加载
+				isLoad = true;
+				mPullToRefreshLayout.setRefreshing(true);
+			}
+			break;
+		}
+	}
+
+	@Override
+	public void onScroll(AbsListView view, int firstVisibleItem,
+			int visibleItemCount, int totalItemCount) {
+
+	}
+>>>>>>> FETCH_HEAD
 }
