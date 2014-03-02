@@ -6,4 +6,5 @@
     android:divider="@android:color/transparent"
     android:dividerHeight="0dp"
     android:background="#333332"
+    android:scrollbars="none"
     tools:context="cc.itbox.babysay.activities.MainActivity" />

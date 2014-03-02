@@ -1,6 +1,7 @@
 package cc.itbox.babysay.fragments;
 
-import android.app.ProgressDialog;
+import org.holoeverywhere.app.ProgressDialog;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
