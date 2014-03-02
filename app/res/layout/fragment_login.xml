@@ -1,93 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:itbox="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
 
-    <!-- <cc.itbox.babysay.ui.FloatLabel -->
-    <!-- android:id="@+id/et_email" -->
-    <!-- android:layout_width="fill_parent" -->
-    <!-- android:layout_height="wrap_content" -->
-    <!-- android:layout_marginLeft="20dip" -->
-    <!-- android:layout_marginRight="20dip" -->
-    <!-- android:layout_marginTop="10dip" -->
-    <!-- android:gravity="center|left" -->
-    <!-- android:hint="电子邮箱" /> -->
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp"
+		android:paddingTop="16dp" >
 
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_email"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/email" />
 
-    <!-- <cc.itbox.babysay.ui.FloatLabel -->
-    <!-- android:id="@+id/et_password" -->
-    <!-- android:layout_width="fill_parent" -->
-    <!-- android:layout_height="wrap_content" -->
-    <!-- android:layout_below="@id/et_email" -->
-    <!-- android:layout_marginLeft="20dip" -->
-    <!-- android:layout_marginRight="20dip" -->
-    <!-- android:layout_marginTop="10dip" -->
-    <!-- android:gravity="center|left" -->
-    <!-- android:hint="密码" /> -->
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/password" />
 
-    <TextView
-        android:id="@+id/tv_forget"
-        android:layout_width="wrap_content"
-        android:layout_height="20dip"
-        android:layout_alignParentRight="true"
-        android:layout_gravity="right"
-        android:layout_marginRight="50dip"
-        android:layout_marginTop="10dip"
-        android:gravity="right"
-        android:text="@string/forget_password" />
+		<TextView
+			android:id="@+id/tv_forget"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="right"
+			android:text="@string/forget_password"
+			android:visibility="gone" />
 
-    <LinearLayout
-        android:id="@+id/ll_other"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dip"
-        android:gravity="center"
-        android:orientation="horizontal" >
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
 
-        <ImageView
-            android:id="@+id/iv_sina"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:background="@drawable/profile_sns_sina_selected" />
+			<View
+				android:layout_width="0dip"
+				android:layout_height="1dip"
+				android:layout_weight="1"
+				android:background="@android:color/darker_gray" />
 
-        <ImageView
-            android:id="@+id/iv_tencent"
-            android:layout_width="50dip"
-            android:layout_height="50dip"
-            android:layout_marginLeft="10dip"
-            android:background="@drawable/profile_sns_tencent_selected" />
-    </LinearLayout>
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight="3.0"
+				android:gravity="center"
+				android:text="@string/login_by_social_account"
+				android:textSize="15sp" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="20dip"
-        android:layout_above="@id/ll_other"
-        android:layout_alignParentLeft="true"
-        android:gravity="center_vertical"
-        android:orientation="horizontal" >
+			<View
+				android:layout_width="0dip"
+				android:layout_height="1dip"
+				android:layout_weight="1"
+				android:background="@android:color/darker_gray" />
+		</LinearLayout>
 
-        <View
-            android:layout_width="0dip"
-            android:layout_height="1dip"
-            android:layout_weight="1"
-            android:background="@android:color/darker_gray" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:orientation="horizontal" >
 
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
-            android:layout_marginRight="5dip"
-            android:layout_weight="1.7"
-            android:gravity="center"
-            android:text="以其他社交账号登录"
-            android:textSize="15sp" />
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:drawablePadding="5dp"
+				android:drawableTop="@drawable/qq_login_selector"
+				android:gravity="center"
+				android:text="@string/qq_login"
+				android:textSize="16sp" />
 
-        <View
-            android:layout_width="0dip"
-            android:layout_height="1dip"
-            android:layout_weight="1"
-            android:background="@android:color/darker_gray" />
-    </LinearLayout>
+			<TextView
+				android:layout_width="0dip"
+				android:layout_height="wrap_content"
+				android:layout_weight="1"
+				android:drawablePadding="5dp"
+				android:drawableTop="@drawable/sina_weibo_login_selector"
+				android:gravity="center"
+				android:text="@string/sina_weibo_login"
+				android:textSize="16sp" />
+		</LinearLayout>
+	</LinearLayout>
 
-</RelativeLayout>
+</ScrollView>

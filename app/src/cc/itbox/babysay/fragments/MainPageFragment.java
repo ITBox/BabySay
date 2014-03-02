@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
+import cc.itbox.babysay.adapter.DMListAdapter;
 
 /**
  * 主页页面
@@ -28,6 +29,7 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 
 	private PullToRefreshLayout mPullToRefreshLayout;
 	private ListView mListView;
+	private DMListAdapter mAdapter;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,9 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 		View view = inflater.inflate(R.layout.fragment_main_page, container,
 				false);
 		mListView = (ListView) view.findViewById(R.id.lv_dm);
+		// 设置适配器
+		mAdapter = new DMListAdapter(getActivity());
+		mListView.setAdapter(mAdapter);
 		mPullToRefreshLayout = new PullToRefreshLayout(getActivity());
 		// 设置下拉刷新
 		ActionBarPullToRefresh.from(getActivity())
