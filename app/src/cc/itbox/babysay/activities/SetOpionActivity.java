@@ -3,6 +3,7 @@ package cc.itbox.babysay.activities;
 import cc.itbox.babysay.R;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.view.MenuItem;
 /**
  * 
  * @author youzh
@@ -17,5 +18,18 @@ public class SetOpionActivity extends BaseActivity {
 		setContentView(R.layout.activity_set_opion);
 		mActionBar.setDisplayHomeAsUpEnabled(true);
 		
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case android.R.id.home:
+			finish();
+			break;
+
+		default:
+			break;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 }
