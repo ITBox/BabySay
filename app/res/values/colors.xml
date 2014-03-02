@@ -24,5 +24,10 @@
     <!-- 浅灰 -->
 	<color name="light_gray">#FFA0A0A0</color>
     <color name="blue">#00BFFF</color>
-
+    
+    <color name="red_line">#FF5E3B</color>
+    <color name="gray_line">#D7D7D7</color>
+    
+    <!-- 淡蓝 -->
+    <color name="bule">#D7E1E7</color>
 </resources>
