@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">宝贝说</string>
-    <string name="login">登陆</string>
-    <string name="register">注册</string>
-    <string name="refresh">刷新</string>
-    <string name="new_content">新建</string>
-    <string name="register_name">昵称</string>
-    <string name="register_email">注册邮箱(这将是你的帐号)</string>
-    <string name="register_pass">密码</string>
-    <string name="register_pass_again">确认密码</string>
-    <string name="girl">女</string>
-    <string name="boy">男</string>
-    <string name="forget_password">忘记密码</string>
+	<string name="app_name">宝贝说</string>
+	<string name="login">登陆</string>
+	<string name="action_settings">设置</string>
+	<string name="register">注册</string>
+	<string name="refresh">刷新</string>
+	<string name="new_content">新建</string>
+	<string name="register_name">昵称</string>
+	<string name="register_email">注册邮箱(这将是你的帐号)</string>
+	<string name="register_pass">密码</string>
+	<string name="register_pass_again">确认密码</string>
+	<string name="girl">女</string>
+	<string name="boy">男</string>
+	<string name="forget_password">忘记密码</string>
 
-    <!-- 忘记密码 -->
-    <string name="for_title">忘记密码</string>
-    <string name="for_content">请输入注册时所填的邮件地址</string>
-    <string name="for_cancle">取消</string>
-    <string name="for_confirm">确定</string>
-    <string name="forget">忘记密码</string>
+	<!-- 忘记密码 -->
+	<string name="for_title">忘记密码</string>
+	<string name="for_content">请输入注册时所填的邮件地址</string>
+	<string name="for_cancle">取消</string>
+	<string name="for_confirm">确定</string>
+	<string name="forget">忘记密码</string>
 
 </resources>
