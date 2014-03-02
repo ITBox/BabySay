@@ -2,6 +2,7 @@ package cc.itbox.babysay.fragments;
 
 import org.holoeverywhere.widget.Toast;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import cc.itbox.babysay.R;
+import cc.itbox.babysay.activities.MainActivity;
 
 /**
  * 登陆Fragment
@@ -51,6 +53,7 @@ public class LoginFragment extends BaseFragment {
 		case R.id.action_register_or_login:
 			Toast.makeText(mActivity, R.string.login, Toast.LENGTH_SHORT)
 					.show();
+			startActivity(new Intent(mActivity, MainActivity.class));
 			return false;
 		default:
 			return super.onOptionsItemSelected(item);
