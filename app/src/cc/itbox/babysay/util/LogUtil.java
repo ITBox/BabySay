@@ -2,11 +2,11 @@ package cc.itbox.babysay.util;
 
 import cc.itbox.babysay.BuildConfig;
 
-public class LogUtility {
+public class LogUtil {
 
 	protected static final String TAG = "babysay";
 
-	private LogUtility() {
+	private LogUtil() {
 	}
 
 	public static void v(String msg) {

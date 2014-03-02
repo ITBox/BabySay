@@ -1,104 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:itbox="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+	xmlns:itbox="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:paddingLeft="16dp"
+		android:paddingRight="16dp"
+		android:paddingTop="16dp" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="fill_parent"
-            android:orientation="vertical"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp" >
+		<cc.itbox.babysay.ui.CircleImageView
+			android:id="@+id/iv_avatar"
+			android:layout_width="96dp"
+			android:layout_height="96dp"
+			android:layout_gravity="center_horizontal"
+			android:layout_marginTop="10dp"
+			android:src="@drawable/aaa"
+			itbox:border_color="@color/dark"
+			itbox:border_width="2dp" />
 
-            <cc.itbox.babysay.ui.CircleImageView
-                android:layout_width="96dp"
-                android:layout_height="96dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
-                android:src="@drawable/aaa"
-                itbox:border_color="@color/dark"
-                itbox:border_width="2dp" />
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_nickname"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/nickname" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_email"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/email" />
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:text="性别"
-                    android:textSize="15sp" />
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/password" />
 
-                <RadioGroup
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0"
-                    android:orientation="horizontal" >
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_confirm_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="@string/confirm_password" />
 
-                    <RadioButton
-                        android:id="@+id/fragment_register_girl"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:button="@drawable/selector_sex_girl_radio"
-                        android:text="@string/girl" />
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" >
 
-                    <RadioButton
-                        android:id="@+id/fragment_register_boy"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="5dp"
-                        android:button="@drawable/selector_sex_boy_radio"
-                        android:text="@string/boy" />
-                </RadioGroup>
-            </LinearLayout>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_weight="1"
+				android:text="@string/sex" />
 
-            <EditText
-                android:id="@+id/fragment_register_birthday"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/textfield_default_holo_light"
-                android:focusable="false"
-                android:hint="生日"
-                android:textSize="14sp" />
-        </LinearLayout>
+			<RadioGroup
+				android:id="@+id/rg_sex"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:layout_weight="0"
+				android:orientation="horizontal" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:background="@drawable/selector_btn_bg"
-            android:clickable="true"
-            android:gravity="center_horizontal"
-            android:padding="10dp" >
+				<org.holoeverywhere.widget.RadioButton
+					android:id="@+id/rb_female"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:text="@string/female" />
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/holo_light_previous_icon" />
+				<org.holoeverywhere.widget.RadioButton
+					android:id="@+id/rb_male"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="5dp"
+					android:text="@string/male" />
+			</RadioGroup>
+		</LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:text="或通过社交帐号直接登录"
-                android:textSize="16sp" />
-        </LinearLayout>
-    </LinearLayout>
+		<org.holoeverywhere.widget.EditText
+			android:id="@+id/et_birthday"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="5dp"
+			android:focusable="false"
+			android:hint="@string/birthday" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginBottom="10dp"
+			android:background="@drawable/selector_btn_bg"
+			android:clickable="true"
+			android:gravity="center_horizontal"
+			android:padding="10dp" >
+
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:src="@drawable/holo_light_previous_icon" />
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical"
+				android:text="@string/login_by_social_account"
+				android:textSize="16sp" />
+		</LinearLayout>
+	</LinearLayout>
 
 </ScrollView>

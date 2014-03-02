@@ -32,4 +32,5 @@ public class BaseActivity extends Activity {
 		mSupportFragmentManager = getSupportFragmentManager();
 		mFragmentTransaction = mSupportFragmentManager.beginTransaction();
 	}
+
 }

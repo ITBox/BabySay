@@ -2,24 +2,32 @@
 <resources>
 
 	<string name="app_name">宝贝说</string>
+	<!-- 注册登陆 -->
 	<string name="login">登陆</string>
-	<string name="action_settings">设置</string>
+	<string name="qq_login">QQ登陆</string>
+	<string name="sina_weibo_login">微博登陆</string>
 	<string name="register">注册</string>
+	<string name="nickname">昵称</string>
+	<string name="email">邮箱</string>
+	<string name="password">密码</string>
+	<string name="confirm_password">确认密码</string>
+	<string name="sex">性别</string>
+	<string name="female">女</string>
+	<string name="male">男</string>
+	<string name="birthday">生日</string>
+
+	<!-- 其它 -->
+
 	<string name="refresh">刷新</string>
 	<string name="new_content">新建</string>
-	<string name="register_name">昵称</string>
-	<string name="register_email">注册邮箱(这将是你的帐号)</string>
 	<string name="register_pass">密码</string>
 	<string name="register_pass_again">确认密码</string>
-	<string name="girl">女</string>
-	<string name="boy">男</string>
 	<string name="forget_password">忘记密码</string>
-
-	<!-- 忘记密码 -->
 	<string name="for_title">忘记密码</string>
 	<string name="for_content">请输入注册时所填的邮件地址</string>
 	<string name="for_cancle">取消</string>
 	<string name="for_confirm">确定</string>
 	<string name="forget">忘记密码</string>
+	<string name="login_by_social_account">或通过社交帐号直接登录</string>
 
 </resources>
