@@ -11,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 import android.widget.Toast;
 import cc.itbox.babysay.R;
@@ -25,11 +27,14 @@ import cc.itbox.babysay.adapter.DMListAdapter;
  *         2014-2-22 下午10:46:35
  * 
  */
-public class MainPageFragment extends BaseFragment implements OnRefreshListener {
+public class MainPageFragment extends BaseFragment implements
+		OnRefreshListener, OnScrollListener {
 
 	private PullToRefreshLayout mPullToRefreshLayout;
 	private ListView mListView;
 	private DMListAdapter mAdapter;
+	private boolean hasMore;
+	private boolean isLoad;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -45,6 +50,8 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 		// 设置适配器
 		mAdapter = new DMListAdapter(getActivity());
 		mListView.setAdapter(mAdapter);
+		hasMore = true;
+		mListView.setOnScrollListener(this);
 		mPullToRefreshLayout = new PullToRefreshLayout(getActivity());
 		// 设置下拉刷新
 		ActionBarPullToRefresh.from(getActivity())
@@ -78,9 +85,6 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 
 	@Override
 	public void onRefreshStarted(View view) {
-		
-
-		Toast.makeText(getActivity(), "start", 1).show();
 
 		// 开始下拉刷新
 		new AsyncTask<Void, Void, Void>() {
@@ -92,6 +96,11 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				if (isLoad) {
+					// 加载数据
+				} else {
+					// 刷新数据
+				}
 				return null;
 			}
 
@@ -100,10 +109,34 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 				super.onPostExecute(result);
 				// 设置下拉刷新完成
 				mPullToRefreshLayout.setRefreshComplete();
-
+				if (isLoad) {
+					hasMore = false;
+					isLoad = false;
+				}
 				if (getView() != null) {
 				}
 			}
 		}.execute();
+	}
+
+	@Override
+	public void onScrollStateChanged(AbsListView view, int scrollState) {
+		switch (scrollState) {
+		case OnScrollListener.SCROLL_STATE_IDLE:
+			// 停止滑动
+			if (hasMore
+					&& view.getLastVisiblePosition() == (view.getCount() - 1)) {
+				// 滚动到最后一条记录，开始加载
+				isLoad = true;
+				mPullToRefreshLayout.setRefreshing(true);
+			}
+			break;
+		}
+	}
+
+	@Override
+	public void onScroll(AbsListView view, int firstVisibleItem,
+			int visibleItemCount, int totalItemCount) {
+
 	}
 }

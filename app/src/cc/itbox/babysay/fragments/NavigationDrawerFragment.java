@@ -75,9 +75,9 @@ public class NavigationDrawerFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		// 获取用户是否使用过导航菜单
-		// SharedPreferences sp = PreferenceManager
-		// .getDefaultSharedPreferences(getActivity());
-		// mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
+		SharedPreferences sp = PreferenceManager
+				.getDefaultSharedPreferences(getActivity());
+		mUserLearnedDrawer = sp.getBoolean(PREF_USER_LEARNED_DRAWER, false);
 
 		if (savedInstanceState != null) {
 			mCurrentSelectedPosition = savedInstanceState
