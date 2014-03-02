@@ -12,6 +12,11 @@ import android.widget.Toast;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.ui.dialog.ForgotPasswordDialogFragment;
 
+/**
+ * 
+ * @author yanchenling
+ *
+ */
 public class LoginFragment extends BaseFragment {
 
 	// private FloatLabel emailFloatLabel, passwordFloatLabel;
@@ -92,6 +97,7 @@ public class LoginFragment extends BaseFragment {
 			}
 			if (alertDialog != null)
 				alertDialog.dismiss();
+				alertDialog=null;
 			break;
 		default:
 			break;

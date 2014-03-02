@@ -21,5 +21,7 @@
 	<string name="for_cancle">取消</string>
 	<string name="for_confirm">确定</string>
 	<string name="forget">忘记密码</string>
+	<string name="take_photo">拍照</string>
+	<string name="take_pic">从图库选择</string>
 
 </resources>

@@ -1,10 +1,22 @@
 package cc.itbox.babysay.fragments;
 
+import java.io.File;
+import java.io.IOException;
+
 import uk.co.senab.actionbarpulltorefresh.extras.actionbarcompat.PullToRefreshLayout;
 import uk.co.senab.actionbarpulltorefresh.library.ActionBarPullToRefresh;
 import uk.co.senab.actionbarpulltorefresh.library.listeners.OnRefreshListener;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.ContentValues;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -12,9 +24,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
+import cc.itbox.babysay.activities.PhotoProcessingActivity;
+import cc.itbox.babysay.image.CropImage;
+import cc.itbox.babysay.image.ImageUtils;
+import cc.itbox.babysay.util.Constants;
 
 /**
  * 主页页面
@@ -28,7 +45,17 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 
 	private PullToRefreshLayout mPullToRefreshLayout;
 	private ListView mListView;
+	private View alertView;
+	private AlertDialog dialog;
+	private TextView tv_photo,tv_pic;
+	private Uri imageFileUri;
+	
+	
+	
+	private final String TEMP_FEED_IMAGE_PATH = Environment
+			.getExternalStorageDirectory() + "/BabySay/TEMP_FEED_IMAGE.jpg";
 
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +73,9 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 				.insertLayoutInto((ViewGroup) view)
 				.theseChildrenArePullable(R.id.lv_dm, android.R.id.empty)
 				.listener(this).setup(mPullToRefreshLayout);
+		
+		alertView=inflater.inflate(R.layout.dialog_takephoto, null);
+		
 		return view;
 	}
 
@@ -64,12 +94,18 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 			mPullToRefreshLayout.setRefreshing(true);
 			break;
 		case R.id.action_new_content:
-			// 新建
-			Toast.makeText(getActivity(), "new", 1).show();
+//			if(dialog==null)
+//			dialog = new AlertDialog.Builder(getActivity()).setView(alertView).create();
+//			dialog.show();
+			
+			getPic();
+			
 			break;
 		}
 		return super.onOptionsItemSelected(item);
 	}
+
+	
 
 	@Override
 	public void onRefreshStarted(View view) {
@@ -101,4 +137,109 @@ public class MainPageFragment extends BaseFragment implements OnRefreshListener 
 			}
 		}.execute();
 	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		if(resultCode==getActivity().RESULT_OK){
+			Intent intent;
+			switch (requestCode) {
+			case Constants.Request_Code.TAKE_PICTURE_FROM_CAMERA:
+				
+				intent = new Intent(getActivity(), CropImage.class);
+				// x方向的比例
+				intent.putExtra("aspectX", 1);
+				// y方向的比例
+				intent.putExtra("aspectY", 1);
+				// 输出图片大小
+				intent.putExtra("outputX", 400);
+
+				intent.putExtra("outputY", 400);
+				// 是否保存比例
+				intent.putExtra("scale", true);
+
+				intent.setData(imageFileUri);
+
+				startActivityForResult(intent,
+						Constants.Request_Code.CROP_CAMERA_PICTURE);
+				
+				break;
+			case Constants.Request_Code.TAKE_PICTURE_FROM_GALLERY:
+				
+				
+				
+				break;
+			case Constants.Request_Code.CROP_CAMERA_PICTURE:
+				
+				File dir = new File(Environment.getExternalStorageDirectory()+"/BabySay");
+				if(!dir.exists())
+					dir.mkdirs();
+				File file = new File(TEMP_FEED_IMAGE_PATH);
+				if(!file.exists())
+					try {
+						file.createNewFile();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				
+//				// 裁剪相机拍摄的照片完成，进入滤镜界面
+				intent = new Intent(getActivity(), PhotoProcessingActivity.class);
+//				// 将bitmap转换为file
+				ImageUtils.Bitmap2File(
+						(Bitmap) data.getParcelableExtra("data"),
+						TEMP_FEED_IMAGE_PATH);
+				intent.putExtra("image_path", TEMP_FEED_IMAGE_PATH);
+//				startActivityForResult(intent,Constants.Request_Code.CAMERA_PICTURE_RECORD);
+				startActivity(intent);
+				
+				break;
+			default:
+				break;
+			}
+			
+			
+		}
+		
+	}
+
+	
+	private void getPic() {
+		AlertDialog.Builder builder = new Builder(getActivity());
+		builder.setItems(new String[] { "拍照", "从图库选择" },
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+
+						switch (which) {
+						case 0:
+							imageFileUri = getActivity().getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+											new ContentValues());
+							if (imageFileUri != null) {
+								Intent intent = new Intent(
+										android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+								intent.putExtra(
+										android.provider.MediaStore.EXTRA_OUTPUT,
+										imageFileUri);
+								// 开启系统拍照的Activity
+								startActivityForResult(
+										intent,
+										Constants.Request_Code.TAKE_PICTURE_FROM_CAMERA);
+							}
+							break;
+						case 1:
+							Intent intent = new Intent(
+									"android.intent.action.PICK");
+							intent.setType("image/*");
+							startActivityForResult(
+									intent,
+									Constants.Request_Code.TAKE_PICTURE_FROM_GALLERY);
+							break;
+						}
+
+					}
+				}).show();
+	}
+	
+	
 }

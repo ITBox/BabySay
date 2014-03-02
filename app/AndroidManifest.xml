@@ -7,6 +7,7 @@
 	<uses-sdk
 		android:minSdkVersion="8"
 		android:targetSdkVersion="18" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
 	<application
 		android:name="cc.itbox.babysay.AppContext"
@@ -39,6 +40,17 @@
 				<category android:name="android.intent.category.LAUNCHER" />
 			</intent-filter>
 		</activity>
+		<activity 
+		    android:name="cc.itbox.babysay.image.CropImage"
+		    android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+		</activity>
+		<activity 
+		    android:name="cc.itbox.babysay.activities.PhotoProcessingActivity"
+		    android:configChanges="orientation"
+            android:screenOrientation="portrait" >
+		</activity>
+		
 	</application>
 
 </manifest>
