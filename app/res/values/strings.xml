@@ -15,6 +15,15 @@
 	<string name="female">女</string>
 	<string name="male">男</string>
 	<string name="birthday">生日</string>
+	<string name="validation_name_empty">请输入用户名</string>
+	<string name="validation_name_min_length">用户名长度不能少于3</string>
+	<string name="validation_name_max_length">用户名长度不能超过12</string>
+	<string name="validation_password_empty">请输入密码</string>
+	<string name="validation_valid_email_empty">请输入邮箱</string>
+	<string name="validation_valid_email_format">请输入正确的邮箱</string>
+	<string name="validation_date">Date must be in future</string>
+	<string name="validation_type">Please, select type</string>
+	<string name="validation_success">Validation succeeded! \nThat was easy, wasn\'t it?</string>
 
 	<!-- 其它 -->
 
