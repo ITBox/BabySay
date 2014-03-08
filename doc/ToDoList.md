@@ -1,6 +1,6 @@
 ###注册登陆模块
 
-Markdown | Less | Pretty
+Markdown | Less | Pretty | Pretty
 --- | --- | ---  | --- 
-*Still* | `renders` | **nicely**
-1 | 2 | 3
+*Still* | `renders` | **nicely**| **nicely**
+1 | 2 | 3| **nicely**
