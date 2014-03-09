@@ -16,6 +16,7 @@
 
 package cc.itbox.babysay.util;
 
+import cc.itbox.babysay.util.LogUtil;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 
@@ -40,54 +41,54 @@ public class PhotoProcessing {
 //													R.string.filter_georgia,
 //													R.string.filter_sahara,
 //													R.string.filter_hdr};
-//	
+	
 //	public static final int[] EDIT_ACTIONS = {R.string.edit_action_flip, R.string.edit_action_rotate_90_right, R.string.edit_action_rotate_90_left, R.string.edit_action_rotate_180};
-//	
-//	public static Bitmap filterPhoto(Bitmap bitmap, int position) {
-//		if (bitmap != null) { //USe current bitmap in native memory
-//			sendBitmapToNative(bitmap);
-//		}
-//		switch (position) {
-//		case 0: // Original
-//			break;
-//		case 1: // Instafix
-//			nativeApplyInstafix();
-//			break;
-//		case 2: // Ansel
-//			nativeApplyAnsel();
-//			break;
-//		case 3: // Testino
-//			nativeApplyTestino();
-//			break;
-//		case 4: // XPro
-//			nativeApplyXPro();
-//			break;
-//		case 5: // Retro
-//			nativeApplyRetro();
-//			break;
-//		case 6: // Black & White
-//			nativeApplyBW();
-//			break;
-//		case 7: // Sepia
-//			nativeApplySepia();
-//			break;
-//		case 8: // Cyano
-//			nativeApplyCyano();
-//			break;
-//		case 9: // Georgia
-//			nativeApplyGeorgia();
-//			break;
-//		case 10: // Sahara
-//			nativeApplySahara();
-//			break;
-//		case 11: // HDR
-//			nativeApplyHDR();
-//			break;
-//		}
-//		Bitmap filteredBitmap = getBitmapFromNative(bitmap);
-//		nativeDeleteBitmap();
-//		return filteredBitmap;
-//	}
+	
+	public static Bitmap filterPhoto(Bitmap bitmap, int position) {
+		if (bitmap != null) { //USe current bitmap in native memory
+			sendBitmapToNative(bitmap);
+		}
+		switch (position) {
+		case 0: // Original
+			break;
+		case 1: // Instafix
+			nativeApplyInstafix();
+			break;
+		case 2: // Ansel
+			nativeApplyAnsel();
+			break;
+		case 3: // Testino
+			nativeApplyTestino();
+			break;
+		case 4: // XPro
+			nativeApplyXPro();
+			break;
+		case 5: // Retro
+			nativeApplyRetro();
+			break;
+		case 6: // Black & White
+			nativeApplyBW();
+			break;
+		case 7: // Sepia
+			nativeApplySepia();
+			break;
+		case 8: // Cyano
+			nativeApplyCyano();
+			break;
+		case 9: // Georgia
+			nativeApplyGeorgia();
+			break;
+		case 10: // Sahara
+			nativeApplySahara();
+			break;
+		case 11: // HDR
+			nativeApplyHDR();
+			break;
+		}
+		Bitmap filteredBitmap = getBitmapFromNative(bitmap);
+		nativeDeleteBitmap();
+		return filteredBitmap;
+	}
 	
 	public static Bitmap applyEditAction(Bitmap bitmap, int position) {
 		switch (position) {
@@ -143,6 +144,7 @@ public class PhotoProcessing {
 	private static void sendBitmapToNative(Bitmap bitmap) {
 		int width = bitmap.getWidth();
 		int height = bitmap.getHeight();
+		LogUtil.e("width="+width+"height="+height);
 		nativeInitBitmap(width, height);
 		int[] pixels = new int[width];
 		for (int y = 0; y < height; y++) {

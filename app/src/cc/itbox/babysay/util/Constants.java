@@ -18,6 +18,7 @@ public class Constants {
 		public static final int TAKE_PICTURE_FROM_CAMERA = 0x10;
 		public static final int TAKE_PICTURE_FROM_GALLERY = 0x11;
 		public final static int CROP_CAMERA_PICTURE = 0x12;
+		public static final int CROP_GALLERY_PICTURE = 0x13;
 
 		
 		

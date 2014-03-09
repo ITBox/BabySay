@@ -8,7 +8,7 @@
 		android:minSdkVersion="8"
 		android:targetSdkVersion="18" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-
+	
 	<application
 		android:name="cc.itbox.babysay.AppContext"
 		android:allowBackup="true"
@@ -52,6 +52,8 @@
 		</activity>
         
 		<activity android:name="cc.itbox.babysay.activities.SetOpionActivity"
+        android:screenOrientation="portrait"/>
+		<activity android:name="cc.itbox.babysay.activities.EditActivity"
         android:screenOrientation="portrait"/>
 		
 	</application>
