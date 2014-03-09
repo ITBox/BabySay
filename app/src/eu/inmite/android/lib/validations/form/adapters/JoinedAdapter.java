@@ -1,14 +1,14 @@
 package eu.inmite.android.lib.validations.form.adapters;
 
+import java.lang.annotation.Annotation;
+
 import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import eu.inmite.android.lib.validations.exception.FormsValidationException;
 import eu.inmite.android.lib.validations.form.FieldAdapterFactory;
 import eu.inmite.android.lib.validations.form.annotations.Joined;
-import eu.inmite.android.lib.validations.exception.FormsValidationException;
 import eu.inmite.android.lib.validations.form.iface.IFieldAdapter;
-
-import java.lang.annotation.Annotation;
 
 /**
  * Adapter that can be used together with {@link Joined} annotation. It gets values from multiple views.

@@ -11,14 +11,14 @@
 
 package eu.inmite.android.lib.validations.form.validators;
 
-import android.text.TextUtils;
-import eu.inmite.android.lib.validations.form.annotations.DateNoWeekend;
-import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
-
 import java.lang.annotation.Annotation;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+
+import android.text.TextUtils;
+import eu.inmite.android.lib.validations.form.annotations.DateNoWeekend;
+import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
 
 /**
  * @author Tomas Vondracek

@@ -16,7 +16,6 @@
 
 package cc.itbox.babysay.util;
 
-import cc.itbox.babysay.util.LogUtil;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
 

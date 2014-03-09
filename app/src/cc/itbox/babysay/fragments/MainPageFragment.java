@@ -28,8 +28,8 @@ import android.widget.AbsListView.OnScrollListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import cc.itbox.babysay.R;
-import cc.itbox.babysay.activities.MainActivity.BaseFragment;
 import cc.itbox.babysay.activities.CropImageActivity;
+import cc.itbox.babysay.activities.MainActivity.BaseFragment;
 import cc.itbox.babysay.activities.PhotoProcessingActivity;
 import cc.itbox.babysay.adapter.DMListAdapter;
 import cc.itbox.babysay.util.Constants;
@@ -182,7 +182,7 @@ public class MainPageFragment extends BaseFragment implements
 				break;
 			case Constants.Request_Code.TAKE_PICTURE_FROM_GALLERY:
 				// 进入裁剪页面
-				intent = new Intent(getActivity(), CropImage.class);
+				intent = new Intent(getActivity(), CropImageActivity.class);
 				// x方向的比例
 				intent.putExtra("aspectX", 1);
 				// y方向的比例

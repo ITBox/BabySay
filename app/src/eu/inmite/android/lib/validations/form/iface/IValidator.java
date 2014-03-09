@@ -11,9 +11,9 @@
 
 package eu.inmite.android.lib.validations.form.iface;
 
-import android.content.Context;
-
 import java.lang.annotation.Annotation;
+
+import android.content.Context;
 
 /**
  * @author Tomas Vondracek

@@ -28,39 +28,39 @@ static Bitmap bitmap;
 
 
 
-int Java_cc_itbox_babysay_image_PhotoProcessing_nativeInitBitmap(JNIEnv* env, jobject thiz, jint width, jint height) {
+int Java_cc_itbox_babysay_util_PhotoProcessing_nativeInitBitmap(JNIEnv* env, jobject thiz, jint width, jint height) {
 	return initBitmapMemory(&bitmap, width, height);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeGetBitmapRow(JNIEnv* env, jobject thiz, jint y, jintArray pixels) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeGetBitmapRow(JNIEnv* env, jobject thiz, jint y, jintArray pixels) {
 	int cpixels[bitmap.width];
 	getBitmapRowAsIntegers(&bitmap, (int)y, &cpixels);
 	(*env)->SetIntArrayRegion(env, pixels, 0, bitmap.width, cpixels);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeSetBitmapRow(JNIEnv* env, jobject thiz, jint y, jintArray pixels) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeSetBitmapRow(JNIEnv* env, jobject thiz, jint y, jintArray pixels) {
 	int cpixels[bitmap.width];
 	(*env)->GetIntArrayRegion(env, pixels, 0, bitmap.width, cpixels);
 	setBitmapRowFromIntegers(&bitmap, (int)y, &cpixels);
 }
 
-int Java_cc_itbox_babysay_image_PhotoProcessing_nativeGetBitmapWidth(JNIEnv* env, jobject thiz) {
+int Java_cc_itbox_babysay_util_PhotoProcessing_nativeGetBitmapWidth(JNIEnv* env, jobject thiz) {
 	return bitmap.width;
 }
 
-int Java_cc_itbox_babysay_image_PhotoProcessing_nativeGetBitmapHeight(JNIEnv* env, jobject thiz) {
+int Java_cc_itbox_babysay_util_PhotoProcessing_nativeGetBitmapHeight(JNIEnv* env, jobject thiz) {
 	return bitmap.height;
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeDeleteBitmap(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeDeleteBitmap(JNIEnv* env, jobject thiz) {
 	deleteBitmap(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeFlipHorizontally(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeFlipHorizontally(JNIEnv* env, jobject thiz) {
 	flipHorizontally(&bitmap, 1, 1, 1);
 }
 
-int Java_cc_itbox_babysay_image_PhotoProcessing_nativeRotate90(JNIEnv* env, jobject thiz) {
+int Java_cc_itbox_babysay_util_PhotoProcessing_nativeRotate90(JNIEnv* env, jobject thiz) {
 	int resultCode = rotate90(&bitmap, 1, 1, 1);
 	if (resultCode != MEMORY_OK) {
 		return resultCode;
@@ -71,55 +71,55 @@ int Java_cc_itbox_babysay_image_PhotoProcessing_nativeRotate90(JNIEnv* env, jobj
 	bitmap.height = bitmap.redHeight;
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeRotate180(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeRotate180(JNIEnv* env, jobject thiz) {
 	rotate180(&bitmap, 1, 1, 1);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyInstafix(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyInstafix(JNIEnv* env, jobject thiz) {
 	applyInstafix(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyAnsel(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyAnsel(JNIEnv* env, jobject thiz) {
 	applyAnselFilter(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyTestino(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyTestino(JNIEnv* env, jobject thiz) {
 	applyTestino(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyXPro(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyXPro(JNIEnv* env, jobject thiz) {
 	applyXPro(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyRetro(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyRetro(JNIEnv* env, jobject thiz) {
 	applyRetro(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyBW(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyBW(JNIEnv* env, jobject thiz) {
 	applyBlackAndWhiteFilter(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplySepia(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplySepia(JNIEnv* env, jobject thiz) {
 	applySepia(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyCyano(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyCyano(JNIEnv* env, jobject thiz) {
 	applyCyano(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyGeorgia(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyGeorgia(JNIEnv* env, jobject thiz) {
 	applyGeorgia(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplySahara(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplySahara(JNIEnv* env, jobject thiz) {
 	applySahara(&bitmap);
 }
 
-void Java_cc_itbox_babysay_image_PhotoProcessing_nativeApplyHDR(JNIEnv* env, jobject thiz) {
+void Java_cc_itbox_babysay_util_PhotoProcessing_nativeApplyHDR(JNIEnv* env, jobject thiz) {
 	applyHDR(&bitmap);
 }
 
-int Java_cc_itbox_babysay_image_PhotoProcessing_nativeLoadResizedJpegBitmap(JNIEnv* env, jobject thiz, jbyteArray bytes, jint jpegSize, jint maxPixels) {
+int Java_cc_itbox_babysay_util_PhotoProcessing_nativeLoadResizedJpegBitmap(JNIEnv* env, jobject thiz, jbyteArray bytes, jint jpegSize, jint maxPixels) {
 	char* jpegData = (char*) (*env)->GetPrimitiveArrayCritical(env, bytes, NULL);
 
 	if (jpegData == NULL) {
@@ -139,7 +139,7 @@ int Java_cc_itbox_babysay_image_PhotoProcessing_nativeLoadResizedJpegBitmap(JNIE
 	return MEMORY_OK;
 }
 
-int Java_cc_itbox_babysay_image_PhotoProcessing_nativeResizeBitmap(JNIEnv* env, jobject thiz, jint newWidth, jint newHeight) {
+int Java_cc_itbox_babysay_util_PhotoProcessing_nativeResizeBitmap(JNIEnv* env, jobject thiz, jint newWidth, jint newHeight) {
 	unsigned char* newRed;
 	int resultCode = newUnsignedCharArray(newWidth*newHeight, &newRed);
 	if (resultCode != MEMORY_OK) {

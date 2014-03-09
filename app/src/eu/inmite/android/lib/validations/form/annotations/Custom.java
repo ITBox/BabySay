@@ -11,12 +11,12 @@
 
 package eu.inmite.android.lib.validations.form.annotations;
 
-import eu.inmite.android.lib.validations.form.iface.IValidator;
-
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
+
+import eu.inmite.android.lib.validations.form.iface.IValidator;
 
 /**
  * Allows you to specify custom validator class, see {@link eu.inmite.android.lib.validations.form.iface.IValidator}

@@ -11,6 +11,14 @@
 
 package eu.inmite.android.lib.validations.form;
 
+import java.lang.annotation.Annotation;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
@@ -24,9 +32,6 @@ import eu.inmite.android.lib.validations.form.iface.IFieldAdapter;
 import eu.inmite.android.lib.validations.form.iface.IValidationCallback;
 import eu.inmite.android.lib.validations.form.iface.IValidator;
 import eu.inmite.android.lib.validations.form.validators.ValidatorFactory;
-
-import java.lang.annotation.Annotation;
-import java.util.*;
 
 /**
  * <p>

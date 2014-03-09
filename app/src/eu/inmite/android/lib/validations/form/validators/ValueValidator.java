@@ -11,13 +11,13 @@
 
 package eu.inmite.android.lib.validations.form.validators;
 
+import java.lang.annotation.Annotation;
+
 import android.text.TextUtils;
 import eu.inmite.android.lib.validations.form.annotations.ComparingPolicy;
 import eu.inmite.android.lib.validations.form.annotations.MaxValue;
 import eu.inmite.android.lib.validations.form.annotations.MinValue;
 import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
-
-import java.lang.annotation.Annotation;
 
 /**
  * @author Tomas Vondracek
