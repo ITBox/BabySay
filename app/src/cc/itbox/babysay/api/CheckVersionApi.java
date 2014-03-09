@@ -32,7 +32,7 @@ public class CheckVersionApi extends BaseApi {
 			public void onFailure(int arg0, Header[] arg1, byte[] arg2, Throwable arg3) {
 				super.onFailure(arg0, arg1, arg2, arg3);
 				ei.mErrorCode = arg3.hashCode();
-				ei.mErrorReservedText = "";
+				ei.mErrorReservedText = arg3.getLocalizedMessage();
 				mCatchHandler.onCatchFail(type, ci, ei);
 			}
 			
