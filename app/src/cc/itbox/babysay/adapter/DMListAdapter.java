@@ -18,6 +18,7 @@ import cc.itbox.babysay.R;
 import cc.itbox.babysay.bean.DMBean;
 import cc.itbox.babysay.media.AudioPlayer;
 import cc.itbox.babysay.media.AudioPlayer.AudioPlayerListener;
+import cc.itbox.babysay.util.LogUtil;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -35,7 +36,10 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 	private List<DMBean> mList;
 	private Activity mContext;
 	private DMBean mCurrentPlayBean;
+	private DMBean mCurrentLoadBean;
+	private DMBean mClickPlayBean;
 	private AudioPlayer mPlayer;
+	private ProgressBar mPlayPb;
 
 	public DMListAdapter(Activity context) {
 		mContext = context;
@@ -46,6 +50,11 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 		for (int i = 0; i < 20; i++) {
 			mList.add(new DMBean());
 		}
+	}
+
+	public void destory() {
+		mPlayer.stop();
+		mPlayer.setmListener(null);
 	}
 
 	/**
@@ -101,6 +110,21 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 				.setImageResource(bean.isPraise() ? R.drawable.selector_dm_haspraise
 						: R.drawable.selector_dm_nopraise);
 		holder.iv_praise.setTag(bean);
+		holder.iv_play.setTag(bean);
+		// 播放状态
+		holder.pb_play.setVisibility(View.GONE);
+		holder.pb_load.setVisibility(View.GONE);
+		boolean isPlay = mCurrentPlayBean == bean;
+		holder.iv_play.setImageResource(isPlay ? R.drawable.selector_dm_suspend
+				: R.drawable.selector_dm_play);
+		if (mCurrentLoadBean == bean) {
+			// 正在下载
+			holder.pb_load.setVisibility(View.VISIBLE);
+		} else if (isPlay) {
+			// 正在播放
+			mPlayPb = holder.pb_play;
+			holder.pb_play.setVisibility(View.VISIBLE);
+		}
 	}
 
 	/**
@@ -118,6 +142,7 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 		public TextView tv_nickname;
 		public TextView tv_time;
 		public ProgressBar pb_play;
+		public ProgressBar pb_load;
 		public ImageView iv_play;
 		public ImageView iv_praise;
 		public ImageView iv_comment;
@@ -135,6 +160,7 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 			this.iv_share = (ImageView) view.findViewById(R.id.iv_share);
 			this.iv_more = (ImageView) view.findViewById(R.id.iv_more);
 			this.pb_play = (ProgressBar) view.findViewById(R.id.pd_play);
+			this.pb_load = (ProgressBar) view.findViewById(R.id.pd_load);
 
 			// 设置图片内容为正方形
 			LayoutParams params = this.iv_image.getLayoutParams();
@@ -156,13 +182,19 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 
 	@Override
 	public void onClick(View v) {
+		mClickPlayBean = (DMBean) v.getTag();
+		if (mClickPlayBean == null) {
+			return;
+		}
 		switch (v.getId()) {
 		case R.id.iv_play:
-			((ImageView) v).setImageResource(R.drawable.selector_dm_suspend);
+			// 播放音频
+			mPlayer.play(Uri
+					.parse("http://music.baidu.com/data/music/file?link=http://zhangmenshiting.baidu.com/data2/music/34151069/1000860216000128.mp3?xcode=99cc4c5e331d6f8db2b2143597ac0366d1efeac24fa38ae3&song_id=1000860"));
 			break;
 		case R.id.iv_praise:
-			DMBean bean = (DMBean) v.getTag();
-			bean.setPraise(!bean.isPraise());
+			// 赞
+			mClickPlayBean.setPraise(!mClickPlayBean.isPraise());
 			notifyDataSetChanged();
 			break;
 		default:
@@ -173,30 +205,42 @@ public class DMListAdapter extends BaseAdapter implements OnClickListener,
 	@Override
 	public void onStateChanged(Uri uri, int state) {
 		switch (state) {
-		case AudioPlayerListener.STATE_DOWNLOAD_END:
+		case AudioPlayerListener.STATE_LOAD_END:
 			// 下载完毕
+			mCurrentLoadBean = null;
 			break;
-		case AudioPlayerListener.STATE_DOWNLOAD_ERROR:
+		case AudioPlayerListener.STATE_LOAD_ERROR:
 			// 下载错误
+			mCurrentLoadBean = null;
 			break;
-		case AudioPlayerListener.STATE_DOWNLOAD_START:
+		case AudioPlayerListener.STATE_LOAD_START:
 			// 下载开始
+			mCurrentLoadBean = mClickPlayBean;
 			break;
 		case AudioPlayerListener.STATE_PLAY_END:
 			// 播放结束
+			mCurrentPlayBean = null;
 			break;
 		case AudioPlayerListener.STATE_PLAY_ERROR:
 			// 播放错误
+			mCurrentPlayBean = null;
 			break;
 		case AudioPlayerListener.STATE_PLAY_START:
 			// 播放开始
+			mCurrentPlayBean = mClickPlayBean;
 			break;
 		}
+		this.notifyDataSetChanged();
 	}
 
 	@Override
 	public void onProgress(int duration, int progress) {
 		// 播放进度
+		if (mPlayPb == null) {
+			return;
+		}
+		mPlayPb.setMax(duration);
+		mPlayPb.setProgress(progress);
 	}
 
 }

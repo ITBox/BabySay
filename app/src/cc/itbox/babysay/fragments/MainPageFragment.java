@@ -89,6 +89,11 @@ public class MainPageFragment extends BaseFragment implements
 		
 		return view;
 	}
+	
+	@Override
+	public void onDestroyView() {
+		mAdapter.destory();
+	};
 
 	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
