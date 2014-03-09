@@ -61,6 +61,15 @@
             android:layout_marginBottom="5dp"
             android:layout_marginRight="5dp"
             android:src="@drawable/selector_dm_play" />
+        
+        <org.holoeverywhere.widget.ProgressBar
+            android:id="@+id/pd_load"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@id/iv_play"
+            android:layout_alignRight="@id/iv_play"
+            android:layout_alignBottom="@id/iv_play"
+            android:layout_alignLeft="@id/iv_play"/>
 
         <org.holoeverywhere.widget.ProgressBar
             android:id="@+id/pd_play"
@@ -69,8 +78,7 @@
             android:layout_height="5dp"
             android:layout_alignBottom="@+id/iv_image"
             android:max="100"
-            android:progress="50"
-            android:visibility="gone" />
+            android:progress="50"/>
 
         <LinearLayout
             android:layout_width="match_parent"

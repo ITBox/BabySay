@@ -11,9 +11,9 @@
 
 package eu.inmite.android.lib.validations.form.iface;
 
-import android.view.View;
-
 import java.lang.annotation.Annotation;
+
+import android.view.View;
 
 /**
  * Adapter that gets the value from view.

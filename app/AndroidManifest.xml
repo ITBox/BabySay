@@ -6,9 +6,10 @@
 
 	<uses-sdk
 		android:minSdkVersion="8"
-		android:targetSdkVersion="18" />
+		android:targetSdkVersion="19" />
 
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.INTERNET" />
 
 	<application
 		android:name="cc.itbox.babysay.AppContext"
@@ -28,6 +29,19 @@
 			</intent-filter>
 		</activity>
 		<activity
+			android:name="cc.itbox.babysay.activities.CropImageActivity"
+			android:configChanges="orientation"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.PhotoProcessingActivity"
+			android:configChanges="orientation"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.SetOpionActivity"
+			android:screenOrientation="portrait" />
+		<activity
 			android:name="cc.itbox.babysay.activities.RegisterOrLoginActivity"
 			android:screenOrientation="portrait" >
 		</activity>
@@ -42,17 +56,7 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name="cc.itbox.babysay.activities.CropImageActivity"
-			android:configChanges="orientation"
-			android:screenOrientation="portrait" >
-		</activity>
-		<activity
-			android:name="cc.itbox.babysay.activities.PhotoProcessingActivity"
-			android:configChanges="orientation"
-			android:screenOrientation="portrait" >
-		</activity>
-		<activity
-			android:name="cc.itbox.babysay.activities.SetOpionActivity"
+			android:name="cc.itbox.babysay.activities.EditActivity"
 			android:screenOrientation="portrait" />
 	</application>
 

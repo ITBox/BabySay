@@ -88,6 +88,11 @@ public class MainPageFragment extends BaseFragment implements
 	}
 
 	@Override
+	public void onDestroyView() {
+		mAdapter.destory();
+	};
+
+	@Override
 	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
 		// 创建显示导航菜单时的Actionbar菜单
 		inflater.inflate(R.menu.main_page, menu);
@@ -177,6 +182,24 @@ public class MainPageFragment extends BaseFragment implements
 				break;
 			case Constants.Request_Code.TAKE_PICTURE_FROM_GALLERY:
 
+				// 进入裁剪页面
+				intent = new Intent(getActivity(), CropImageActivity.class);
+				// x方向的比例
+				intent.putExtra("aspectX", 1);
+				// y方向的比例
+				intent.putExtra("aspectY", 1);
+				// 输出图片大小
+				intent.putExtra("outputX", 400);
+
+				intent.putExtra("outputY", 400);
+				// 是否保存比例
+				intent.putExtra("scale", true);
+
+				intent.setDataAndType(data.getData(), "image/jpeg");
+
+				startActivityForResult(intent,
+						Constants.Request_Code.CROP_GALLERY_PICTURE);
+
 				break;
 			case Constants.Request_Code.CROP_CAMERA_PICTURE:
 
@@ -204,6 +227,19 @@ public class MainPageFragment extends BaseFragment implements
 				startActivity(intent);
 
 				break;
+			case Constants.Request_Code.CROP_GALLERY_PICTURE:
+				// 裁剪相册的照片完成，进入录音界面
+				intent = new Intent(getActivity(),
+						PhotoProcessingActivity.class);
+				// 将bitmap转换为file
+				ImageUtils.Bitmap2File(
+						(Bitmap) data.getParcelableExtra("data"),
+						TEMP_FEED_IMAGE_PATH);
+				intent.putExtra("image_path", TEMP_FEED_IMAGE_PATH);
+				// startActivityForResult(intent,Constants.Request_Code.GALLERY_PICTURE_RECORD);
+				startActivity(intent);
+				break;
+
 			default:
 				break;
 			}

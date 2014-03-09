@@ -1,9 +1,9 @@
 package cc.itbox.babysay.activities;
 
-import cc.itbox.babysay.R;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.MenuItem;
+import cc.itbox.babysay.R;
 /**
  * 
  * @author youzh

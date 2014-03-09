@@ -3,6 +3,7 @@ package cc.itbox.babysay.activities;
 import java.util.ArrayList;
 import java.util.concurrent.CountDownLatch;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +17,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.WindowManager;
@@ -91,23 +91,31 @@ public class CropImageActivity extends MonitoredActivity {
 		startFaceDetection();
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.actionbar_register_or_login, menu);
-		registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
-		registerOrLoginItem.setTitle(R.string.login);
+//		MenuInflater inflater = getMenuInflater();
+//		inflater.inflate(R.menu.actionbar_register_or_login, menu);
+//		registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
+//		registerOrLoginItem.setTitle(R.string.login);
+		
+		MenuItem add = menu.add(0, 0, 0, "下一步");
+		add.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
+		
 		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
+		case 0:
+			onSaveClicked();
+			return false;
 		case android.R.id.home:
 			finish();
 			return false;
 		case R.id.action_register_or_login:
-			onSaveClicked();// 保存
+//			onSaveClicked();// 保存
 			return false;
 		default:
 			return super.onOptionsItemSelected(item);

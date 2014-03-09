@@ -1,12 +1,16 @@
 package cc.itbox.babysay.media;
 
 import android.annotation.SuppressLint;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.media.MediaPlayer.OnCompletionListener;
+import android.media.MediaPlayer.OnPreparedListener;
 import android.net.Uri;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
+import cc.itbox.babysay.util.LogUtil;
 
 /**
  * 音频播放器
@@ -63,17 +67,89 @@ public class AudioPlayer {
 			}
 			mUri = uri;
 			// 判断Uri类型
-			if ("file".equals(mUri.getScheme())) {
-				// 本地文件
-				playLocalFile(mUri.getPath());
-			} else if ("http".equals(mUri.getScheme())) {
+			if ("http".equals(mUri.getScheme())) {
 				// 网络文件
+				playNetFile(mUri.toString());
+			} else {
+				// 本地文件
+				playLocalFile(mUri.toString());
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 			if (mListener != null)
 				mListener.onStateChanged(mUri,
 						AudioPlayerListener.STATE_PLAY_ERROR);
+		}
+	}
+
+	/**
+	 * 播放网络文件
+	 * 
+	 * @param path
+	 */
+	private void playNetFile(String path) {
+		try {
+			mMediaPlayer = new MediaPlayer();
+			mMediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+			mMediaPlayer.setDataSource(path);
+			mMediaPlayer.setOnCompletionListener(new OnCompletionListener() {
+				@Override
+				public void onCompletion(MediaPlayer mp) {
+					stop();
+				}
+
+			});
+			mMediaPlayer
+					.setOnBufferingUpdateListener(new OnBufferingUpdateListener() {
+						@Override
+						public void onBufferingUpdate(MediaPlayer mp,
+								int percent) {
+							LogUtil.i("mediaplayer buffering percent = "
+									+ percent);
+						}
+					});
+			mMediaPlayer.setOnPreparedListener(new OnPreparedListener() {
+
+				@Override
+				public void onPrepared(MediaPlayer mp) {
+					// 缓冲完毕，开始播放
+					if (mListener != null)
+						mListener.onStateChanged(mUri,
+								AudioPlayerListener.STATE_LOAD_END);
+					mp.start();
+					// 更新进度线程
+					new Thread() {
+						@Override
+						public void run() {
+							try {
+								while (mMediaPlayer != null && mMediaPlayer.isPlaying()) {
+									if (mListener != null) {
+										mHandler.sendMessage(Message.obtain(mHandler,
+												0, mMediaPlayer.getDuration(),
+												mMediaPlayer.getCurrentPosition()));
+									}
+									SystemClock.sleep(500);
+								}
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}
+					}.start();
+					if (mListener != null)
+						mListener.onStateChanged(mUri,
+								AudioPlayerListener.STATE_PLAY_START);
+				}
+			});
+			// 异步缓冲
+			mMediaPlayer.prepareAsync();
+			if (mListener != null)
+				mListener.onStateChanged(mUri,
+						AudioPlayerListener.STATE_LOAD_START);
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (mListener != null)
+				mListener.onStateChanged(mUri,
+						AudioPlayerListener.STATE_LOAD_ERROR);
 		}
 	}
 
@@ -142,9 +218,9 @@ public class AudioPlayer {
 	}
 
 	public static interface AudioPlayerListener {
-		public static final int STATE_DOWNLOAD_START = 1;
-		public static final int STATE_DOWNLOAD_END = 2;
-		public static final int STATE_DOWNLOAD_ERROR = 3;
+		public static final int STATE_LOAD_START = 1;
+		public static final int STATE_LOAD_END = 2;
+		public static final int STATE_LOAD_ERROR = 3;
 		public static final int STATE_PLAY_START = 4;
 		public static final int STATE_PLAY_END = 5;
 		public static final int STATE_PLAY_ERROR = 6;

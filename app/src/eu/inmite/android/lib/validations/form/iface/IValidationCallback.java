@@ -1,8 +1,8 @@
 package eu.inmite.android.lib.validations.form.iface;
 
-import eu.inmite.android.lib.validations.form.FormValidator;
-
 import java.util.List;
+
+import eu.inmite.android.lib.validations.form.FormValidator;
 
 /**
 * @author Tomas Vondracek

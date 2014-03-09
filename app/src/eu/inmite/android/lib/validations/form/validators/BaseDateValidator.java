@@ -1,13 +1,13 @@
 package eu.inmite.android.lib.validations.form.validators;
 
-import android.content.Context;
-import eu.inmite.android.lib.validations.form.annotations.AnnotationsHelper;
-
 import java.lang.annotation.Annotation;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
+
+import android.content.Context;
+import eu.inmite.android.lib.validations.form.annotations.AnnotationsHelper;
 
 /**
  * @author Tomas Vondracek

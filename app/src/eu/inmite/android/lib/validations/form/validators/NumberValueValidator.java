@@ -11,15 +11,15 @@
 
 package eu.inmite.android.lib.validations.form.validators;
 
+import java.lang.annotation.Annotation;
+import java.math.BigDecimal;
+
 import android.text.TextUtils;
 import eu.inmite.android.lib.validations.form.Utils;
 import eu.inmite.android.lib.validations.form.annotations.ComparingPolicy;
 import eu.inmite.android.lib.validations.form.annotations.MaxNumberValue;
 import eu.inmite.android.lib.validations.form.annotations.MinNumberValue;
 import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
-
-import java.lang.annotation.Annotation;
-import java.math.BigDecimal;
 
 /**
  * @author Tomas Vondracek

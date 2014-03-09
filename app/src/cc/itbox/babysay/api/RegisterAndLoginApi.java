@@ -3,7 +3,7 @@ package cc.itbox.babysay.api;
 import org.apache.http.Header;
 
 import android.content.Context;
-import cc.itbox.babysay.util.Constants;
+import cc.itbox.babysay.WebDefine;
 import cc.itbox.babysay.util.LogUtil;
 
 import com.loopj.android.http.AsyncHttpResponseHandler;
@@ -16,7 +16,7 @@ public class RegisterAndLoginApi extends BaseApi {
 	}
 
 	public void register(RequestParams params) {
-		client.post(Constants.REGISTER_URL, params,
+		client.post(WebDefine.REGISTER_URL, params,
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
@@ -36,7 +36,7 @@ public class RegisterAndLoginApi extends BaseApi {
 	}
 
 	public void login(RequestParams params) {
-		client.post(Constants.LOGIN_URL, params,
+		client.post(WebDefine.LOGIN_URL, params,
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {

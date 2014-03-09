@@ -1,6 +1,4 @@
 
-
-
 ###项目结构
 
 <pre>
@@ -39,20 +37,4 @@ cc.itbox.babysay.util
 * [ActionBar-PullToRefresh](https://github.com/chrisbanes/ActionBar-PullToRefresh)
 
 
-###ToDo
-
-<pre>
-
-登陆和注册模块
- |--新浪QQ OAuth认证
- |--登陆和注册输入校验
- |--登陆注册接口处理
- |--生日选择
- |--样式调整
-发布模块
- |--
-首页
- |--
-
-
-</pre>
+###[ToDoList](https://github.com/ITBox/BabySay/blob/master/doc/ToDoList.md)

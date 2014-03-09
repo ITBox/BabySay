@@ -1,10 +1,10 @@
 package eu.inmite.android.lib.validations.form.callback;
 
+import java.util.List;
+
 import android.content.Context;
 import eu.inmite.android.lib.validations.form.FormValidator;
 import eu.inmite.android.lib.validations.form.iface.IValidationCallback;
-
-import java.util.List;
 
 /**
  * @author Tomas Vondracek

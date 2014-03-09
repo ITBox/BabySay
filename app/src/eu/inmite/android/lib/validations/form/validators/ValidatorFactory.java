@@ -1,12 +1,12 @@
 package eu.inmite.android.lib.validations.form.validators;
 
-import android.support.v4.util.LruCache;
-import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
-import eu.inmite.android.lib.validations.form.iface.IValidator;
-
 import java.lang.annotation.Annotation;
 import java.util.HashMap;
 import java.util.Map;
+
+import android.support.v4.util.LruCache;
+import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
+import eu.inmite.android.lib.validations.form.iface.IValidator;
 
 /**
  * @author Tomas Vondracek

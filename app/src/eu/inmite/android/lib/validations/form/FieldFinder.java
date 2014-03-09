@@ -1,14 +1,19 @@
 package eu.inmite.android.lib.validations.form;
 
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
+
 import android.view.View;
 import eu.inmite.android.lib.validations.exception.FormsValidationException;
 import eu.inmite.android.lib.validations.form.annotations.Condition;
 import eu.inmite.android.lib.validations.form.iface.IValidator;
 import eu.inmite.android.lib.validations.form.validators.ValidatorFactory;
-
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.util.*;
 
 /**
  * Finds and cache fields by targets so we don't need to go through reflection all the time.

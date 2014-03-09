@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@android:color/black"
+     >
 
     <FrameLayout
         android:layout_width="fill_parent"
@@ -16,112 +18,306 @@
                 android:id="@+id/iv_photo"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:scaleType="fitCenter"
-                />
+                android:scaleType="fitCenter" />
 
-   <HorizontalScrollView 
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:scrollbars="horizontal"
-    android:layout_alignParentBottom="true"
-    >
-    <LinearLayout 
-    android:layout_width="match_parent"
-    android:layout_height="90dip"
-    android:orientation="horizontal"
-    android:background="@android:color/darker_gray"
-    android:gravity="center_vertical"
-     >
-    
-    <FrameLayout 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back_tiem"
-        >   
-     <TextView
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_gravity="center"
-       />
-   
-   </FrameLayout>    
-    
-   <TextView 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_marginLeft="10dip"
-       />
-   <TextView 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_marginLeft="10dip"
-       />
-   <TextView 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_marginLeft="10dip"
-       />
-   <TextView 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_marginLeft="10dip"
-       />
-   <TextView 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_marginLeft="10dip"
-       />
-   <TextView 
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:background="@drawable/filter_normal"
-       android:text="原图"
-       android:textSize="10sp"
-       android:textColor="@android:color/white"
-       android:gravity="center_horizontal|bottom"
-       android:paddingBottom="5dip"
-       android:layout_marginLeft="10dip"
-       />
+            <HorizontalScrollView
+                android:id="@+id/hsv_item"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:scrollbars="horizontal" >
 
-</LinearLayout>
-</HorizontalScrollView>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="90dip"
+                    android:background="@drawable/g_common_title_bar_black_repeatx"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal" 
+                    >
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem" />
+
+                        <TextView
+                            android:id="@+id/tv_original"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_gravity="center"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="原图"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp"
+                             />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem"
+                            android:visibility="invisible"
+                             />
+
+                        <TextView
+                            android:id="@+id/tv_sentimental"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="青涩"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem" 
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_permeate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="渗透"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem" 
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_dawn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="破晓"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem"
+                            android:visibility="invisible"
+                             />
+
+                        <TextView
+                            android:id="@+id/tv_black"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="黑白"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" 
+                            android:layout_centerInParent="true"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem"
+                            android:visibility="invisible"
+                             />
+
+                        <TextView
+                            android:id="@+id/tv_xpro"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="X-pro"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem" 
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_latte"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="拿铁"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem"
+                            android:visibility="invisible"
+                             />
+
+                        <TextView
+                            android:id="@+id/tv_turmeric"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="姜黄"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem" 
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_glaze"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="琉璃"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem" 
+                            android:visibility="invisible"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_wormwood"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="艾草"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="fill_parent" >
+
+                        <ImageView
+                            android:id="@+id/iv_backg11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/back_tiem"
+                            android:visibility="invisible"
+                             />
+
+                        <TextView
+                            android:id="@+id/tv_subside"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginLeft="10dip"
+                            android:background="@drawable/filter_normal"
+                            android:gravity="center_horizontal|bottom"
+                            android:paddingBottom="5dip"
+                            android:text="沉降"
+                            android:textColor="@android:color/white"
+                            android:textSize="10sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+            </HorizontalScrollView>
         </RelativeLayout>
     </FrameLayout>
 
