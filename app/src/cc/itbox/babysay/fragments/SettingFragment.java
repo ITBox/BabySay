@@ -156,12 +156,11 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 				mLoader.clearMemoryCache();
 				break;
 			case 1:
-				showUpdateDialog("dfdfdsfsd");
-//				progressDialog.setMessage("检查中...");
-//				progressDialog.setCanceledOnTouchOutside(true);
-//				progressDialog.show();
-				// 连接服务器
-				CatchInfo ci = new CatchInfo();
+				progressDialog.setMessage("检查中...");
+				progressDialog.setCanceledOnTouchOutside(true);
+				progressDialog.show();
+				// TODO 连接服务器
+//				CatchInfo ci = new CatchInfo();
 //				CheckVersionApi versionApi = new CheckVersionApi(mActThis, Constants.VISIT_SERVER_GET_VERSION, ci, SettingFragment.this);
 //				versionApi.requestVersion();
 				break;
