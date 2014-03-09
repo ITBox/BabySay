@@ -10,7 +10,7 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
 public class AppContext extends Application {
 
-	private static AppContext mContext;
+	public static AppContext mContext;
 
 	public static AppContext getInstance() {
 		return mContext;
