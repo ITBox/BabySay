@@ -22,23 +22,21 @@
 	<string name="validation_valid_email_empty">请输入邮箱</string>
 	<string name="validation_valid_email_format">请输入正确的邮箱</string>
 	<string name="validation_date">Date must be in future</string>
-	<string name="validation_type">Please, select type</string>
-	<string name="validation_success">Validation succeeded! \nThat was easy, wasn\'t it?</string>
-
+	<string name="login_by_social_account">或通过社交帐号直接登录</string>
+	<string name="please_insert_sdcard">请插入内存卡</string>
 	<!-- 其它 -->
 
 	<string name="refresh">刷新</string>
 	<string name="new_content">新建</string>
 	<string name="register_pass">密码</string>
 	<string name="register_pass_again">确认密码</string>
-	<string name="forget_password">忘记密码</string>
+	<string name="forget_password">忘记密码?</string>
 	<string name="for_title">忘记密码</string>
 	<string name="for_content">请输入注册时所填的邮件地址</string>
 	<string name="for_cancle">取消</string>
 	<string name="for_confirm">确定</string>
 	<string name="forget">忘记密码</string>
 	<string name="take_photo">拍照</string>
-	<string name="take_pic">从图库选择</string>
-	<string name="login_by_social_account">或通过社交帐号直接登录</string>
+	<string name="take_pic">相册</string>
 
 </resources>

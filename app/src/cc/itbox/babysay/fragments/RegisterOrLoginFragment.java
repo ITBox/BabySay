@@ -5,9 +5,6 @@ import org.holoeverywhere.app.TabSwipeFragment;
 
 import android.os.Bundle;
 import cc.itbox.babysay.R;
-import cc.itbox.babysay.api.RegisterAndLoginApi;
-
-import com.loopj.android.http.RequestParams;
 
 public class RegisterOrLoginFragment extends TabSwipeFragment {
 
@@ -24,9 +21,6 @@ public class RegisterOrLoginFragment extends TabSwipeFragment {
 	public void onActivityCreated(Bundle savedInstanceState) {
 		super.onActivityCreated(savedInstanceState);
 		mActivity = (Activity) getActivity();
-		RequestParams params = new RequestParams();
-
-		new RegisterAndLoginApi(mActivity).login(params);
 
 	}
 

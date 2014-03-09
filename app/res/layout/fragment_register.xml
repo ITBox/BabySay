@@ -26,36 +26,43 @@
 			android:id="@+id/et_nickname"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
 			android:hint="@string/nickname" />
 
 		<org.holoeverywhere.widget.EditText
 			android:id="@+id/et_email"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
 			android:hint="@string/email" />
 
 		<org.holoeverywhere.widget.EditText
 			android:id="@+id/et_password"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
 			android:hint="@string/password" />
 
 		<org.holoeverywhere.widget.EditText
 			android:id="@+id/et_confirm_password"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
 			android:hint="@string/confirm_password" />
 
 		<LinearLayout
 			android:layout_width="match_parent"
-			android:layout_height="wrap_content" >
+			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp" >
 
 			<TextView
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_gravity="center_vertical"
+				android:layout_marginLeft="5dip"
 				android:layout_weight="1"
-				android:text="@string/sex" />
+				android:text="@string/sex"
+				android:textSize="16sp" />
 
 			<RadioGroup
 				android:id="@+id/rg_sex"
@@ -69,6 +76,7 @@
 					android:id="@+id/rb_female"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:checked="true"
 					android:text="@string/female" />
 
 				<org.holoeverywhere.widget.RadioButton
@@ -84,7 +92,7 @@
 			android:id="@+id/et_birthday"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_marginTop="5dp"
+			android:layout_marginTop="10dp"
 			android:focusable="false"
 			android:hint="@string/birthday" />
 
@@ -92,6 +100,7 @@
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginBottom="10dp"
+			android:layout_marginTop="10dp"
 			android:background="@drawable/selector_btn_bg"
 			android:clickable="true"
 			android:gravity="center_horizontal"

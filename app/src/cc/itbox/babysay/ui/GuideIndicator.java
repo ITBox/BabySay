@@ -40,13 +40,13 @@ public class GuideIndicator extends View {
 	private int mCurrentPage;
 
 	private int mGravity = Gravity.LEFT | Gravity.TOP;
-	private float mTabWidth;
-	private float mTabHeight;
-	private float mTabSpacing;
-	private Paint mSelectedTabPaint;
-	private Paint mUnSelectedTabPaint;
+	private final float mTabWidth;
+	private final float mTabHeight;
+	private final float mTabSpacing;
+	private final Paint mSelectedTabPaint;
+	private final Paint mUnSelectedTabPaint;
 
-	private RectF mTempRectF = new RectF();
+	private final RectF mTempRectF = new RectF();
 
 	private OnPageSelectedListener mOnPageSelectedListener;
 
@@ -91,7 +91,6 @@ public class GuideIndicator extends View {
 		if (mPageCount == 0) {
 			return;
 		}
-
 		float totalWidth = mPageCount * (mTabWidth + mTabSpacing) - mTabSpacing;
 		float totalLeft;
 		boolean fillHorizontal = false;

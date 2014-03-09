@@ -60,7 +60,6 @@ public class CropImageActivity extends MonitoredActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mActionBar.setDisplayHomeAsUpEnabled(true);
-		// requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_crop_picture);
 		mImageView = (CropImageView) findViewById(R.id.show_picture);
 		mImageView.mContext = this;
@@ -68,7 +67,6 @@ public class CropImageActivity extends MonitoredActivity {
 		Bundle extras = intent.getExtras();
 
 		if (extras != null) {
-			// 图片
 			mBitmap = (Bitmap) extras.getParcelable("data");
 			mAspectX = extras.getInt("aspectX");
 			mAspectY = extras.getInt("aspectY");
@@ -82,10 +80,7 @@ public class CropImageActivity extends MonitoredActivity {
 			Uri target = intent.getData();
 			// 对图片进行压缩
 			mBitmap = ImageUtils.getBitmap(this, null, null, target);
-			String path = ImageUtils.getImagePathFromUri(target, this);
-			int degree = ImageUtils.readPictureDegree(path);
-			mBitmap = ImageUtils.rotaingImageView(degree, mBitmap);
-			// rotateImage(target);
+
 		}
 
 		if (mBitmap == null) {
@@ -124,7 +119,6 @@ public class CropImageActivity extends MonitoredActivity {
 		if (isFinishing()) {
 			return;
 		}
-		//
 		mImageView.setImageBitmapResetBase(mBitmap, true);
 		startBackgroundJob(this, null, "正在裁剪请稍后...", new Runnable() {
 			@Override

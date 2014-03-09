@@ -66,7 +66,7 @@ public class NavigationDrawerFragment extends Fragment {
 	public NavigationDrawerFragment() {
 		mItemTitles = new String[] { "个人中心", "主页", "发现", "消息", "设置", ""};
 	}
-    private int [] drawableRes =new int[]{0, R.drawable.ic_logo, R.drawable.ic_logo, R.drawable.ic_logo, R.drawable.ic_logo, 0};
+    private int [] drawableRes =new int[]{0, R.drawable.app_icon, R.drawable.app_icon, R.drawable.app_icon, R.drawable.app_icon, 0};
 
 	private NavigationItemAdapter adapter;
 	

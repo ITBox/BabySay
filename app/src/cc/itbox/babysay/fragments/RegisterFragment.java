@@ -10,9 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.api.RegisterAndLoginApi;
+import cc.itbox.babysay.image.GeneralImageChooser;
 import cc.itbox.babysay.ui.CircleImageView;
+import cc.itbox.babysay.ui.dialog.GetPictureDialogListFragment;
 import cc.itbox.babysay.ui.dialog.OnSetDateListener;
 import cc.itbox.babysay.ui.dialog.PickersDatePickerFragment;
 import cc.itbox.babysay.util.UIUtil;
@@ -20,13 +23,16 @@ import cc.itbox.babysay.util.UIUtil;
 import com.loopj.android.http.RequestParams;
 
 import eu.inmite.android.lib.validations.form.FormValidator;
+import eu.inmite.android.lib.validations.form.annotations.DateInFuture;
 import eu.inmite.android.lib.validations.form.annotations.MaxLength;
 import eu.inmite.android.lib.validations.form.annotations.MinLength;
 import eu.inmite.android.lib.validations.form.annotations.NotEmpty;
 import eu.inmite.android.lib.validations.form.annotations.RegExp;
 import eu.inmite.android.lib.validations.form.callback.SimpleErrorPopupCallback;
 
-public class RegisterFragment extends BaseFragment implements OnSetDateListener {
+public class RegisterFragment extends BaseFragment implements
+		OnSetDateListener, OnCheckedChangeListener {
+	private static final int CHOOSER_IMAGE_REQUEST_CODE = 0;
 	// 头像 昵称
 	private CircleImageView avatarIV;
 	// 昵称
@@ -42,7 +48,7 @@ public class RegisterFragment extends BaseFragment implements OnSetDateListener 
 	private EditText passwordEt;
 	@NotEmpty(messageId = R.string.validation_password_empty, order = 7)
 	private EditText confirmPasswordEt;
-	// @DateInFuture(messageId = R.string.validation_date, order = 8)
+	@DateInFuture(messageId = R.string.validation_date, order = 8)
 	private EditText birthdayEt;
 	private RadioGroup sexRg;
 	private MenuItem registerOrLoginItem;
@@ -70,6 +76,8 @@ public class RegisterFragment extends BaseFragment implements OnSetDateListener 
 		confirmPasswordEt = UIUtil.getView(view, R.id.et_confirm_password);
 		birthdayEt = UIUtil.getView(view, R.id.et_birthday);
 		sexRg = UIUtil.getView(view, R.id.rg_sex);
+		sexRg.setOnCheckedChangeListener(this);
+		avatarIV.setOnClickListener(this);
 		birthdayEt.setOnClickListener(this);
 		return view;
 	}
@@ -118,6 +126,13 @@ public class RegisterFragment extends BaseFragment implements OnSetDateListener 
 			datePickerFragment.setOnSetDateListener(this);
 			datePickerFragment.show(getFragmentManager());
 			break;
+		case R.id.iv_avatar:
+			GeneralImageChooser mGeneralImageChooser = new GeneralImageChooser(
+					mActivity, CHOOSER_IMAGE_REQUEST_CODE);
+			GetPictureDialogListFragment getPictureDialogListFragment = GetPictureDialogListFragment
+					.newInstance(mGeneralImageChooser);
+			getPictureDialogListFragment.show(getFragmentManager());
+			break;
 
 		default:
 			break;
@@ -127,6 +142,16 @@ public class RegisterFragment extends BaseFragment implements OnSetDateListener 
 	@Override
 	public void setDate(String date) {
 		birthdayEt.setText(date);
+
+	}
+
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		if (checkedId == R.id.rb_male) {
+			sexStr = "1";
+		} else if (checkedId == R.id.rb_female) {
+			sexStr = "2";
+		}
 
 	}
 
