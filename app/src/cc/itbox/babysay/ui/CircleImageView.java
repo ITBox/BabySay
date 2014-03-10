@@ -1,6 +1,5 @@
 package cc.itbox.babysay.ui;
 
-import cc.itbox.babysay.R;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -16,6 +15,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
+import cc.itbox.babysay.R;
 
 public class CircleImageView extends ImageView {
 

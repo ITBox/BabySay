@@ -1,8 +1,8 @@
 package eu.inmite.android.lib.validations.exception;
 
-import android.view.View;
-
 import java.lang.annotation.Annotation;
+
+import android.view.View;
 
 /**
  * @author Tomas Vondracek

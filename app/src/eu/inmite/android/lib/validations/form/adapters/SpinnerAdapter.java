@@ -1,9 +1,9 @@
 package eu.inmite.android.lib.validations.form.adapters;
 
+import java.lang.annotation.Annotation;
+
 import android.widget.Spinner;
 import eu.inmite.android.lib.validations.form.iface.IFieldAdapter;
-
-import java.lang.annotation.Annotation;
 
 /**
  * @author Tomas Vondracek

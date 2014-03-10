@@ -1,8 +1,8 @@
 package eu.inmite.android.lib.validations.form.validators;
 
-import android.content.Context;
-
 import java.lang.annotation.Annotation;
+
+import android.content.Context;
 
 /**
  * Checks the given numerical string for a "banking modulo 11 validity".

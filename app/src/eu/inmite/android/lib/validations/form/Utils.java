@@ -1,11 +1,11 @@
 package eu.inmite.android.lib.validations.form;
 
-import android.text.TextUtils;
-import android.util.Log;
-
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+
+import android.text.TextUtils;
+import android.util.Log;
 
 /**
  * @author Tomas Vondracek

@@ -3,7 +3,6 @@ package cc.itbox.babysay.fragments;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -66,7 +65,7 @@ public class NavigationDrawerFragment extends Fragment {
 	public NavigationDrawerFragment() {
 		mItemTitles = new String[] { "个人中心", "主页", "发现", "消息", "设置", ""};
 	}
-    private int [] drawableRes =new int[]{0, R.drawable.ic_logo, R.drawable.ic_logo, R.drawable.ic_logo, R.drawable.ic_logo, 0};
+    private int [] drawableRes =new int[]{0, R.drawable.app_icon, R.drawable.app_icon, R.drawable.app_icon, R.drawable.app_icon, 0};
 
 	private NavigationItemAdapter adapter;
 	

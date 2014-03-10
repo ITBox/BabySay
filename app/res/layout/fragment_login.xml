@@ -9,32 +9,34 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical"
 		android:paddingLeft="16dp"
-		android:paddingRight="16dp"
-		android:paddingTop="16dp" >
+		android:paddingRight="16dp" >
 
 		<org.holoeverywhere.widget.EditText
 			android:id="@+id/et_email"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
 			android:hint="@string/email" />
 
 		<org.holoeverywhere.widget.EditText
 			android:id="@+id/et_password"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dp"
 			android:hint="@string/password" />
 
 		<TextView
-			android:id="@+id/tv_forget"
+			android:id="@+id/tv_forget_password"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:layout_gravity="right"
-			android:text="@string/forget_password"
-			android:visibility="gone" />
+			android:layout_marginTop="10dp"
+			android:text="@string/forget_password" />
 
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="10dip"
 			android:gravity="center_vertical"
 			android:orientation="horizontal" >
 
@@ -62,6 +64,7 @@
 		<LinearLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
+			android:layout_marginTop="20dp"
 			android:gravity="center_vertical"
 			android:orientation="horizontal" >
 

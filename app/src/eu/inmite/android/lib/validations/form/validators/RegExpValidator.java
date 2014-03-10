@@ -1,11 +1,11 @@
 package eu.inmite.android.lib.validations.form.validators;
 
-import eu.inmite.android.lib.validations.form.annotations.RegExp;
-import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
-
 import java.lang.annotation.Annotation;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import eu.inmite.android.lib.validations.form.annotations.RegExp;
+import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
 
 /**
  * @author Tomas Vondracek

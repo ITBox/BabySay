@@ -12,15 +12,16 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
+import android.view.animation.TranslateAnimation;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import cc.itbox.babysay.R;
@@ -43,7 +44,7 @@ public class PhotoProcessingActivity extends BaseActivity implements OnClickList
 	private ProgressDialog mProgressDialog;
 	private String imagePath;	
 	private ArrayList<Integer> mEditActions = new ArrayList<Integer>();
-
+	private HorizontalScrollView hsv_item;
 	
 //	原图 青涩 渗透 破晓 黑白 X-pro 拿铁 姜黄 琉璃 艾草 沉降
 	
@@ -76,6 +77,7 @@ public class PhotoProcessingActivity extends BaseActivity implements OnClickList
 			Intent intent = new Intent();
 			intent.setClass(this, EditActivity.class);
 			String path = getCacheDir()+"/cached.jpg";
+			
 			intent.putExtra("path", path);
 			startActivity(intent);
 			return true;
@@ -113,6 +115,9 @@ public class PhotoProcessingActivity extends BaseActivity implements OnClickList
 		tv_wormwood=(TextView) findViewById(R.id.tv_wormwood);
 		tv_subside=(TextView) findViewById(R.id.tv_subside);
 		
+		hsv_item=(HorizontalScrollView) findViewById(R.id.hsv_item);
+		
+		
 		
 	}
 
@@ -130,11 +135,14 @@ public class PhotoProcessingActivity extends BaseActivity implements OnClickList
 		tv_wormwood.setOnClickListener(this);
 		tv_subside.setOnClickListener(this);
 		
+		iv_photo.setOnClickListener(this);
 		
 	}
 	private void initData() {
 		Intent intent = getIntent();
 		imagePath = intent.getStringExtra("image_path");
+		Bitmap bitmap = BitmapFactory.decodeFile(imagePath, null);
+		saveToCache(bitmap);
 		loadPhoto(imagePath);
 		iv_photo.setImageBitmap(mBitmap);
 		
@@ -210,7 +218,20 @@ public class PhotoProcessingActivity extends BaseActivity implements OnClickList
 			sFilterTask = new FilterTask(PhotoProcessingActivity.this);
 			sFilterTask.execute(10);
 			break;
-		
+		case R.id.iv_photo:
+			if(hsv_item.isShown()){
+			TranslateAnimation animation = new TranslateAnimation(0, 0, 0, 150);
+			animation.setDuration(100);
+			hsv_item.startAnimation(animation);
+			hsv_item.setVisibility(View.INVISIBLE);
+			}else{
+				TranslateAnimation animation = new TranslateAnimation(0, 0, 150, 0);
+				animation.setDuration(100);
+				hsv_item.startAnimation(animation);
+				hsv_item.setVisibility(View.VISIBLE);
+			}
+			
+			break;
 		default:
 			break;
 		}

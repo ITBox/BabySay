@@ -11,12 +11,12 @@
 
 package eu.inmite.android.lib.validations.form.validators;
 
+import java.lang.annotation.Annotation;
+
 import android.content.Context;
 import android.text.TextUtils;
 import eu.inmite.android.lib.validations.form.annotations.NotEmpty;
 import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
-
-import java.lang.annotation.Annotation;
 
 /**
  * @author Tomas Vondracek

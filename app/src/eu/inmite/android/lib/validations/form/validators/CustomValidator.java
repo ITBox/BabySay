@@ -11,13 +11,13 @@
 
 package eu.inmite.android.lib.validations.form.validators;
 
+import java.lang.annotation.Annotation;
+
 import eu.inmite.android.lib.validations.exception.FormsValidationException;
 import eu.inmite.android.lib.validations.form.annotations.Custom;
 import eu.inmite.android.lib.validations.form.annotations.Joined;
 import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
 import eu.inmite.android.lib.validations.form.iface.IValidator;
-
-import java.lang.annotation.Annotation;
 
 /**
  * @author Tomas Vondracek

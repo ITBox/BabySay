@@ -11,16 +11,20 @@
 
 package eu.inmite.android.lib.validations.form.validators;
 
-import android.text.TextUtils;
-import eu.inmite.android.lib.validations.form.annotations.DateInFuture;
-import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
+import static java.util.Calendar.DAY_OF_YEAR;
+import static java.util.Calendar.HOUR;
+import static java.util.Calendar.MILLISECOND;
+import static java.util.Calendar.MINUTE;
+import static java.util.Calendar.SECOND;
 
 import java.lang.annotation.Annotation;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static java.util.Calendar.*;
+import android.text.TextUtils;
+import eu.inmite.android.lib.validations.form.annotations.DateInFuture;
+import eu.inmite.android.lib.validations.form.annotations.ValidatorFor;
 
 /**
  * @author Tomas Vondracek

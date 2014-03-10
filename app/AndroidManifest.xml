@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cc.itbox.babysay"
-    android:versionCode="1"
-    android:versionName="1.0" >
+	package="cc.itbox.babysay"
+	android:versionCode="1"
+	android:versionName="1.0" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+	<uses-sdk
+		android:minSdkVersion="8"
+		android:targetSdkVersion="19" />
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+	<uses-permission android:name="android.permission.INTERNET" />
 
+<<<<<<< HEAD
     <application
         android:name="cc.itbox.babysay.AppContext"
         android:allowBackup="true"
@@ -57,5 +59,55 @@
         <activity android:name="cc.itbox.babysay.activities.UserInfoEditActivity"
             android:screenOrientation="portrait" ></activity>
     </application>
+=======
+	<application
+		android:name="cc.itbox.babysay.AppContext"
+		android:allowBackup="true"
+		android:icon="@drawable/app_icon"
+		android:label="@string/app_name"
+		android:theme="@style/Holo.Theme.Light" >
+		<activity
+			android:name="cc.itbox.babysay.activities.GuideActivity"
+			android:label="@string/app_name"
+			android:screenOrientation="portrait"
+			android:theme="@android:style/Theme.NoTitleBar" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.CropImageActivity"
+			android:configChanges="orientation"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.PhotoProcessingActivity"
+			android:configChanges="orientation"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.SetOpionActivity"
+			android:screenOrientation="portrait" />
+		<activity
+			android:name="cc.itbox.babysay.activities.RegisterOrLoginActivity"
+			android:screenOrientation="portrait" >
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.MainActivity"
+			android:label="@string/app_name"
+			android:screenOrientation="portrait" >
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity
+			android:name="cc.itbox.babysay.activities.EditActivity"
+			android:screenOrientation="portrait" />
+	</application>
+>>>>>>> FETCH_HEAD
 
 </manifest>

@@ -1,8 +1,11 @@
 package cc.itbox.babysay.activities;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
@@ -101,7 +104,8 @@ public class MainActivity extends BaseActivity implements
 	 * 主页面Fragment基类
 	 */
 	public static class BaseFragment extends Fragment {
-
+        protected ImageLoader mLoader;
+        protected FragmentActivity mActThis = null;
 		/**
 		 * 子页面
 		 */
@@ -132,6 +136,8 @@ public class MainActivity extends BaseActivity implements
 		@Override
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
+			mActThis = getActivity();
+			mLoader = ImageLoader.getInstance();
 			// 启用菜单
 			setHasOptionsMenu(true);
 		}

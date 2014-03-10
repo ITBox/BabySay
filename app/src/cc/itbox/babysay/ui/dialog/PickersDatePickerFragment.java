@@ -4,10 +4,16 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import org.holoeverywhere.widget.Toast;
 import org.holoeverywhere.widget.datetimepicker.date.DatePickerDialog;
 
 import android.os.Bundle;
+
+/**
+ * 日期选择器
+ * 
+ * @author malinkang 2014-3-7
+ * 
+ */
 
 public class PickersDatePickerFragment extends DatePickerDialog implements
 		DatePickerDialog.OnDateSetListener {
@@ -32,9 +38,6 @@ public class PickersDatePickerFragment extends DatePickerDialog implements
 		calendar.set(Calendar.YEAR, year);
 		calendar.set(Calendar.MONTH, monthOfYear);
 		calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
-		Toast.makeText(getSupportActivity(),
-				"Set date: " + DATE_FORMAT.format(calendar.getTime()),
-				Toast.LENGTH_SHORT).show();
 		mOnSetDateListener.setDate(DATE_FORMAT.format(calendar.getTime()));
 
 	}

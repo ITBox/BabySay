@@ -1,10 +1,10 @@
 package eu.inmite.android.lib.validations.form.validators;
 
+import java.lang.annotation.Annotation;
+
 import android.content.Context;
 import eu.inmite.android.lib.validations.form.annotations.AnnotationsHelper;
 import eu.inmite.android.lib.validations.form.iface.IValidator;
-
-import java.lang.annotation.Annotation;
 
 /**
  * @author Tomas Vondracek

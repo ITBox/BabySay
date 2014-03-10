@@ -1,8 +1,12 @@
 package eu.inmite.android.lib.validations.form.annotations;
 
-import eu.inmite.android.lib.validations.form.iface.ICondition;
+import java.lang.annotation.Annotation;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
-import java.lang.annotation.*;
+import eu.inmite.android.lib.validations.form.iface.ICondition;
 
 /**
  * This annotation makes conditioned validation possible. It can be attached to single validation or all on field.

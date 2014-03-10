@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:background="@android:color/black"
+     >
 
     <FrameLayout
         android:layout_width="fill_parent"
@@ -19,6 +21,7 @@
                 android:scaleType="fitCenter" />
 
             <HorizontalScrollView
+                android:id="@+id/hsv_item"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

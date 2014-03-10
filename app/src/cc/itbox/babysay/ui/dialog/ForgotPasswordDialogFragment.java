@@ -12,7 +12,7 @@ public class ForgotPasswordDialogFragment extends DialogFragment {
 	public Dialog onCreateDialog(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		return new AlertDialog.Builder(getActivity())
-				.setIcon(R.drawable.ic_logo)
+				.setIcon(R.drawable.app_icon)
 				.setTitle("忘记密码")
 				.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {

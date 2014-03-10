@@ -2,13 +2,18 @@ package cc.itbox.babysay.activities;
 
 import org.holoeverywhere.app.Activity;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import android.annotation.SuppressLint;
+<<<<<<< HEAD
 import android.content.Intent;
+=======
+import android.content.Context;
+>>>>>>> FETCH_HEAD
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
-import android.view.MenuItem;
 import cc.itbox.babysay.R;
 
 /**
@@ -23,6 +28,7 @@ public class BaseActivity extends Activity {
 	protected ActionBar mActionBar;
 	protected FragmentManager mSupportFragmentManager;
 	protected FragmentTransaction mFragmentTransaction;
+<<<<<<< HEAD
 	protected BaseActivity context;
 
 	
@@ -33,10 +39,17 @@ public class BaseActivity extends Activity {
 	}
 
 
+=======
+	protected ImageLoader mLoader;
+	protected Context mCtx;
+    
+>>>>>>> FETCH_HEAD
 	@SuppressLint("CommitTransaction")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		mCtx = this;
+		mLoader = ImageLoader.getInstance();
 		mActionBar = getSupportActionBar();
 		mActionBar.setBackgroundDrawable(getResources().getDrawable(
 				R.drawable.ab_solid_custom_pink_inverse_holo));

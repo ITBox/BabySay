@@ -1,5 +1,9 @@
 package eu.inmite.android.lib.validations.form;
 
+import java.lang.annotation.Annotation;
+import java.util.HashMap;
+import java.util.Map;
+
 import android.view.View;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -8,10 +12,6 @@ import eu.inmite.android.lib.validations.form.adapters.SpinnerAdapter;
 import eu.inmite.android.lib.validations.form.adapters.TextViewAdapter;
 import eu.inmite.android.lib.validations.form.annotations.Joined;
 import eu.inmite.android.lib.validations.form.iface.IFieldAdapter;
-
-import java.lang.annotation.Annotation;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created adapters for views with validation.
