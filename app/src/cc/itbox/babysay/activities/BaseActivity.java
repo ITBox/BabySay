@@ -3,6 +3,7 @@ package cc.itbox.babysay.activities;
 import org.holoeverywhere.app.Activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -22,6 +23,15 @@ public class BaseActivity extends Activity {
 	protected ActionBar mActionBar;
 	protected FragmentManager mSupportFragmentManager;
 	protected FragmentTransaction mFragmentTransaction;
+	protected BaseActivity context;
+
+	
+	
+	public BaseActivity() {
+		super();
+		context = this;
+	}
+
 
 	@SuppressLint("CommitTransaction")
 	@Override
@@ -34,4 +44,9 @@ public class BaseActivity extends Activity {
 		mFragmentTransaction = mSupportFragmentManager.beginTransaction();
 	}
 	
+	
+	public void startActivity(Class<? extends Activity> activity) {
+		Intent intent = new Intent(context, activity);
+		startActivity(intent);
+	}
 }

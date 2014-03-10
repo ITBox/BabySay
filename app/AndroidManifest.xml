@@ -22,8 +22,6 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -37,7 +35,6 @@
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -57,6 +54,8 @@
         <activity
             android:name="cc.itbox.babysay.activities.EditActivity"
             android:screenOrientation="portrait" />
+        <activity android:name="cc.itbox.babysay.activities.UserInfoEditActivity"
+            android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="item">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:minHeight">@dimen/item_minHeight</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:padding">@dimen/def_padding</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="item_single_white" parent="@style/item">
+        <item name="android:background">@drawable/rect_corner_stroke_white</item>
+    </style>
+
+    <style name="text_normal">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:text">@string/inflite</item>
+    </style>
+
+    <style name="text_arrow_right" parent="@style/text_normal">
+        <item name="android:drawableRight">@drawable/arrow_right</item>
+    </style>
+
+    <style name="line_gray_v">
+        <item name="android:background">@color/gray_line</item>
+        <item name="android:layout_width">@dimen/stroke_width</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="line_gray_h">
+        <item name="android:background">@color/gray_line</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/stroke_width</item>
+    </style>
+
+</resources>

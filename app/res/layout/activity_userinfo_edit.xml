@@ -1,0 +1,98 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        style="@style/item_single_white"
+        android:layout_marginTop="10dp"
+        android:drawableRight="@drawable/arrow_right"
+        android:gravity="right|center_vertical"
+        android:hint="修改头像" />
+
+    <TextView
+        style="@style/item"
+        android:text="修改头像" />
+
+    <TextView
+        style="@style/item_single_white"
+        android:drawableRight="@drawable/arrow_right"
+        android:hint="个性签名"
+        android:text="看我的签名多牛" />
+
+    <TextView
+        style="@style/item"
+        android:text="基本信息" />
+
+    <LinearLayout
+        style="@style/item_single_white"
+        android:padding="0dp"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            style="@style/item"
+            android:layout_margin="0dp"
+            android:orientation="horizontal" >
+            <TextView
+                style="@style/text_normal"
+                android:minWidth="50dp"
+                android:text="昵称"
+                android:textColor="@color/light_gray" />
+            <TextView
+                style="@style/text_arrow_right"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+        <View style="@style/line_gray_h" />
+
+        <LinearLayout
+            style="@style/item"
+            android:layout_margin="0dp"
+            android:orientation="horizontal" >
+            <TextView
+                style="@style/text_normal"
+                android:minWidth="50dp"
+                android:text="性别"
+                android:textColor="@color/light_gray" />
+            <TextView
+                style="@style/text_arrow_right"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+        <View style="@style/line_gray_h" />
+
+        <LinearLayout
+            android:id="@+id/user_ll_birthday"
+            style="@style/item"
+            android:layout_margin="0dp"
+            android:orientation="horizontal" >
+            <TextView
+                style="@style/text_normal"
+                android:minWidth="50dp"
+                android:text="生日"
+                android:textColor="@color/light_gray" />
+            <TextView
+            android:id="@+id/user_tv_birthday"
+                style="@style/text_arrow_right"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+
+        <View style="@style/line_gray_h" />
+
+        <LinearLayout
+            style="@style/item"
+            android:layout_margin="0dp"
+            android:orientation="horizontal" >
+            <TextView
+                style="@style/text_normal"
+                android:minWidth="50dp"
+                android:text="所在地"
+                android:textColor="@color/light_gray" />
+            <TextView
+                style="@style/text_arrow_right"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

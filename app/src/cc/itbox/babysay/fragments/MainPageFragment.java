@@ -182,7 +182,7 @@ public class MainPageFragment extends BaseFragment implements
 				break;
 			case Constants.Request_Code.TAKE_PICTURE_FROM_GALLERY:
 				// 进入裁剪页面
-				intent = new Intent(getActivity(), CropImage.class);
+				intent = new Intent(getActivity(), CropImageActivity.class);
 				// x方向的比例
 				intent.putExtra("aspectX", 1);
 				// y方向的比例
