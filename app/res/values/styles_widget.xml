@@ -20,7 +20,6 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:singleLine">true</item>
         <item name="android:textSize">@dimen/text_normal</item>
-        <item name="android:text">@string/inflite</item>
     </style>
 
     <style name="text_arrow_right" parent="@style/text_normal">

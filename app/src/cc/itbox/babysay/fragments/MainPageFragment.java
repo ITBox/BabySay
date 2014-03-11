@@ -89,7 +89,8 @@ public class MainPageFragment extends BaseFragment implements
 
 	@Override
 	public void onDestroyView() {
-		mAdapter.destory();
+		 super.onDestroyView();
+		 mAdapter.destory();
 	};
 
 	@Override

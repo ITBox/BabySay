@@ -5,11 +5,8 @@ import org.holoeverywhere.app.Activity;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.annotation.SuppressLint;
-<<<<<<< HEAD
-import android.content.Intent;
-=======
 import android.content.Context;
->>>>>>> FETCH_HEAD
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -28,22 +25,9 @@ public class BaseActivity extends Activity {
 	protected ActionBar mActionBar;
 	protected FragmentManager mSupportFragmentManager;
 	protected FragmentTransaction mFragmentTransaction;
-<<<<<<< HEAD
-	protected BaseActivity context;
-
-	
-	
-	public BaseActivity() {
-		super();
-		context = this;
-	}
-
-
-=======
 	protected ImageLoader mLoader;
 	protected Context mCtx;
     
->>>>>>> FETCH_HEAD
 	@SuppressLint("CommitTransaction")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +43,7 @@ public class BaseActivity extends Activity {
 	
 	
 	public void startActivity(Class<? extends Activity> activity) {
-		Intent intent = new Intent(context, activity);
+		Intent intent = new Intent(mCtx, activity);
 		startActivity(intent);
 	}
 }

@@ -37,13 +37,6 @@
 	<string name="for_confirm">确定</string>
 	<string name="forget">忘记密码</string>
 	<string name="take_photo">拍照</string>
-<<<<<<< HEAD
-	<string name="take_pic">从图库选择</string>
-	<string name="login_by_social_account">或通过社交帐号直接登录</string>
-	<!-- 开发测试 -->
-	<string name="inflite">填充</string>
-=======
 	<string name="take_pic">相册</string>
 
->>>>>>> FETCH_HEAD
 </resources>
