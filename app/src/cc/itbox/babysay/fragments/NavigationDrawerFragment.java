@@ -340,7 +340,12 @@ public class NavigationDrawerFragment extends Fragment {
 //					drawableRes[position], 0, 0, 0);
 			
 			if(selectedposition == position && selectedposition != 0 && selectedposition != 5) {
+				int paddingLeft = view.getPaddingLeft();
+				int paddingTop = view.getPaddingTop();
+				int paddingRight = view.getPaddingRight();
+				int paddingBottom = view.getPaddingBottom();
 				view.setBackgroundResource(R.drawable.tool_box_fragment_bg_selected);
+				view.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
 			} else {
 				view.setBackgroundResource(R.drawable.tool_box_fragment_bg_normal);
 			}
