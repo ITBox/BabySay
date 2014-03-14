@@ -45,7 +45,8 @@
 			android:screenOrientation="portrait" />
 		<activity
 			android:name="cc.itbox.babysay.activities.RegisterOrLoginActivity"
-			android:screenOrientation="portrait" >
+			android:screenOrientation="portrait" 
+			android:windowSoftInputMode="stateHidden">
 		</activity>
 		<activity
 			android:name="cc.itbox.babysay.activities.MainActivity"
