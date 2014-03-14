@@ -20,7 +20,6 @@ public class RegisterAndLoginApi extends BaseApi {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1, arg2);
 						LogUtil.e("注册成功" + new String(arg2));
 					}
@@ -28,7 +27,6 @@ public class RegisterAndLoginApi extends BaseApi {
 					@Override
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 							Throwable arg3) {
-						// TODO Auto-generated method stub
 						super.onFailure(arg0, arg1, arg2, arg3);
 						LogUtil.e("注册失败" + arg3.toString());
 					}
@@ -40,7 +38,6 @@ public class RegisterAndLoginApi extends BaseApi {
 				new AsyncHttpResponseHandler() {
 					@Override
 					public void onSuccess(int arg0, Header[] arg1, byte[] arg2) {
-						// TODO Auto-generated method stub
 						super.onSuccess(arg0, arg1, arg2);
 						LogUtil.e("登陆成功" + new String(arg2));
 					}
@@ -48,7 +45,6 @@ public class RegisterAndLoginApi extends BaseApi {
 					@Override
 					public void onFailure(int arg0, Header[] arg1, byte[] arg2,
 							Throwable arg3) {
-						// TODO Auto-generated method stub
 						super.onFailure(arg0, arg1, arg2, arg3);
 						LogUtil.e("登陆失败" + arg3.toString());
 					}

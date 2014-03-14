@@ -18,15 +18,12 @@ import android.view.ViewGroup;
  */
 
 public abstract class BaseFragment extends Fragment implements OnClickListener {
-	/**被context替代*/
-	@Deprecated
+
 	protected FragmentActivity mActivity = null;
-	protected FragmentActivity context;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		context = getActivity();
 		mActivity = getActivity();
 	}
 
@@ -40,12 +37,12 @@ public abstract class BaseFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void startActivity(Class<? extends Activity> activity) {
-		Intent intent = new Intent(context, activity);
+		Intent intent = new Intent(mActivity, activity);
 		startActivity(intent);
 	}
-	
+
 }

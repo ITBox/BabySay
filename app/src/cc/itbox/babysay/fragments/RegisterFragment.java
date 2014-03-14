@@ -23,7 +23,6 @@ import cc.itbox.babysay.util.UIUtil;
 import com.loopj.android.http.RequestParams;
 
 import eu.inmite.android.lib.validations.form.FormValidator;
-import eu.inmite.android.lib.validations.form.annotations.DateInFuture;
 import eu.inmite.android.lib.validations.form.annotations.MaxLength;
 import eu.inmite.android.lib.validations.form.annotations.MinLength;
 import eu.inmite.android.lib.validations.form.annotations.NotEmpty;
@@ -48,7 +47,7 @@ public class RegisterFragment extends BaseFragment implements
 	private EditText passwordEt;
 	@NotEmpty(messageId = R.string.validation_password_empty, order = 7)
 	private EditText confirmPasswordEt;
-	@DateInFuture(messageId = R.string.validation_date, order = 8)
+	// @DateInFuture(messageId = R.string.validation_date, order = 8)
 	private EditText birthdayEt;
 	private RadioGroup sexRg;
 	private MenuItem registerOrLoginItem;
@@ -56,7 +55,8 @@ public class RegisterFragment extends BaseFragment implements
 	private String emailStr;
 	private String passwordStr;
 	private String birthdayStr;
-	private String sexStr;
+	// 默认是女
+	private String sexStr = "2";
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -103,6 +103,11 @@ public class RegisterFragment extends BaseFragment implements
 				nicknameStr = nicknameEt.getText().toString();
 				emailStr = emailEt.getText().toString();
 				passwordStr = passwordEt.getText().toString();
+				// 判断两次密码是否一直
+				if (!passwordStr.equals(confirmPasswordEt.getText().toString())) {
+					UIUtil.showShortToast(mActivity, "两次密码不一致");
+					return false;
+				}
 				birthdayStr = birthdayEt.getText().toString();
 				RequestParams params = new RequestParams();
 				params.put("nickname", nicknameStr);
@@ -110,7 +115,7 @@ public class RegisterFragment extends BaseFragment implements
 				params.put("password", passwordStr);
 				params.put("birthday", birthdayStr);
 				params.put("sex", sexStr);
-				new RegisterAndLoginApi(mActivity).login(params);
+				new RegisterAndLoginApi(mActivity).register(params);
 			}
 			return false;
 		default:
@@ -133,7 +138,6 @@ public class RegisterFragment extends BaseFragment implements
 					.newInstance(mGeneralImageChooser);
 			getPictureDialogListFragment.show(getFragmentManager());
 			break;
-
 		default:
 			break;
 		}

@@ -14,15 +14,8 @@ import cc.itbox.babysay.activities.MainActivity;
 import cc.itbox.babysay.util.UIUtil;
 
 /**
- * 登陆Fragment
  * 
- * @author malinkang 2014-3-2
- * 
- */
-
-/**
- * 
- * @author yanchenling
+ * @author malinkang
  * 
  */
 public class LoginFragment extends BaseFragment {

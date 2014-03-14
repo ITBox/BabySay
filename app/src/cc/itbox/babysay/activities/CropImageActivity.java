@@ -94,14 +94,14 @@ public class CropImageActivity extends MonitoredActivity {
 	@SuppressLint("NewApi")
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-//		MenuInflater inflater = getMenuInflater();
-//		inflater.inflate(R.menu.actionbar_register_or_login, menu);
-//		registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
-//		registerOrLoginItem.setTitle(R.string.login);
-		
+		// MenuInflater inflater = getMenuInflater();
+		// inflater.inflate(R.menu.actionbar_register_or_login, menu);
+		// registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
+		// registerOrLoginItem.setTitle(R.string.login);
+
 		MenuItem add = menu.add(0, 0, 0, "下一步");
 		add.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
-		
+
 		return super.onCreateOptionsMenu(menu);
 	}
 
@@ -115,7 +115,7 @@ public class CropImageActivity extends MonitoredActivity {
 			finish();
 			return false;
 		case R.id.action_register_or_login:
-//			onSaveClicked();// 保存
+			// onSaveClicked();// 保存
 			return false;
 		default:
 			return super.onOptionsItemSelected(item);
