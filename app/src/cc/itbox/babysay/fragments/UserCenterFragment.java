@@ -1,7 +1,5 @@
 package cc.itbox.babysay.fragments;
 
-import org.holoeverywhere.widget.Toast;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,7 +10,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import cc.itbox.babysay.R;
-import cc.itbox.babysay.activities.BaseActivity;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
 import cc.itbox.babysay.activities.UserInfoEditActivity;
 import cc.itbox.babysay.ui.ElasticScrollView;
@@ -38,17 +35,20 @@ public class UserCenterFragment extends BaseFragment implements OnClickListener 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		if(contentView == null){
-			contentView = inflater.inflate(R.layout.fragment_user_center, container, false);
+		if (contentView == null) {
+			contentView = inflater.inflate(R.layout.fragment_user_center,
+					container, false);
 			initView();
 		}
 		return contentView;
 	}
 
 	private void initView() {
-		ElasticScrollView mScrollview = (ElasticScrollView)contentView.findViewById(R.id.user_scrollview);
-		mScrollview.setElasticView(contentView.findViewById(R.id.user_iv_background));
-		mIvHeader = (ImageView)contentView.findViewById(R.id.user_iv_head);
+		ElasticScrollView mScrollview = (ElasticScrollView) contentView
+				.findViewById(R.id.user_scrollview);
+		mScrollview.setElasticView(contentView
+				.findViewById(R.id.user_iv_background));
+		mIvHeader = (ImageView) contentView.findViewById(R.id.user_iv_head);
 		mIvHeader.setOnClickListener(this);
 	}
 
@@ -63,7 +63,8 @@ public class UserCenterFragment extends BaseFragment implements OnClickListener 
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.user_iv_head:
-			Intent intent = new Intent(getActivity(), UserInfoEditActivity.class);
+			Intent intent = new Intent(getActivity(),
+					UserInfoEditActivity.class);
 			startActivity(intent);
 			break;
 

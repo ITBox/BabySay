@@ -1,23 +1,25 @@
 package cc.itbox.babysay.fragments;
 
-import org.holoeverywhere.LayoutInflater;
-import org.holoeverywhere.widget.EditText;
+import java.util.Calendar;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import butterknife.InjectView;
 import cc.itbox.babysay.R;
+import cc.itbox.babysay.activities.PhotoViewerActivity;
 import cc.itbox.babysay.api.RegisterAndLoginApi;
-import cc.itbox.babysay.image.GeneralImageChooser;
+import cc.itbox.babysay.iface.OnActivityResultReturnListener;
 import cc.itbox.babysay.ui.CircleImageView;
-import cc.itbox.babysay.ui.dialog.GetPictureDialogListFragment;
 import cc.itbox.babysay.ui.dialog.OnSetDateListener;
-import cc.itbox.babysay.ui.dialog.PickersDatePickerFragment;
 import cc.itbox.babysay.util.UIUtil;
 
 import com.loopj.android.http.RequestParams;
@@ -30,14 +32,21 @@ import eu.inmite.android.lib.validations.form.annotations.RegExp;
 import eu.inmite.android.lib.validations.form.callback.SimpleErrorPopupCallback;
 
 public class RegisterFragment extends BaseFragment implements
-		OnSetDateListener, OnCheckedChangeListener {
-	private static final int CHOOSER_IMAGE_REQUEST_CODE = 0;
+		OnSetDateListener, OnCheckedChangeListener,
+		OnActivityResultReturnListener {
+	private int mYear;
+	private int mMonth;
+	private int mDay;
+
+	private static final int CHOOSER_IMAGE_REQUEST_CODE = 1;
 	// 头像 昵称
+	@InjectView(R.id.iv_avatar)
 	private CircleImageView avatarIV;
 	// 昵称
 	@NotEmpty(messageId = R.string.validation_name_empty, order = 1)
 	@MinLength(value = 3, messageId = R.string.validation_name_min_length, order = 2)
 	@MaxLength(value = 12, messageId = R.string.validation_name_max_length, order = 3)
+	@InjectView(R.id.et_nickname)
 	private EditText nicknameEt;
 	// 邮箱
 	@NotEmpty(messageId = R.string.validation_valid_email_empty, order = 4)
@@ -79,6 +88,10 @@ public class RegisterFragment extends BaseFragment implements
 		sexRg.setOnCheckedChangeListener(this);
 		avatarIV.setOnClickListener(this);
 		birthdayEt.setOnClickListener(this);
+		final Calendar c = Calendar.getInstance();
+		mYear = c.get(Calendar.YEAR);
+		mMonth = c.get(Calendar.MONTH);
+		mDay = c.get(Calendar.DAY_OF_MONTH);
 		return view;
 	}
 
@@ -88,6 +101,12 @@ public class RegisterFragment extends BaseFragment implements
 		inflater.inflate(R.menu.actionbar_register_or_login, menu);
 		registerOrLoginItem = menu.findItem(R.id.action_register_or_login);
 		registerOrLoginItem.setTitle(R.string.register);
+	}
+
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+
 	}
 
 	@Override
@@ -127,19 +146,18 @@ public class RegisterFragment extends BaseFragment implements
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.et_birthday:
-			PickersDatePickerFragment datePickerFragment = new PickersDatePickerFragment();
-			datePickerFragment.setOnSetDateListener(this);
-			datePickerFragment.show(getFragmentManager());
-			break;
-		case R.id.iv_avatar:
-			GeneralImageChooser mGeneralImageChooser = new GeneralImageChooser(
-					mActivity, CHOOSER_IMAGE_REQUEST_CODE);
-			GetPictureDialogListFragment getPictureDialogListFragment = GetPictureDialogListFragment
-					.newInstance(mGeneralImageChooser);
-			getPictureDialogListFragment.show(getFragmentManager());
-			break;
-		default:
-			break;
+			// new DatePickerDialog(mActivity, mDateSetListener, mYear, mMonth,
+			// mDay).show();
+			// break;
+			// case R.id.iv_avatar:
+			// GeneralImageChooser mGeneralImageChooser = new
+			// GeneralImageChooser(
+			// this, CHOOSER_IMAGE_REQUEST_CODE);
+			// GetPictureDialogListFragment getPictureDialogListFragment =
+			// GetPictureDialogListFragment
+			// .newInstance(mGeneralImageChooser);
+			// getPictureDialogListFragment.show(getFragmentManager());
+			// break;
 		}
 	}
 
@@ -155,6 +173,25 @@ public class RegisterFragment extends BaseFragment implements
 			sexStr = "1";
 		} else if (checkedId == R.id.rb_female) {
 			sexStr = "2";
+		}
+
+	}
+
+	@Override
+	public void onActivityresultReturn(int requestCode, int resultCode,
+			Intent data) {
+		if (data != null) {
+			// Bitmap bitmap = null;
+			// if (data.getExtras() != null) {
+			// bitmap = (Bitmap) data.getExtras().get("data");
+			// } else {
+			// bitmap = ImageUtils.getBitmapFromUri(getActivity(),
+			// data.getData());
+			// }
+			// 跳转到图片处理界面
+			Intent intent = new Intent(mActivity, PhotoViewerActivity.class);
+			intent.setData(data.getData());
+			startActivity(intent);
 		}
 
 	}

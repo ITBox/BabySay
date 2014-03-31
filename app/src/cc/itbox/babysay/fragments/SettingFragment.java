@@ -2,9 +2,8 @@ package cc.itbox.babysay.fragments;
 
 import java.util.ArrayList;
 
-import org.holoeverywhere.app.AlertDialog;
-import org.holoeverywhere.app.ProgressDialog;
-
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -23,7 +22,6 @@ import cc.itbox.babysay.ErrorInfo;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity.BaseFragment;
 import cc.itbox.babysay.activities.SetOpionActivity;
-import cc.itbox.babysay.api.CheckVersionApi;
 import cc.itbox.babysay.api.OnCatchHandler;
 import cc.itbox.babysay.bean.VersionBean;
 import cc.itbox.babysay.util.Constants;
@@ -39,12 +37,12 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 	private ListView mLVSet;
 	private SetAdapter adapter;
 	private ProgressDialog progressDialog;
-	private ArrayList<VersionBean> mVersionList = new ArrayList<VersionBean>();
+	private final ArrayList<VersionBean> mVersionList = new ArrayList<VersionBean>();
 	private VersionBean versionBean;
 
-	private String[] titleStr = new String[] { "清理缓存", "检查更新", "反馈意见" };
+	private final String[] titleStr = new String[] { "清理缓存", "检查更新", "反馈意见" };
 
-	private Handler mHandler = new Handler() {
+	private final Handler mHandler = new Handler() {
 
 		@Override
 		public void handleMessage(Message msg) {
@@ -52,7 +50,7 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 			switch (msg.what) {
 			case Constants.MSG_DATASET_NOTIFY_1:
 				progressDialog.dismiss();
-				if(UIUtil.compareVersion(versionBean.getVersionName())){
+				if (UIUtil.compareVersion(versionBean.getVersionName())) {
 					// 弹框
 					showUpdateDialog(versionBean.getVersionDescribe());
 				} else {
@@ -76,10 +74,12 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 	}
 
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		View view = null;
 		if (container != null) {
-			view = inflater.inflate(R.layout.fragment_setting, container, false);
+			view = inflater
+					.inflate(R.layout.fragment_setting, container, false);
 			mLVSet = UIUtil.getView(view, R.id.fragment_set_list);
 			adapter = new SetAdapter();
 			mLVSet.setAdapter(adapter);
@@ -116,8 +116,10 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 			SetHolder holder = null;
 			if (convertView == null) {
 				holder = new SetHolder();
-				convertView = View.inflate(getActivity(), R.layout.fragment_item_setting, null);
-				holder.line = UIUtil.getView(convertView, R.id.set_item_clear_line);
+				convertView = View.inflate(getActivity(),
+						R.layout.fragment_item_setting, null);
+				holder.line = UIUtil.getView(convertView,
+						R.id.set_item_clear_line);
 				holder.tv = UIUtil.getView(convertView, R.id.set_item_clear_tv);
 				convertView.setTag(holder);
 			} else {
@@ -127,7 +129,8 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 
 			if (selectedposition == position) {
 				holder.line.setBackgroundResource(R.drawable.common_red_line);
-				holder.tv.setTextColor(getResources().getColor(R.color.red_line));
+				holder.tv.setTextColor(getResources()
+						.getColor(R.color.red_line));
 			} else {
 				holder.line.setBackgroundResource(R.drawable.common_gray_line);
 				holder.tv.setTextColor(Color.rgb(0, 0, 0));
@@ -141,10 +144,11 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 		TextView line;
 	}
 
-	private AdapterView.OnItemClickListener mSetItemClickListener = new AdapterView.OnItemClickListener() {
+	private final AdapterView.OnItemClickListener mSetItemClickListener = new AdapterView.OnItemClickListener() {
 
 		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
 			adapter.setSelectedposition(position);
 			adapter.notifyDataSetChanged();
 			switch (position) {
@@ -160,9 +164,11 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 				progressDialog.setCanceledOnTouchOutside(true);
 				progressDialog.show();
 				// TODO 连接服务器
-//				CatchInfo ci = new CatchInfo();
-//				CheckVersionApi versionApi = new CheckVersionApi(mActThis, Constants.VISIT_SERVER_GET_VERSION, ci, SettingFragment.this);
-//				versionApi.requestVersion();
+				// CatchInfo ci = new CatchInfo();
+				// CheckVersionApi versionApi = new CheckVersionApi(mActThis,
+				// Constants.VISIT_SERVER_GET_VERSION, ci,
+				// SettingFragment.this);
+				// versionApi.requestVersion();
 				break;
 			case 2:
 				startActivity(new Intent(getActivity(), SetOpionActivity.class));
@@ -178,25 +184,27 @@ public class SettingFragment extends BaseFragment implements OnCatchHandler {
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(mActThis);
 		alertDialog.setTitle("发现新版本");
 		alertDialog.setMessage(versionDescribe);
-		alertDialog.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		alertDialog.setPositiveButton("更新", new DialogInterface.OnClickListener() {
-			
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
+		alertDialog.setNegativeButton("取消",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+
+					}
+				});
+		alertDialog.setPositiveButton("更新",
+				new DialogInterface.OnClickListener() {
+
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+
+					}
+				});
 		alertDialog.show();
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public void onCatchSucc(int type, CatchInfo ci, Object result) {

@@ -1,16 +1,18 @@
 package cc.itbox.babysay.fragments;
 
-import org.holoeverywhere.widget.EditText;
-
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.activities.MainActivity;
+import cc.itbox.babysay.activities.WeiboOAuthActivity;
 import cc.itbox.babysay.util.UIUtil;
 
 /**
@@ -18,9 +20,9 @@ import cc.itbox.babysay.util.UIUtil;
  * @author malinkang
  * 
  */
-public class LoginFragment extends BaseFragment {
+public class LoginFragment extends BaseFragment implements OnClickListener {
 	private MenuItem registerOrLoginItem;
-	private EditText emailEt;
+	private TextView weiboLoginTv;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -29,10 +31,12 @@ public class LoginFragment extends BaseFragment {
 	}
 
 	@Override
-	public View onCreateView(org.holoeverywhere.LayoutInflater inflater,
-			ViewGroup container, Bundle savedInstanceState) {
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
 		View view = inflater.inflate(R.layout.fragment_login, container, false);
-		emailEt = UIUtil.getView(view, R.id.et_email);
+		UIUtil.getView(view, R.id.et_email);
+		weiboLoginTv = UIUtil.getView(view, R.id.tv_weibo_login);
+		weiboLoginTv.setOnClickListener(this);
 		return view;
 	}
 
@@ -46,8 +50,13 @@ public class LoginFragment extends BaseFragment {
 
 	@Override
 	public void onClick(View v) {
+		Intent intent = null;
 		switch (v.getId()) {
 		case R.id.tv_forget_password:
+			break;
+		case R.id.tv_weibo_login:
+			intent = new Intent(mActivity, WeiboOAuthActivity.class);
+			startActivity(intent);
 			break;
 		}
 	}

@@ -3,8 +3,6 @@ package cc.itbox.babysay.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.holoeverywhere.widget.ProgressBar;
-
 import android.app.Activity;
 import android.net.Uri;
 import android.view.View;
@@ -13,12 +11,12 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.bean.DMBean;
 import cc.itbox.babysay.media.AudioPlayer;
 import cc.itbox.babysay.media.AudioPlayer.AudioPlayerListener;
-import cc.itbox.babysay.util.LogUtil;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -33,12 +31,12 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class DMListAdapter extends BaseAdapter implements OnClickListener,
 		AudioPlayerListener {
 
-	private List<DMBean> mList;
-	private Activity mContext;
+	private final List<DMBean> mList;
+	private final Activity mContext;
 	private DMBean mCurrentPlayBean;
 	private DMBean mCurrentLoadBean;
 	private DMBean mClickPlayBean;
-	private AudioPlayer mPlayer;
+	private final AudioPlayer mPlayer;
 	private ProgressBar mPlayPb;
 
 	public DMListAdapter(Activity context) {

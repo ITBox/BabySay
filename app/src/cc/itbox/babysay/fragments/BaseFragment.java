@@ -1,15 +1,15 @@
 package cc.itbox.babysay.fragments;
 
-import org.holoeverywhere.LayoutInflater;
-import org.holoeverywhere.app.Activity;
-import org.holoeverywhere.app.Fragment;
-
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import butterknife.ButterKnife;
 
 /**
  * 
@@ -43,6 +43,13 @@ public abstract class BaseFragment extends Fragment implements OnClickListener {
 	public void startActivity(Class<? extends Activity> activity) {
 		Intent intent = new Intent(mActivity, activity);
 		startActivity(intent);
+	}
+
+	@Override
+	public void onDestroyView() {
+		// TODO Auto-generated method stub
+		super.onDestroyView();
+		ButterKnife.reset(this);
 	}
 
 }

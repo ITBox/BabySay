@@ -14,6 +14,11 @@ import cc.itbox.babysay.exception.SDCardNotFoundException;
  */
 
 public class FileUtil {
+	// 应用文件夹
+	public static final String APP_DIR = "BabySay";
+	// 头像
+	public static final String AVATAR_PICTURE = "avatar.jpg";
+
 	public enum StorageOption {
 
 		INTERNAL_MEMORY// 手机内存
@@ -72,24 +77,24 @@ public class FileUtil {
 	}
 
 	/**
-	 * 获取文件
+	 * 获取File对象
 	 * 
 	 * @param context
 	 * @param storageOption
 	 * @param path
 	 * @return
 	 */
-	public File getFile(Context context, StorageOption storageOption,
-			String path) {
+	public static File getFile(Context context, StorageOption storageOption,
+			String fileName) {
 		if (storageOption == StorageOption.SD_CARD_ROOT) {
 			return new File(Environment.getExternalStorageDirectory()
-					.getAbsolutePath() + "/" + path);
+					.getAbsolutePath() + "/" + fileName);
 		} else if (storageOption == StorageOption.SD_CARD_APP_ROOT) {
 			return new File(context.getExternalFilesDir(null).getAbsolutePath()
-					+ "/" + path);
+					+ "/" + fileName);
 		} else {
 			return new File(context.getFilesDir().getAbsolutePath() + "/"
-					+ path);
+					+ fileName);
 		}
 	}
 

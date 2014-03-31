@@ -1,15 +1,11 @@
 package cc.itbox.babysay.image;
 
-import android.content.Context;
-import android.content.Intent;
+import cc.itbox.babysay.exception.SDCardNotFoundException;
 
 public interface ImageChooser {
 
-	public void openGallery();
+	public void openGallery() throws SDCardNotFoundException;
 
-	public void openCamera() throws ImageChooserException;
-
-	public void onActivityResult(Context activity, Intent data,
-			ImageChooserListener listener);
+	public void openCamera() throws SDCardNotFoundException;
 
 }

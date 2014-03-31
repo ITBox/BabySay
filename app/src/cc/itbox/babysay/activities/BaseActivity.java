@@ -1,17 +1,16 @@
 package cc.itbox.babysay.activities;
 
-import org.holoeverywhere.app.Activity;
-
-import com.nostra13.universalimageloader.core.ImageLoader;
-
-import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import cc.itbox.babysay.R;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * 基类Activity
@@ -20,15 +19,14 @@ import cc.itbox.babysay.R;
  * 
  */
 
-public class BaseActivity extends Activity {
+public class BaseActivity extends ActionBarActivity {
 
 	protected ActionBar mActionBar;
 	protected FragmentManager mSupportFragmentManager;
 	protected FragmentTransaction mFragmentTransaction;
 	protected ImageLoader mLoader;
 	protected Context mCtx;
-    
-	@SuppressLint("CommitTransaction")
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,8 +38,7 @@ public class BaseActivity extends Activity {
 		mSupportFragmentManager = getSupportFragmentManager();
 		mFragmentTransaction = mSupportFragmentManager.beginTransaction();
 	}
-	
-	
+
 	public void startActivity(Class<? extends Activity> activity) {
 		Intent intent = new Intent(mCtx, activity);
 		startActivity(intent);

@@ -11,15 +11,17 @@
 		android:paddingLeft="16dp"
 		android:paddingRight="16dp" >
 
-		<org.holoeverywhere.widget.EditText
+		<EditText
 			android:id="@+id/et_email"
+			style="@style/EditTextHoloTheme"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
 			android:hint="@string/email" />
 
-		<org.holoeverywhere.widget.EditText
+		<EditText
 			android:id="@+id/et_password"
+			style="@style/EditTextHoloTheme"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="10dp"
@@ -69,6 +71,7 @@
 			android:orientation="horizontal" >
 
 			<TextView
+				android:id="@+id/tv_qq_login"
 				android:layout_width="0dip"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"
@@ -79,6 +82,7 @@
 				android:textSize="16sp" />
 
 			<TextView
+				android:id="@+id/tv_weibo_login"
 				android:layout_width="0dip"
 				android:layout_height="wrap_content"
 				android:layout_weight="1"

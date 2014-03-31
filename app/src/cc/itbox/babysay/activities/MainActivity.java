@@ -1,7 +1,5 @@
 package cc.itbox.babysay.activities;
 
-import com.nostra13.universalimageloader.core.ImageLoader;
-
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +15,8 @@ import cc.itbox.babysay.fragments.MessageFragment;
 import cc.itbox.babysay.fragments.NavigationDrawerFragment;
 import cc.itbox.babysay.fragments.SettingFragment;
 import cc.itbox.babysay.fragments.UserCenterFragment;
+
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 /**
  * 主页面
@@ -45,8 +45,6 @@ public class MainActivity extends BaseActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		getDefaultSharedPreferences();
-		
 		setContentView(R.layout.activity_main);
 
 		mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
@@ -104,8 +102,8 @@ public class MainActivity extends BaseActivity implements
 	 * 主页面Fragment基类
 	 */
 	public static class BaseFragment extends Fragment {
-        protected ImageLoader mLoader;
-        protected FragmentActivity mActThis = null;
+		protected ImageLoader mLoader;
+		protected FragmentActivity mActThis = null;
 		/**
 		 * 子页面
 		 */

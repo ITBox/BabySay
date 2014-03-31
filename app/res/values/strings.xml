@@ -24,6 +24,14 @@
 	<string name="validation_date">Date must be in future</string>
 	<string name="login_by_social_account">或通过社交帐号直接登录</string>
 	<string name="please_insert_sdcard">请插入内存卡</string>
+
+	<!-- 图片处理 -->
+
+	<string name="photo_effects">滤镜</string>
+	<string name="photo_rotate">旋转</string>
+	<string name="photo_crop">裁剪</string>
+	<string name="photo_reset">重置</string>
+
 	<!-- 其它 -->
 
 	<string name="refresh">刷新</string>

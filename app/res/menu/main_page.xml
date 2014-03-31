@@ -1,16 +1,15 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity" >
+	xmlns:babysay="http://schemas.android.com/apk/res-auto" >
 
-    <item
-        android:id="@+id/action_refresh"
-        android:icon="@drawable/ic_navigation_refresh"
-        android:showAsAction="withText|ifRoom"
-        android:title="@string/refresh"/>
-    <item
-        android:id="@+id/action_new_content"
-        android:icon="@drawable/ic_content_edit"
-        android:showAsAction="withText|ifRoom"
-        android:title="@string/new_content"/>
+	<item
+		android:id="@+id/action_refresh"
+		android:icon="@drawable/ic_navigation_refresh"
+		android:title="@string/refresh"
+		babysay:showAsAction="withText|ifRoom"/>
+	<item
+		android:id="@+id/action_new_content"
+		android:icon="@drawable/ic_content_edit"
+		android:title="@string/new_content"
+		babysay:showAsAction="withText|ifRoom"/>
 
 </menu>

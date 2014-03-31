@@ -1,1 +1,1 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android" >	<item		android:id="@+id/action_settings"		android:orderInCategory="100"		android:showAsAction="ifRoom"		android:title="@string/abc_action_bar_home_description"/></menu>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"	xmlns:babysay="http://schemas.android.com/apk/res-auto" >	<item		android:id="@+id/action_settings"		android:title="@string/abc_action_bar_home_description"		babysay:showAsAction="ifRoom"/></menu>

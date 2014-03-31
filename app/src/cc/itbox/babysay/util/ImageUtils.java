@@ -19,6 +19,27 @@ import android.net.Uri;
 import android.provider.MediaStore;
 
 public class ImageUtils {
+	/**
+	 * 根据Uri获取Bitmap
+	 * 
+	 * @param context
+	 * @param uri
+	 * @return
+	 */
+	public static Bitmap getBitmapFromUri(Context context, Uri uri) {
+		Bitmap bitmap = null;
+		ContentResolver cr = context.getContentResolver();
+		InputStream inputStream = null;
+		try {
+			inputStream = cr.openInputStream(uri);
+			bitmap = BitmapFactory.decodeStream(inputStream);
+			inputStream.close();
+			return bitmap;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
 
 	public static Bitmap getBitmap(Context context, String path, byte[] data,
 			Uri uri) {

@@ -1,5 +1,0 @@
-modifiers: large
-styles:
-  Holo.Theme.DialogWhenLarge < Holo.Theme.Dialog.FixedSize: null
-  Holo.Theme.DialogWhenLarge.Light < Holo.Theme.Dialog.Light.FixedSize: null
-  Holo.Theme.DialogWhenLarge.Light.DarkActionBar: null
