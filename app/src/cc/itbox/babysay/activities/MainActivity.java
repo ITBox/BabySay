@@ -10,7 +10,7 @@ import android.support.v7.app.ActionBar;
 import android.view.Menu;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.fragments.DiscoverFragment;
-import cc.itbox.babysay.fragments.MainPageFragment;
+import cc.itbox.babysay.fragments.MainTimelineFragment;
 import cc.itbox.babysay.fragments.MessageFragment;
 import cc.itbox.babysay.fragments.NavigationDrawerFragment;
 import cc.itbox.babysay.fragments.SettingFragment;
@@ -111,7 +111,7 @@ public class MainActivity extends BaseActivity implements
 
 		static {
 			mFragments = new BaseFragment[] { new UserCenterFragment(),
-					new MainPageFragment(), new DiscoverFragment(),
+					new MainTimelineFragment(), new DiscoverFragment(),
 					new MessageFragment(), new SettingFragment() };
 		}
 
