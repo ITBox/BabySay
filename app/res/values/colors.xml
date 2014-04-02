@@ -11,7 +11,7 @@
   distributed under the License is distributed on an "AS IS" BASIS,
   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   See the License for the specific language governing permissions and
-  limitations under the License.
+  limitations under the License.
 -->
 
 <resources>
@@ -73,5 +73,7 @@
 	<color name="orange_hover">#DD7700</color>
 	<color name="black_t">#A0000000</color>
 	<color name="black_80">#80000000</color>
+	<color name="main_background">#E5E5E5</color>
+	<color name="extras_info_background">#F5F5F5</color>
 
 </resources>

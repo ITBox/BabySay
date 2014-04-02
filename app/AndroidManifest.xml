@@ -19,6 +19,23 @@
 		android:icon="@drawable/app_icon"
 		android:label="@string/app_name"
 		android:theme="@style/Theme.AppCompat.Light" >
+
+		<!-- 数据库名称 -->
+
+		<meta-data
+			android:name="AA_DB_NAME"
+			android:value="babysay.db" />
+		<!-- 数据库版本号 不设置默认是1 -->
+
+		<meta-data
+			android:name="AA_DB_VERSION"
+			android:value="1" />
+
+		<provider
+			android:name="com.activeandroid.content.ContentProvider"
+			android:authorities="cc.itbox.babysay"
+			android:exported="false" />
+
 		<activity
 			android:name="cc.itbox.babysay.activities.GuideActivity"
 			android:label="@string/app_name"

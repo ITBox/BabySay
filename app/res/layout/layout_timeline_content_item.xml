@@ -9,9 +9,10 @@
 		android:id="@+id/iv_content"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginTop="5dp"
-		android:scaleType="fitXY"
-		android:src="@drawable/aaa" />
+		android:layout_marginBottom="6dp"
+		android:layout_marginLeft="6dp"
+		android:layout_marginRight="6dp"
+		android:scaleType="matrix" />
 
 	<ImageView
 		android:id="@+id/iv_play"
@@ -23,61 +24,70 @@
 		android:layout_marginRight="5dp"
 		android:src="@drawable/selector_dm_play" />
 
-	<ProgressBar
-		android:id="@+id/pd_load"
-		android:layout_width="0dp"
-		android:layout_height="0dp"
-		android:layout_alignBottom="@id/iv_play"
-		android:layout_alignLeft="@id/iv_play"
-		android:layout_alignRight="@id/iv_play"
-		android:layout_alignTop="@id/iv_play" />
-
-	<ProgressBar
-		android:id="@+id/pd_play"
-		style="?android:attr/progressBarStyleHorizontal"
-		android:layout_width="match_parent"
-		android:layout_height="5dp"
-		android:layout_alignBottom="@+id/iv_content"
-		android:max="100"
-		android:progress="50" />
-
 	<LinearLayout
+		android:id="@+id/ll_extras_info"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_below="@id/iv_content"
+		android:background="@color/extras_info_background"
 		android:orientation="horizontal" >
 
-		<ImageView
+		<TextView
 			android:id="@+id/iv_praise"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
+			android:drawableTop="@drawable/selector_dm_haspraise"
+			android:gravity="center_horizontal"
 			android:padding="10dp"
-			android:src="@drawable/selector_dm_haspraise" />
+			android:text="喜欢"
+			android:textColor="#000000"
+			android:textSize="14sp" />
 
-		<ImageView
+		<TextView
 			android:id="@+id/iv_comment"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
+			android:drawableTop="@drawable/selector_dm_comment"
+			android:gravity="center_horizontal"
 			android:padding="10dp"
-			android:src="@drawable/selector_dm_comment" />
+			android:text="评论"
+			android:textColor="#000000"
+			android:textSize="14sp" />
 
-		<ImageView
+		<TextView
 			android:id="@+id/iv_share"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
+			android:drawableTop="@drawable/selector_dm_share"
+			android:gravity="center_horizontal"
 			android:padding="10dp"
-			android:src="@drawable/selector_dm_share" />
+			android:text="分享"
+			android:textColor="#000000"
+			android:textSize="14sp" />
 
-		<ImageView
+		<TextView
 			android:id="@+id/iv_more"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
 			android:layout_weight="1"
+			android:drawableTop="@drawable/selector_dm_more"
+			android:gravity="center_horizontal"
 			android:padding="10dp"
-			android:src="@drawable/selector_dm_more" />
+			android:text="更多"
+			android:textColor="#000000"
+			android:textSize="14sp" />
+	</LinearLayout>
+	<!-- 设置分割线无效 -->
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="10dp"
+		android:layout_below="@id/ll_extras_info"
+		android:background="@color/main_background"
+		android:orientation="horizontal" >
 	</LinearLayout>
 
 </RelativeLayout>

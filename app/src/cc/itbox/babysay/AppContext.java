@@ -1,7 +1,12 @@
 package cc.itbox.babysay;
 
 import android.app.Application;
+import cc.itbox.babysay.bean.User;
+import cc.itbox.babysay.db.UserAdapter;
 
+import com.activeandroid.ActiveAndroid;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -33,5 +38,21 @@ public class AppContext extends Application {
 				.defaultDisplayImageOptions(options).writeDebugLogs()
 				.tasksProcessingOrder(QueueProcessingType.LIFO).build();
 		ImageLoader.getInstance().init(config);
+
+		ActiveAndroid.initialize(this);
+	}
+
+	@Override
+	public void onTerminate() {
+		// TODO Auto-generated method stub
+		super.onTerminate();
+		ActiveAndroid.dispose();
+	}
+
+	public static Gson getGson() {
+		GsonBuilder gsonBuilder = new GsonBuilder();
+		Gson gson = gsonBuilder.registerTypeAdapter(User.class,
+				new UserAdapter()).create();
+		return gson;
 	}
 }

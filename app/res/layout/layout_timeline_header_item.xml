@@ -4,19 +4,15 @@
 	android:id="@+id/ll_info"
 	android:layout_width="match_parent"
 	android:layout_height="76dp"
-	android:background="@android:color/white"
-	android:orientation="horizontal"
-	android:paddingLeft="@dimen/dm_horizontal_margin"
-	android:paddingRight="@dimen/dm_horizontal_margin"
-	android:paddingTop="@dimen/dm_horizontal_margin" >
+	android:background="@android:color/white" >
 
 	<cc.itbox.babysay.ui.CircleImageView
-		android:id="@+id/iv_head"
+		android:id="@+id/iv_avatar"
 		android:layout_width="50dp"
 		android:layout_height="50dp"
 		android:layout_alignParentLeft="true"
 		android:layout_centerVertical="true"
-		android:src="@drawable/aaa"
+		android:layout_marginLeft="6dp"
 		app:border_color="@color/dark"
 		app:border_width="2dp" />
 
@@ -26,17 +22,15 @@
 		android:layout_height="wrap_content"
 		android:layout_centerVertical="true"
 		android:layout_marginLeft="20dp"
-		android:layout_toRightOf="@id/iv_head"
-		android:text="马林康"
+		android:layout_toRightOf="@id/iv_avatar"
 		android:textSize="18sp" />
 
 	<TextView
-		android:id="@+id/tv_time"
+		android:id="@+id/tv_create_time"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignParentRight="true"
 		android:layout_centerVertical="true"
-		android:text="10:30 "
 		android:textSize="14sp" />
 
 </RelativeLayout>
