@@ -11,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import cc.itbox.babysay.AppContext;
 import cc.itbox.babysay.R;
@@ -119,12 +118,6 @@ public class TimelineListAdapter extends CursorAdapter implements
 		if (holder == null) {
 			holder = new ViewHolder();
 			holder.contentIv = (ImageView) view.findViewById(R.id.iv_content);
-			LayoutParams params = (LayoutParams) holder.contentIv
-					.getLayoutParams();
-			params.height = (mActivity.getWindowManager().getDefaultDisplay()
-					.getWidth() - 32);
-			params.width = params.height;
-			holder.contentIv.setLayoutParams(params);
 
 			holder.playIv = (ImageView) view.findViewById(R.id.iv_play);
 			view.setTag(holder);

@@ -5,20 +5,21 @@
 	android:layout_height="match_parent"
 	android:background="@android:color/white" >
 
-	<ImageView
+	<cc.itbox.babysay.ui.SquareImageView
 		android:id="@+id/iv_content"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="6dp"
 		android:layout_marginLeft="6dp"
 		android:layout_marginRight="6dp"
-		android:scaleType="matrix" />
+		android:scaleType="fitXY" />
 
 	<SeekBar
 		android:id="@+id/seekbar"
 		android:layout_width="match_parent"
-		android:layout_height="10dp"
-		android:layout_alignBottom="@id/iv_content"
+		android:layout_height="wrap_content"
+		android:layout_alignBottom="@+id/iv_content"
+		android:maxHeight="4dp"
+		android:minHeight="4dp"
 		android:progressDrawable="@drawable/seekbar"
 		android:thumb="@drawable/seek_thumb_normal" />
 
@@ -40,8 +41,6 @@
 			android:id="@+id/pb_loading"
 			android:layout_width="32dp"
 			android:layout_height="32dp"
-			android:layout_marginBottom="5dp"
-			android:layout_marginRight="5dp"
 			android:visibility="gone" />
 	</FrameLayout>
 
@@ -50,6 +49,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_below="@id/seekbar"
+		android:layout_marginTop="5dp"
 		android:background="@color/extras_info_background"
 		android:orientation="horizontal" >
 

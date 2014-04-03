@@ -125,7 +125,6 @@ public class PlayerEngineImpl implements PlayerEngine {
 				}
 			} else {
 				// 正在准备
-				cleanUp();
 
 			}
 		}
