@@ -14,21 +14,42 @@
 		android:layout_marginRight="6dp"
 		android:scaleType="matrix" />
 
-	<ImageView
-		android:id="@+id/iv_play"
+	<SeekBar
+		android:id="@+id/seekbar"
+		android:layout_width="match_parent"
+		android:layout_height="10dp"
+		android:layout_alignBottom="@id/iv_content"
+		android:progressDrawable="@drawable/seekbar"
+		android:thumb="@drawable/seek_thumb_normal" />
+
+	<FrameLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:layout_alignBottom="@id/iv_content"
 		android:layout_alignRight="@id/iv_content"
 		android:layout_marginBottom="5dp"
-		android:layout_marginRight="5dp"
-		android:src="@drawable/selector_dm_play" />
+		android:layout_marginRight="5dp" >
+
+		<ImageView
+			android:id="@+id/iv_play"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:src="@drawable/player_play" />
+
+		<ProgressBar
+			android:id="@+id/pb_loading"
+			android:layout_width="32dp"
+			android:layout_height="32dp"
+			android:layout_marginBottom="5dp"
+			android:layout_marginRight="5dp"
+			android:visibility="gone" />
+	</FrameLayout>
 
 	<LinearLayout
 		android:id="@+id/ll_extras_info"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_below="@id/iv_content"
+		android:layout_below="@id/seekbar"
 		android:background="@color/extras_info_background"
 		android:orientation="horizontal" >
 

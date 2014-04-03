@@ -3,6 +3,7 @@ package cc.itbox.babysay;
 import android.app.Application;
 import cc.itbox.babysay.bean.User;
 import cc.itbox.babysay.db.UserAdapter;
+import cc.itbox.babysay.media.PlayerEngineImpl;
 
 import com.activeandroid.ActiveAndroid;
 import com.google.gson.Gson;
@@ -16,6 +17,8 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 public class AppContext extends Application {
 
 	public static AppContext mContext;
+
+	private PlayerEngineImpl mPlayerEngineImpl;
 
 	public static AppContext getInstance() {
 		return mContext;
@@ -40,6 +43,15 @@ public class AppContext extends Application {
 		ImageLoader.getInstance().init(config);
 
 		ActiveAndroid.initialize(this);
+		mPlayerEngineImpl = new PlayerEngineImpl();
+	}
+
+	public PlayerEngineImpl getmPlayerEngineImpl() {
+		return mPlayerEngineImpl;
+	}
+
+	public void setmPlayerEngineImpl(PlayerEngineImpl mPlayerEngineImpl) {
+		this.mPlayerEngineImpl = mPlayerEngineImpl;
 	}
 
 	@Override

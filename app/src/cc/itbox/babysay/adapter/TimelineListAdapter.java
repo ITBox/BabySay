@@ -6,15 +6,20 @@ import android.content.Context;
 import android.database.Cursor;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
+import cc.itbox.babysay.AppContext;
 import cc.itbox.babysay.R;
 import cc.itbox.babysay.bean.Timeline;
 import cc.itbox.babysay.bean.User;
 import cc.itbox.babysay.db.TimelineTable;
+import cc.itbox.babysay.media.PlayerEngineImpl;
+import cc.itbox.babysay.media.PlayerEngineListener;
 import cc.itbox.babysay.ui.CircleImageView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -33,6 +38,7 @@ public class TimelineListAdapter extends CursorAdapter implements
 	private final LayoutInflater mInflater;
 	private final Activity mActivity;
 	private final ImageLoader mImageLoader;
+	private final PlayerEngineImpl mPlayerEngineImpl;
 
 	public TimelineListAdapter(Context context, Cursor cursor) {
 		super(context, cursor);
@@ -40,10 +46,15 @@ public class TimelineListAdapter extends CursorAdapter implements
 		mImageLoader = ImageLoader.getInstance();
 		mInflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		mPlayerEngineImpl = AppContext.getInstance().getmPlayerEngineImpl();
+
 	}
 
 	class ViewHolder {
 		ImageView contentIv;
+		ImageView playIv;
+		ProgressBar loading;
+
 	}
 
 	class HeaderViewHolder {
@@ -103,7 +114,7 @@ public class TimelineListAdapter extends CursorAdapter implements
 	}
 
 	@Override
-	public void bindView(View view, Context context, Cursor cursor) {
+	public void bindView(View view, Context context, final Cursor cursor) {
 		ViewHolder holder = (ViewHolder) view.getTag();
 		if (holder == null) {
 			holder = new ViewHolder();
@@ -114,11 +125,73 @@ public class TimelineListAdapter extends CursorAdapter implements
 					.getWidth() - 32);
 			params.width = params.height;
 			holder.contentIv.setLayoutParams(params);
+
+			holder.playIv = (ImageView) view.findViewById(R.id.iv_play);
 			view.setTag(holder);
 		}
-
 		mImageLoader.displayImage(cursor.getString(cursor
 				.getColumnIndex(TimelineTable.COLUMN_PIC)), holder.contentIv);
+		final MyPlayerEngineListener listener = new MyPlayerEngineListener(
+				holder);
+		final String url = cursor.getString(cursor
+				.getColumnIndex(TimelineTable.COLUMN_AUDIO));
+		holder.playIv.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				mPlayerEngineImpl.setListener(listener);
+				mPlayerEngineImpl.play(url);
+			}
+		});
 
 	}
+
+	private class MyPlayerEngineListener implements PlayerEngineListener {
+		private final ViewHolder mHolder;
+
+		public MyPlayerEngineListener(ViewHolder holder) {
+			// TODO Auto-generated constructor stub
+			mHolder = holder;
+		}
+
+		@Override
+		public void onTrackStreamError() {
+
+		}
+
+		@Override
+		public void onTrackStop() {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public boolean onTrackStart() {
+
+			return true;
+		}
+
+		@Override
+		public void onTrackProgress(int seconds) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onTrackPause() {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onTrackChanged(int totalSeconds) {
+			// TODO Auto-generated method stub
+
+		}
+
+		@Override
+		public void onTrackBuffering(int percent) {
+			// TODO Auto-generated method stub
+
+		}
+	};
 }
